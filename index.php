@@ -36,7 +36,6 @@ include "header.php";
 </div>
 
 <div>
-    <hr>
     <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
     <ul>
         <li>Casimiro, Alvin as Data Analyst</li>
