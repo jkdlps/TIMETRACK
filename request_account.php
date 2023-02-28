@@ -81,11 +81,11 @@ include "header.php";
     <div class="wrapper">
         <h2>Request Account</h2>
         <p>Please fill this form to request an account.</p>
+        <span class="help-block"><?php echo "<p style='color: red'>$employee_id_err</p>"; ?></span>
         <form method="post">
             <div class="form-group <?php echo (!empty($employee_id_err)) ? 'has-error' : ''; ?>">
                 <label>Employee ID</label>
                 <input type="text" name="employee_id" class="form-control" value="<?php echo $employee_id; ?>">
-                <span class="help-block"><?php echo $employee_id_err; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
