@@ -20,6 +20,9 @@ include "header.php";
 </div>
 
 <?php
+session_start();
+$_SESSION['email'] = $_POST['email'];
+$_SESSION['password'] = $_POST['password'];
 
-echo "Your email is " . $_POST['email'];
-echo "Your password is " . $_POST['password'];
+echo "Your email is " . $_SESSION['email'];
+echo "Your password is " . $_SESSION['password'];
