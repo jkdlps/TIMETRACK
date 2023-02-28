@@ -54,3 +54,9 @@ include "header.php";
         <p>Finally, the logout.php page logs out users and directs them back to the login page.</p>
     </div>
 </div>
+
+<div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
+</div>

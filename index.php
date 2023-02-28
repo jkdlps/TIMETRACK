@@ -10,12 +10,14 @@ include "header.php";
         <li>Employee & Employer Panels</li>
         <li>One Time Passcode Verification through Email</li>
     </ul>
+    <hr>
 </div>
 
 <div>
     <form action="login.php" method="post">
         <button type="submit">Log In</button>
     </form>
+    <hr>
 </div>
 
 <div>
@@ -30,9 +32,11 @@ include "header.php";
             <button type="submit">Read System Structure</button>
         </form>
     </div>
+    <hr>
 </div>
 
 <div>
+    <hr>
     <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
     <ul>
         <li>Casimiro, Alvin as Data Analyst</li>

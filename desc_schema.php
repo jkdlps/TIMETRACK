@@ -22,6 +22,7 @@ include "header.php";
         <li>UNIQUE KEY (email)</li>
     </ul>
     <p>employees: stores information about employees, including their name, email, password, leave credits, and whether or not they are an employer. Each employee has a unique email address.</p>
+    <hr>
 </div>
 
 <div>
@@ -38,6 +39,7 @@ include "header.php";
         <li>FOREIGN KEY (employee_id) REFERENCES employees(id)</li>
     </ul>
     <p>attendance: stores information about employee attendance, including their time in, time out, and location (if work from home or in office).</p>
+    <hr>
 </div>
 
 <div>
@@ -56,6 +58,7 @@ include "header.php";
         <li>FOREIGN KEY (employee_id) REFERENCES employees(id)</li>
     </ul>
     <p>leaves: stores information about employee leave requests, including the reason, start date, end date, status (pending, approved, or denied), and any comments from the employer.</p>
+    <hr>
 </div>
 
 <div>
@@ -74,6 +77,7 @@ include "header.php";
         <li>FOREIGN KEY (employee_id) REFERENCES employees(id)</li>
     </ul>
     <p>dtr_changes: stores information about employee requests to change their daily time record, including the date, time in, time out, status, and any comments from the employer.</p>
+    <hr>
 </div>
 
 <div>
@@ -87,4 +91,11 @@ include "header.php";
         <li>PRIMARY KEY (id)</li>
     </ul>
     <p>passcodes: stores one-time passcodes that employees can use to register for an account. Once a passcode has been used, it is marked as used and cannot be used again.</p>
+    <hr>
+</div>
+
+<div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
 </div>
