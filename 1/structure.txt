@@ -1,0 +1,75 @@
+TIMETRACK: GPS Timekeeping System for Barangay Pulong Buhangin, Santa Maria, Bulacan
+Created by Group 6
+Using PHP and MySQL
+
+index.php
+- landing page
+- has description of the system
+- has login button directing to login.php
+
+login.php
+- login form for both employee and employer that leads to their respective dashboards
+- has forgot password button
+- has button to request employer to add them as an employee
+
+request_account.php
+- registration form for employees that asks for employee id, name, email, and password. 
+- asks for one time passcode and validates it
+- for approval of employers
+
+employee_dashboard.php
+- has take attendance button that records time (timezone: Asia/Manila) and location (coordinates of the municipal office in Barangay Pulong Buhangin, Santa Maria, Bulacan) of employee. if already timed in for the day, the button  will automatically display time out
+- has tab for viewing attendances
+- has tab for viewing leaves and remaining leave credit
+
+employee_attendance.php
+- displays time record of employee in daily time record format
+- has filter option to view own daily time record of specific month
+- has button for individual rows in the time record to request employer for time record changes for the row
+
+employee_leaves.php
+- displays leave credit 
+- has button to request employer for leave approval that directs employee to a request leave form that asks for reason, leave start date, and leave end date
+
+employer_dashboard.php
+- displays report of absent employees, late employees, and currently on leave employees for the day
+- has tab for viewing daily time records that filters by date and has button to print individual employee daily time records
+- has tab for viewing employee requests for leave, viewing individual employee leave credits, and has buttons for approval or denial, along with comment or reason for approval/denial
+- has tab for viewing employee requests for time record changes and has buttons for approval or denial, along with comment or reason for approval/denial
+- has tab to view employees that has buttons for adding, updating, and deleting the employee on the same row
+- has tab to view employee requests for account
+- has button leading to the employer's own employee dashboard for them to be able to take attendances and review their own daily time records and leaves 
+
+employer_view_leaves_requests.php
+- displays employee leave requests on a table format, wherein an individual row can be clicked that shows a modal that has form including comment or reason for approval/denial, and the approve/deny buttons
+
+employer_view_dtr_changes.php
+- displays employee time record requests on a table format, wherein an individual row can be clicked that shows a modal that has form including comment or reason for approval/denial, and the approve/deny buttons. if approved, the system will automatically update the concerning row in the daily time record
+
+employer_view_leaves.php
+- displays table format of employees' leave credits
+- displays table format of employees on leave
+
+employer_view_dtr.php
+- displays table format of employees and has button to view their daily time record
+- view dtr button directs to modal where daily time record of employee for the month is displayed 
+- has filter option to view employees' daily time record for the provided date
+
+employer_employees.php
+- displays table format of employees and has buttons on the rows for updating and deleting the employee on the same row
+- has button to add employee
+
+employer_view_account_requests.php
+- displays table format of employees requesting account requests, wherein an individual row can be clicked that shows a modal that has form including comment or reason for approval/denial, and the approve/deny buttons. if approved, the system will automatically add the employee
+
+employer_as_employee.php
+- button for employers to access their own employee dashboard for them to be able to take attendances and review their own daily time records and leaves
+
+change_password.php
+- displays form asking for new password and confirm password
+
+forgot_password.php
+- displays form asking for employee id, name, email, then sends email to employee containing link to change password
+
+logout.php
+- logs out user and directs to login.php
