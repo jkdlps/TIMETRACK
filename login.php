@@ -20,7 +20,6 @@ include "header.php";
 </div>
 
 <?php
-$_POST['email'] = $email;
-$_POST['password'] = $password;
 
-echo $email . $password;
+echo "Your email is " . $_POST['email'];
+echo "Your password is " . $_POST['password'];
