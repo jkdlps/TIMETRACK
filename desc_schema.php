@@ -3,6 +3,12 @@ include "header.php";
 ?>
 
 <div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
+</div>
+
+<div>
     <h1>System Schema</h1>
 </div>
 
