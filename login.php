@@ -10,7 +10,7 @@ include "header.php";
 
 <div>
     <h1>Login</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
         <label for="password">Password:</label>
@@ -20,9 +20,12 @@ include "header.php";
 </div>
 
 <?php
+include "conn.php";
 session_start();
 $_SESSION['email'] = $_POST['email'];
 $_SESSION['password'] = $_POST['password'];
 
 echo "Your email is " . $_SESSION['email'];
 echo "Your password is " . $_SESSION['password'];
+
+$conn->close();
