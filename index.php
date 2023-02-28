@@ -10,7 +10,6 @@ include "header.php";
         <li>Employee & Employer Panels</li>
         <li>One Time Passcode Verification through Email</li>
     </ul>
-    <hr>
 </div>
 
 <div>
@@ -32,7 +31,6 @@ include "header.php";
             <button type="submit">Read System Structure</button>
         </form>
     </div>
-    <hr>
 </div>
 
 <div>
