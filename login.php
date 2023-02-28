@@ -9,17 +9,18 @@ include "header.php";
 </div>
 
 <div>
+    <h1>Login</h1>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <button type="submit">Log In</button>
     </form>
 </div>
 
 <?php
+$_POST['email'] = $email;
+$_POST['password'] = $password;
 
-if($_SERVER['POST']) {
-    echo "test";
-}
+echo $email . $password;
