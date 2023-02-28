@@ -37,6 +37,7 @@ include "header.php";
 
 <?php
 include "conn.php";
+include "functions.php";
 session_start();
 
 if (isset($_SESSION["email"])) {
@@ -47,13 +48,6 @@ if (isset($_SESSION["email"])) {
         header("Location: employer_dashboard.php");
     }
     exit();
-}
-
-function sanitize($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
 }
 
 // define variables and initialize with empty values

@@ -1,73 +1,97 @@
 <?php
-// include the database connection file
-include_once 'db_connection.php';
+// Initialize the session
+session_start();
 
-// initialize error variable
-$error = '';
+// Include conn file
+include "conn.php";
+include "functions.php";
 
-// check if the form has been submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // get input values from the form
-  $employee_id = mysqli_real_escape_string($conn, $_POST['employee_id']);
-  $name = mysqli_real_escape_string($conn, $_POST['name']);
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
-  $one_time_passcode = mysqli_real_escape_string($conn, $_POST['one_time_passcode']);
+// Define variables and initialize with empty values
+$employee_id = "";
+$employee_id_err = "";
 
-  // check if the one-time passcode is valid
-  $sql = "SELECT * FROM one_time_passcodes WHERE code = '$one_time_passcode'";
-  $result = mysqli_query($conn, $sql);
-  
-  if (mysqli_num_rows($result) == 1) {
-    // delete the one-time passcode from the database
-    $sql = "DELETE FROM one_time_passcodes WHERE code = '$one_time_passcode'";
-    mysqli_query($conn, $sql);
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    // insert the employee data into the database
-    $sql = "INSERT INTO employees (employee_id, name, email, password) VALUES ('$employee_id', '$name', '$email', '$password')";
-    mysqli_query($conn, $sql);
+    // Validate employee id
+    if(empty(sanitize($_POST["employee_id"]))){
+        $employee_id_err = "Please enter your employee ID.";
+    } else{
+        // Prepare a select statement
+        $sql = "SELECT id FROM employees WHERE id = ?";
 
-    // redirect to login page with success message
-    header("Location: login.php?success=account_request");
-    exit();
-  } else {
-    $error = 'Invalid one-time passcode. Please try again.';
-  }
+        if($stmt = $conn->prepare($sql)){
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("s", $param_employee_id);
+
+            // Set parameters
+            $param_employee_id = sanitize($_POST["employee_id"]);
+
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                // store result
+                $stmt->store_result();
+
+                if($stmt->num_rows == 1){
+                    $employee_id = trim($_POST["employee_id"]);
+                } else{
+                    $employee_id_err = "This employee ID is not registered.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+
+    // Check input errors before inserting into database
+    if(empty($employee_id_err)){
+
+        // Prepare an insert statement
+        $sql = "INSERT INTO account_requests (employee_id) VALUES (?)";
+
+        if($stmt = $conn->prepare($sql)){
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param("s", $param_employee_id);
+
+            // Set parameters
+            $param_employee_id = $employee_id;
+
+            // Attempt to execute the prepared statement
+            if($stmt->execute()){
+                // Redirect to login page
+                header("location: login.php");
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+
+    // Close connection
+    $conn->close();
 }
 
-// close the database connection
-mysqli_close($conn);
+include "header.php";
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Request Account | TIMETRACK</title>
-</head>
-<body>
-	<h1>Request Account</h1>
-	
-	<?php if ($error): ?>
-	  <p style="color: red;"><?php echo $error; ?></p>
-	<?php endif; ?>
-
-	<form method="post">
-		<label for="employee_id">Employee ID:</label>
-		<input type="text" id="employee_id" name="employee_id" required><br><br>
-		
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" required><br><br>
-		
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" required><br><br>
-		
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required><br><br>
-		
-		<label for="one_time_passcode">One-Time Passcode:</label>
-		<input type="text" id="one_time_passcode" name="one_time_passcode" required><br><br>
-		
-		<input type="submit" name="submit" value="Submit"><br><br>
-	</form>
+    <div class="wrapper">
+        <h2>Request Account</h2>
+        <p>Please fill this form to request an account.</p>
+        <form method="post">
+            <div class="form-group <?php echo (!empty($employee_id_err)) ? 'has-error' : ''; ?>">
+                <label>Employee ID</label>
+                <input type="text" name="employee_id" class="form-control" value="<?php echo $employee_id; ?>">
+                <span class="help-block"><?php echo $employee_id_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
