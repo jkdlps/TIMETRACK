@@ -1,5 +1,5 @@
 <?php
-$server = "timetrack.shop";
+$server = "localhost";
 $user = "u947188626_timetrack";
 $pass = "|5FnHl7#";
 $db = "u947188626_timetrack";

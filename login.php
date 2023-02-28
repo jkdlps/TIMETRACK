@@ -23,6 +23,7 @@ include "header.php";
         <button type="submit">Log In</button>
     </form>
     <div>
+        <hr>
         <form action="request_account.php" method="get">
             <button type="submit">Request Account</button>
         </form>
