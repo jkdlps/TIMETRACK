@@ -26,7 +26,12 @@ try {
     $conn = new PDO("mysql:host=$server;dbname=$db", $user, $pass);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connection successful. (PDO)";
+    echo "<div>
+    <p style='color: gray'>Connection successful. (PDO)</p>
+    </div>";
 } catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    echo "
+    <div>
+    <p style='color: gray'>Connection failed: " . $e->getMessage() . "(PDO)</p>
+    </div>";
 }
