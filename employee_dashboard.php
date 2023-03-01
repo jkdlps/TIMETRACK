@@ -1,22 +1,13 @@
 <?php
 // Start session and check if user is logged in as employee
-session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 0) {
-  header('Location: login.php');
-  exit();
-}
+// session_start();
+// if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 0) {
+//   header('Location: login.php');
+//   exit();
+// }
 
 // Connect to database
-$dsn = "mysql:host=localhost;dbname=mydatabase";
-$username = "myusername";
-$password = "mypassword";
-$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-try {
-  $pdo = new PDO($dsn, $username, $password, $options);
-} catch (PDOException $e) {
-  echo "Error: " . $e->getMessage();
-  exit();
-}
+include "conn.php";
 
 // Get employee's daily time record for this month
 $user_id = $_SESSION['user_id'];
