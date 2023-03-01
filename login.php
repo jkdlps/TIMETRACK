@@ -94,6 +94,7 @@
 ?>
 
 <div>
+  <h2>Login</h2>
   <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
@@ -116,7 +117,7 @@
 
 <div>
     <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
-        <button type="submit">Logout</button>
+        <button type="submit" name="forgot_password">Forgot Password</button>
     </form>
 </div>
 
