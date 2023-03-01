@@ -7,7 +7,7 @@ include "header.php";
 </div>
 
 <div>
-  <form action="login.php" method="post">
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
 
