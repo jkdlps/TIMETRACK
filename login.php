@@ -21,7 +21,7 @@
       // Check if user is an employee or employer
       $query = "SELECT (name, email, password, role, otp_token, remember_token) FROM users WHERE email = ?";
       $stmt = $conn->prepare($query);
-      $stmt->bind_param("sssiss", $email);
+      $stmt->bind_param("s", $email);
       $stmt->execute();
       $result = $stmt->get_result();
   
