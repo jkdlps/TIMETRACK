@@ -1,6 +1,8 @@
 <?php
   session_start();
+  echo "doge";
   include "header.php";
+  echo "catto";
 
   // redirect if already logged in
   if(isset($_SESSION['id'])) {
