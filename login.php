@@ -1,6 +1,5 @@
 <?php
   session_start();
-  echo "started session";
   include "header.php";
 
   // redirect if already logged in
@@ -25,7 +24,7 @@
       $stmt->execute();
       $result = $stmt->get_result();
   
-      if ($result->num_rows > 0) {
+      if ($result->num_rows == 1) {
           $row = $result->fetch_assoc();
           var_dump($_SESSION); 
           if (password_verify($password, $row['password'])) {
