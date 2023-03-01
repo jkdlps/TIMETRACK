@@ -7,9 +7,15 @@ $db = "u947188626_timetrack";
 $conn = new mysqli($server, $user, $pass, $db);
 
 if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("
+    <div>
+        <p style='color: gray'>Connection failed: . $conn->connect_error</p>
+    </div>");
 }
-echo "Connection successful. (MySQLi)";
+echo "
+<div>
+<p style='color: gray'>Connection successful. (MySQLi)</p>
+</div>";
 
 $server = "localhost";
 $user = "u947188626_timetrack";
