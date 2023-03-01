@@ -52,7 +52,7 @@ request_account.php
 - for approval of employers
 
 employee_dashboard.php
-- has take attendance button that records time (timezone: Asia/Manila) and location (coordinates of the municipal office in Barangay Pulong Buhangin, Santa Maria, Bulacan) of employee. if already timed in for the day, the button  will automatically display time out
+- has take attendance button that records time (timezone: Asia/Manila) and location (use html geolocation api to identify employee coordinates compared to geofence set in coordinates of the municipal office in Barangay Pulong Buhangin, Santa Maria, Bulacan. if outside of geofence, work from home. otherwise, in office) of employee. if already timed in for the day, the button  will automatically display time out
 - has tab for viewing attendances
 - has tab for viewing leaves and remaining leave credit
 
