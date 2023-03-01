@@ -13,6 +13,10 @@ include "header.php";
 </div>
 
 <div>
+    <p style="color: red">Warning: Work in progress! Incomplete data.</p>
+</div>
+
+<div>
     <h2>Employees</h2>
     <ul>
         <li>id INT(11) NOT NULL AUTO_INCREMENT</li>
