@@ -30,11 +30,11 @@
               // Password is correct, check if user has been validated with a one-time passcode
               if ($row['validated'] == 1) {
                   // User is validated, set session variables and redirect to dashboard
-                  $_SESSION['user_id'] = $row['id'];
-                  $_SESSION['user_type'] = $row['user_type'];
+                  $_SESSION['id'] = $row['id'];
+                  $_SESSION['role'] = $row['role'];
                   if ($remember == 1) {
-                      setcookie("user_id", $row['id'], time() + (86400 * 30), "/");
-                      setcookie("user_type", $row['user_type'], time() + (86400 * 30), "/");
+                      setcookie("id", $row['id'], time() + (86400 * 30), "/");
+                      setcookie("role", $row['role'], time() + (86400 * 30), "/");
                   }
                   if($row['role'] == 0) {
                     header("Location: employee_dashboard.php");
@@ -45,8 +45,8 @@
                   }
               } else {
                   // User needs to be validated with a one-time passcode
-                  $_SESSION['temp_user_id'] = $row['id'];
-                  $_SESSION['temp_user_type'] = $row['user_type'];
+                  $_SESSION['temp_id'] = $row['id'];
+                  $_SESSION['temp_role'] = $row['role'];
                   header("Location: validate.php");
                   exit();
               }
@@ -93,10 +93,6 @@
 ?>
 
 <div>
-    <p style="color: red">Warning: Work in progress! Cannot log in yet.</p>
-</div>
-
-<div>
   <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
@@ -122,4 +118,3 @@
         <button type="submit">Back to Homepage</button>
     </form>
 </div>
-
