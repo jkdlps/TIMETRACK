@@ -43,5 +43,13 @@ if(isset($_SESSION['id'])) {
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email'];
   $password = $_POST['password'];
+
+  $sql = "SELECT * FROM users WHERE email = ?";
+  $stmt->
+  $conn->query($sql);
+
+  $_SESSION['email'] = $email;
+  $_SESSION['password'] = $password;
+
   echo $email . $password;
 }
