@@ -32,6 +32,7 @@
                   // User is validated, set session variables and redirect to dashboard
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['role'] = $row['role'];
+                  $_SESSION['name'] = $row['name'];
                   if ($remember == 1) {
                       setcookie("id", $row['id'], time() + (86400 * 30), "/");
                       setcookie("role", $row['role'], time() + (86400 * 30), "/");
@@ -109,6 +110,12 @@
 
 <div>
     <form action="logout.php" method="get">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+<div>
+    <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
         <button type="submit">Logout</button>
     </form>
 </div>
