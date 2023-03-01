@@ -1,97 +1,59 @@
-<?php
-// Initialize the session
-session_start();
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Request Account</title>
+</head>
+<body>
+	<h1>Request Account</h1>
+	<form action="request_account_handler.php" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br>
 
-// Include conn file
-include "conn.php";
-include "functions.php";
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br>
 
-// Define variables and initialize with empty values
-$employee_id = "";
-$employee_id_err = "";
-
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    // Validate employee id
-    if(empty(sanitize($_POST["employee_id"]))){
-        $employee_id_err = "Please enter your employee ID.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM employees WHERE id = ?";
-
-        if($stmt = $conn->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_employee_id);
-
-            // Set parameters
-            $param_employee_id = sanitize($_POST["employee_id"]);
-
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // store result
-                $stmt->store_result();
-
-                if($stmt->num_rows == 1){
-                    $employee_id = trim($_POST["employee_id"]);
-                } else{
-                    $employee_id_err = "This employee ID is not registered.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            $stmt->close();
-        }
-    }
-
-    // Check input errors before inserting into database
-    if(empty($employee_id_err)){
-
-        // Prepare an insert statement
-        $sql = "INSERT INTO account_requests (employee_id) VALUES (?)";
-
-        if($stmt = $conn->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("s", $param_employee_id);
-
-            // Set parameters
-            $param_employee_id = $employee_id;
-
-            // Attempt to execute the prepared statement
-            if($stmt->execute()){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            $stmt->close();
-        }
-    }
-
-    // Close connection
-    $conn->close();
-}
-
-include "header.php";
-?>
-    <div class="wrapper">
-        <h2>Request Account</h2>
-        <p>Please fill this form to request an account.</p>
-        <span class="help-block"><?php echo "<p style='color: red'>$employee_id_err</p>"; ?></span>
-        <form method="post">
-            <div class="form-group <?php echo (!empty($employee_id_err)) ? 'has-error' : ''; ?>">
-                <label>Employee ID</label>
-                <input type="text" name="employee_id" class="form-control" value="<?php echo $employee_id; ?>">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-        </form>
-    </div>
+		<input type="submit" value="Submit">
+	</form>
 </body>
 </html>
+
+<?php
+// Connect to database
+$db_host = 'localhost';
+$db_name = 'your_db_name';
+$db_user = 'your_db_username';
+$db_pass = 'your_db_password';
+$db_conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+
+// Prepare SQL statement for inserting account request
+$sql = "INSERT INTO account_requests (name, email, status) VALUES (?, ?, 0)";
+$stmt = $db_conn->prepare($sql);
+
+// Bind form data to SQL statement parameters
+$stmt->bindParam(1, $_POST['name']);
+$stmt->bindParam(2, $_POST['email']);
+
+// Execute SQL statement
+$stmt->execute();
+
+// Send email with temporary password
+$to = $_POST['email'];
+$subject = 'Your account request has been received';
+$message = 'Thank you for submitting your account request. Your request is currently being reviewed by our team. You will receive an email with further instructions once your account has been approved.\n\nTemporary password: ' . generateTemporaryPassword();
+$headers = 'From: your_company_name <noreply@your_company_name.com>';
+
+mail($to, $subject, $message, $headers);
+
+// Redirect to confirmation page
+header('Location: request_account_confirmation.php');
+exit;
+
+// Function for generating temporary password
+function generateTemporaryPassword() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $temporary_password = '';
+    for ($i = 0; $i < 10; $i++) {
+        $temporary_password .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $temporary_password;
+}

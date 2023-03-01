@@ -18,10 +18,12 @@ request account
 
 change password
 - form asking for previous password, new password, confirm new password
+- afterwards, redirect to login page 
 
 forgot password
 - send email to user to reset password
 - direct to form asking new password, confirm new password
+- afterwards, redirect to login page 
 
 employee dashboard
 - display employee's daily time record for this month
@@ -31,7 +33,7 @@ employee dashboard
 - button to view employee's leave history and leave credit
 
 employee take attendance
-- button that automatically takes time in asia/manila, date, location (geolocate if in geofence set in municipal office of pulong buhangin, santa maria, bulacan. if already timed in, button will automatically display time out
+- button that automatically takes time in asia/manila, date, location (geolocate if in geofence set in municipal office of pulong buhangin, santa maria, bulacan). if already timed in, button will automatically display time out
 
 employee daily time records
 - display daily time records according to what month the employee picks
@@ -46,8 +48,8 @@ employee leaves
 - displays remaining leave credit
 - button to request leave approval
 
-employee request leave
-- modal form asking for leave start date, leave end date, reason
+    employee request leave
+    - modal form asking for leave start date, leave end date, reason
 
 employer dashboard
 - displays report of absent, late, on time, and currently on leave employees

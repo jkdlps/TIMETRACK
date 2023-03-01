@@ -1,58 +1,57 @@
-<form method="POST" action="login.php">
-    <label for="email">Email:</label>
-    <input type="email" name="email" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-    <br>
-    <label for="remember">Remember me:</label>
-    <input type="checkbox" name="remember">
-    <br>
-    <input type="submit" value="Login">
+<form action="login.php" method="post">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+
+  <label for="remember">Remember Me:</label>
+  <input type="checkbox" id="remember" name="remember">
+
+  <input type="submit" value="Log In">
 </form>
 
 <?php
-session_start();
+// Connect to database
+$db = new PDO('mysql:host=localhost;dbname=mydatabase', 'username', 'password');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $remember = isset($_POST['remember']) && $_POST['remember'] === 'on';
+// Prepare SQL statement
+$stmt = $db->prepare('SELECT email, password, role FROM users WHERE email = :email');
+$stmt->bindParam(':email', $_POST['email']);
+$stmt->execute();
 
-    // Connect to database
-    $db = mysqli_connect('localhost', 'username', 'password', 'dbname');
+// Fetch user data
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Query user by email
-    $query = mysqli_prepare($db, "SELECT * FROM users WHERE email = ?");
-    mysqli_stmt_bind_param($query, "s", $email);
-    mysqli_stmt_execute($query);
-    $result = mysqli_stmt_get_result($query);
-    $user = mysqli_fetch_assoc($result);
-
-    // Check password and role
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-
-        if ($remember) {
-        // Generate and save remember token
-        $remember_token = bin2hex(random_bytes(50));
-        $query = mysqli_prepare($db, "UPDATE users SET remember_token = ? WHERE id = ?");
-        mysqli_stmt_bind_param($query, "si", $remember_token, $user['id']);
-        mysqli_stmt_execute($query);
-        setcookie('remember_token', $remember_token, time() + (30 * 24 * 60 * 60), '/');
-        }
-
-        if ($user['role'] === 1) {
-        // Redirect to employer dashboard
-        header('Location: employer_dashboard.php');
-        } else {
-        // Redirect to employee dashboard
-        header('Location: employee_dashboard.php');
-        }
-        exit;
-    } else {
-        // Display error message
-        $error = "Invalid email or password";
-    }
+// Check password
+if ($user && password_verify($_POST['password'], $user['password'])) {
+  // Password is correct, log user in
+} else {
+  // Password is incorrect, show error message
 }
-?>
+
+
+if ($user && password_verify($_POST['password'], $user['password'])) {
+  // Password is correct, log user in
+  $_SESSION['role'] = $user['role'];
+  if ($_SESSION['role'] == 1) {
+    // Employer, redirect to employer dashboard
+    header('Location: employer_dashboard.php');
+    exit();
+  } else {
+    // Employee, redirect to employee dashboard
+    header('Location: employee_dashboard.php');
+    exit();
+  }
+} else {
+  // Password is incorrect, show error message
+  echo 'Invalid email or password.';
+}
+
+if ($_POST['remember']) {
+    // Remember user for 1 week
+    setcookie('email', $_POST['email'], time() + 60*60*24*7);
+    setcookie('password', $_POST['password'], time() + 60*60*24*7);
+  }
+
+  

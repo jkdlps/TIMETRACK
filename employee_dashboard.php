@@ -1,101 +1,135 @@
 <?php
+// Start session and check if user is logged in as employee
 session_start();
-include "conn.php";
-include "functions.php";
-
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] != 0) {
+  header('Location: login.php');
+  exit();
 }
 
-$employee_id = $_SESSION["id"];
-
-// Fetch the attendance data of the employee for the current day
-$current_date = date("Y-m-d");
-$stmt = $mysqli->prepare("SELECT id, time_in, time_out FROM attendance WHERE employee_id = ? AND date = ?");
-$stmt->bind_param("is", $employee_id, $current_date);
-$stmt->execute();
-$stmt->bind_result($attendance_id, $time_in, $time_out);
-$stmt->fetch();
-$stmt->close();
-
-// Handle attendance button click
-if(isset($_POST["attendance"])){
-    if($attendance_id == 0){
-        // Employee is taking attendance for the day
-        $time_in = date("Y-m-d H:i:s");
-        $latitude = 14.820188;
-        $longitude = 121.064301;
-        $stmt = $mysqli->prepare("INSERT INTO attendance (employee_id, date, time_in, latitude, longitude) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("issdd", $employee_id, $current_date, $time_in, $latitude, $longitude);
-        $stmt->execute();
-        $attendance_id = $stmt->insert_id;
-        $stmt->close();
-    }
-    else{
-        // Employee is timing out for the day
-        $time_out = date("Y-m-d H:i:s");
-        $stmt = $mysqli->prepare("UPDATE attendance SET time_out = ? WHERE id = ?");
-        $stmt->bind_param("si", $time_out, $attendance_id);
-        $stmt->execute();
-        $stmt->close();
-        $attendance_id = 0;
-    }
+// Connect to database
+$dsn = "mysql:host=localhost;dbname=mydatabase";
+$username = "myusername";
+$password = "mypassword";
+$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+try {
+  $pdo = new PDO($dsn, $username, $password, $options);
+} catch (PDOException $e) {
+  echo "Error: " . $e->getMessage();
+  exit();
 }
 
-// Fetch the remaining leave credits of the employee
-$stmt = $mysqli->prepare("SELECT leave_credits FROM employees WHERE id = ?");
-$stmt->bind_param("i", $employee_id);
-$stmt->execute();
-$stmt->bind_result($leave_credits);
-$stmt->fetch();
-$stmt->close();
+// Get employee's daily time record for this month
+$user_id = $_SESSION['user_id'];
+$month_start = date('Y-m-01');
+$month_end = date('Y-m-t');
+$stmt = $pdo->prepare("SELECT * FROM time_records WHERE user_id = ? AND date BETWEEN ? AND ?");
+$stmt->execute([$user_id, $month_start, $month_end]);
+$time_records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Fetch the list of leaves taken by the employee
-$stmt = $mysqli->prepare("SELECT date_start, date_end, leave_type FROM leaves WHERE employee_id = ? ORDER BY date_start DESC");
-$stmt->bind_param("i", $employee_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$leaves = array();
-while($row = $result->fetch_assoc()){
-    $leaves[] = $row;
+// Get employee's attendance status for today
+$today = date('Y-m-d');
+$stmt = $pdo->prepare("SELECT * FROM time_records WHERE user_id = ? AND date = ?");
+$stmt->execute([$user_id, $today]);
+$attendance = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Check if employee has taken attendance for today
+$attended_today = false;
+if ($attendance && $attendance['time_out'] != null) {
+  $attended_today = true;
 }
-$stmt->close();
 
-include "header.php";
+// Display employee dashboard
 ?>
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h1>
-    <h2>Attendance</h2>
-    <form method="post">
-        <?php if($attendance_id == 0): ?>
-            <input type="submit" name="attendance" value="Take Attendance">
-        <?php else: ?>
-            <p>Time In: <?php echo $time_in; ?></p>
-            <p>Time Out: <?php echo $time_out; ?></p>
-            <input type="submit" name="attendance" value="Time Out">
-        <?php endif; ?>
-    </form>
+<h1>Employee Dashboard</h1>
+<h2>Daily Time Record for <?php echo date('F Y'); ?></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time In</th>
+      <th>Time Out</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($time_records as $record): ?>
+      <tr>
+        <td><?php echo $record['date']; ?></td>
+        <td><?php echo $record['time_in']; ?></td>
+        <td><?php echo $record['time_out']; ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+<h2>Attendance Status for Today</h2>
+<?php if ($attended_today): ?>
+  <p>You have timed out for today.</p>
+<?php elseif ($attendance): ?>
+  <p>You have timed in for today.</p>
+  <form method="post" action="take_attendance.php">
+    <input type="hidden" name="attendance_id" value="<?php echo $attendance['id']; ?>">
+    <button type="submit">Time Out</button>
+  </form>
+<?php else: ?>
+  <p>You have not yet taken attendance for today.</p>
+  <form method="post" action="take_attendance.php">
+    <button type="submit">Time In</button>
+  </form>
+<?php endif; ?>
+<h2>Leave History</h2>
+<a href="leave_history.php">View Leave History</a>
 
-    <h2>Leaves</h2>
-    <p>Remaining Leave Credits: <?php echo $leave_contents['remaining_leave_credits']; ?></p>
-    <table>
-    <thead>
-    <tr>
-    <th>Type</th>
-    <th>Date Filed</th>
-    <th>Status</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php while($row = $leaves_result->fetch_assoc()): ?>
-    <tr>
-    <td><?php echo $row['type']; ?></td>
-    <td><?php echo $row['date_filed']; ?></td>
-    <td><?php echo $row['status']; ?></td>
-    </tr>
-    <?php endwhile; ?>
-    </tbody>
+<h1>Employee Leaves</h1>
+
+<p>Remaining Leave Credit: <?php echo $remainingLeaveCredit; ?></p>
+
+<table>
+  <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Reason</
     </table>
+<button id="requestLeaveBtn">Request Leave</button>
 
-    </body>
-    </html>
+<!-- Request Leave Modal -->
+<div id="requestLeaveModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Request Leave</h2>
+    <form method="post">
+      <label for="leaveStartDate">Start Date:</label>
+      <input type="date" id="leaveStartDate" name="leaveStartDate"><br><br>
+      <label for="leaveEndDate">End Date:</label>
+      <input type="date" id="leaveEndDate" name="leaveEndDate"><br><br>
+      <label for="leaveReason">Reason:</label>
+      <textarea id="leaveReason" name="leaveReason"></textarea><br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById("requestLeaveModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("requestLeaveBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
