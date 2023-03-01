@@ -33,6 +33,7 @@
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['role'] = $row['role'];
                   $_SESSION['name'] = $row['name'];
+                  var_dump($_SESSION); 
                   if ($remember == 1) {
                       setcookie("id", $row['id'], time() + (86400 * 30), "/");
                       setcookie("role", $row['role'], time() + (86400 * 30), "/");
