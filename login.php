@@ -110,18 +110,6 @@
 </div>
 
 <div>
-    <form action="logout.php" method="get">
-        <button type="submit">Logout</button>
-    </form>
-</div>
-
-<div>
-    <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
-        <button type="submit" name="forgot_password">Forgot Password</button>
-    </form>
-</div>
-
-<div>
     <form action="index.php" method="get">
         <button type="submit">Back to Homepage</button>
     </form>
