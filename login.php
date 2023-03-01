@@ -1,8 +1,8 @@
 <?php
   session_start();
-  echo "doge";
+  echo "started session";
   include "header.php";
-  echo "catto";
+  echo "conn is not the problem";
 
   // redirect if already logged in
   if(isset($_SESSION['id'])) {
@@ -12,7 +12,7 @@
       header("Location: employee_dashboard.php");
     }
   }
-  echo "catto";
+  echo "not logged in";
   
   // Handle form submission
   if (isset($_POST['submit'])) {
