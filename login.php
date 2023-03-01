@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "header.php";
 ?>
 
@@ -29,7 +30,6 @@ include "header.php";
 
 <?php
 include "conn.php";
-session_start();
 
 // redirect if logged in
 if(isset($_SESSION['id'])) {
@@ -40,6 +40,8 @@ if(isset($_SESSION['id'])) {
   }
 }
 
-if(isset($_POST['submit'])) {
-  echo "try if submitted";
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  echo $email . $password;
 }
