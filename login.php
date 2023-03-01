@@ -12,15 +12,7 @@
   }
 
   if(isset($_POST['submit'])) {
-    $_SESSION['login'] === TRUE;
-    $email = sanitize($_POST['email']);
-    $password = sanitize($_POST['password']);
-    $sql = "SELECT * FROM users WHERE email=$email";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0) {
-      $user = $result->fetch_assoc();
-      echo "Your ID is " . $user['id'] . ".";
-    }
+    header("Location: index.php");
   }
 ?>
 
