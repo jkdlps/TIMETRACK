@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "header.php";
+
 ?>
 
 <div>
@@ -27,29 +28,3 @@ include "header.php";
         <button type="submit">Back to Homepage</button>
     </form>
 </div>
-
-<?php
-include "conn.php";
-
-// redirect if logged in
-if(isset($_SESSION['id'])) {
-  if($_SESSION['role'] == 1) {
-    header("Location: employer_dashboard.php");
-  } elseif($_SESSION['role'] == 0) {
-    header("Location: employee_dashboard.php");
-  }
-}
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-
-  $sql = "SELECT * FROM users WHERE email = ?";
-  $stmt->
-  $conn->query($sql);
-
-  $_SESSION['email'] = $email;
-  $_SESSION['password'] = $password;
-
-  echo $email . $password;
-}

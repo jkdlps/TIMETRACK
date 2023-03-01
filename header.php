@@ -1,3 +1,31 @@
+<?php
+    $server = "localhost";
+    $user = "u947188626_timetrack";
+    $pass = "|5FnHl7#";
+    $db = "u947188626_timetrack";
+    
+    $conn = new mysqli($server, $user, $pass, $db);
+    
+    if($conn->connect_error) {
+        die("
+        <div>
+            <p style='color: red'>Connection failed: . $conn->connect_error</p>
+        </div>");
+    }
+    echo "
+    <div>
+    <p style='color: gray'>Connection successful. (MySQLi)</p>
+    </div>";
+
+    // functions
+    function sanitize($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
