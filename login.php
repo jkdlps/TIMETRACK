@@ -2,7 +2,6 @@
   session_start();
   echo "started session";
   include "header.php";
-  echo "conn is not the problem";
 
   // redirect if already logged in
   if(isset($_SESSION['id'])) {
@@ -12,14 +11,12 @@
       header("Location: employee_dashboard.php");
     }
   }
-  echo "not logged in";
   
   // Handle form submission
   if (isset($_POST['submit'])) {
       $email = $_POST['email'];
       $password = $_POST['password'];
       $remember = isset($_POST['remember']) ? $_POST['remember'] : 0;
-      echo "submitted";
   
       // Check if user is an employee or employer
       $query = "SELECT * FROM users WHERE email = ?";
@@ -27,22 +24,17 @@
       $stmt->bind_param("s", $email);
       $stmt->execute();
       $result = $stmt->get_result();
-      echo "employee/r";
   
       if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
-          echo "if this shows";
           var_dump($_SESSION); 
           if (password_verify($password, $row['password'])) {
-            echo "then this has the problem";
               // Password is correct, check if user has been validated with a one-time passcode
               if ($row['validated'] == 1) {
-                echo "or rows";
                   // User is validated, set session variables and redirect to dashboard
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['role'] = $row['role'];
                   $_SESSION['name'] = $row['name'];
-                  echo "catto";
                   var_dump($_SESSION); 
                   if ($remember == 1) {
                       setcookie("id", $row['id'], time() + (86400 * 30), "/");
