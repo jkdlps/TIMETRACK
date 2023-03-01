@@ -12,12 +12,14 @@
       header("Location: employee_dashboard.php");
     }
   }
+  echo "catto";
   
   // Handle form submission
   if (isset($_POST['submit'])) {
       $email = $_POST['email'];
       $password = $_POST['password'];
       $remember = isset($_POST['remember']) ? $_POST['remember'] : 0;
+      echo "catto";
   
       // Check if user is an employee or employer
       $query = "SELECT * FROM users WHERE email = ?";
@@ -25,6 +27,7 @@
       $stmt->bind_param("s", $email);
       $stmt->execute();
       $result = $stmt->get_result();
+      echo "catto";
   
       if ($result->num_rows == 1) {
           $row = $result->fetch_assoc();
@@ -35,6 +38,7 @@
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['role'] = $row['role'];
                   $_SESSION['name'] = $row['name'];
+                  echo "catto";
                   var_dump($_SESSION); 
                   if ($remember == 1) {
                       setcookie("id", $row['id'], time() + (86400 * 30), "/");
