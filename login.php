@@ -112,7 +112,7 @@
     <label for="remember">Remember Me:</label>
     <input type="checkbox" id="remember" name="remember">
 
-    <input type="submit" value="Log In">
+    <input type="submit" name="submit" value="Log In">
   </form>
 </div>
 
