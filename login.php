@@ -32,6 +32,7 @@
       if ($result->num_rows > 0) {
           $row = $result->fetch_assoc();
           echo "if this shows";
+          var_dump($_SESSION); 
           if (password_verify($password, $row['password'])) {
             echo "then this has the problem";
               // Password is correct, check if user has been validated with a one-time passcode
