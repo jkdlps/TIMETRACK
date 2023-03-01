@@ -33,9 +33,10 @@
           $row = $result->fetch_assoc();
           echo "if this shows";
           if (password_verify($password, $row['password'])) {
+            echo "then this has the problem";
               // Password is correct, check if user has been validated with a one-time passcode
               if ($row['validated'] == 1) {
-                echo "then this has the problem";
+                echo "or rows";
                   // User is validated, set session variables and redirect to dashboard
                   $_SESSION['id'] = $row['id'];
                   $_SESSION['role'] = $row['role'];
