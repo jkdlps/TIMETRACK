@@ -1,7 +1,27 @@
 <?php
-session_start();
-include "header.php";
+  session_start();
+  include "header.php";
 
+  // redirect if already logged in
+  if(isset($_SESSION['id'])) {
+    if($_SESSION['role'] == 1) {
+      header("Location: employer_dashboard.php");
+    } elseif($_SESSION['role'] == 0) {
+      header("Location: employee_dashboard.php");
+    }
+  }
+
+  if(isset($_POST['submit'])) {
+    $_SESSION['login'] === TRUE;
+    $email = sanitize($_POST['email']);
+    $password = sanitize($_POST['password']);
+    $sql = "SELECT * FROM users WHERE email=$email";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0) {
+      $user = $result->fetch_assoc();
+      echo "Your ID is " . $user['id'] . ".";
+    }
+  }
 ?>
 
 <div>

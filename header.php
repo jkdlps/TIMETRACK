@@ -1,4 +1,5 @@
 <?php
+    // connect to database
     $server = "localhost";
     $user = "u947188626_timetrack";
     $pass = "|5FnHl7#";
