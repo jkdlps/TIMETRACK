@@ -81,7 +81,7 @@
           $to = $email;
           $subject = "New password for your account";
           $message = "Your new password is: " . $new_password;
-          $headers = "From: webmaster@example.com";
+          $headers = "From: timetrack@timetrack.shop";
           mail($to, $subject, $message, $headers);
   
           $success_message = "A new password has been sent to your email.";
@@ -89,8 +89,6 @@
           $error_message = "Invalid email.";
       }
   }
-  
-  
 ?>
 
 <div>
