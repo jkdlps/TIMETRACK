@@ -36,7 +36,14 @@
 </div>
 
 <div>
+    <form action="logout.php" method="get">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+<div>
     <form action="index.php" method="get">
         <button type="submit">Back to Homepage</button>
     </form>
 </div>
+
