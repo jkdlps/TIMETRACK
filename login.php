@@ -19,7 +19,7 @@
       $remember = isset($_POST['remember']) ? $_POST['remember'] : 0;
   
       // Check if user is an employee or employer
-      $query = "SELECT (`id`, `name`, `email`, `password`, `leave_credits`, `role`, `otp_token`, `otp_expiry`, `remember_token`, `created_at`, `updated_at`) FROM users WHERE email = ?";
+      $query = "SELECT (id, name, email, password, leave_credits, role, otp_token, otp_expiry, remember_token, created_at, updated_at) FROM users WHERE email = ?";
       $stmt = $conn->prepare($query);
       $stmt->bind_param("s", $email);
       $stmt->execute();
