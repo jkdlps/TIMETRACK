@@ -1,6 +1,6 @@
 <?php
 session_start(); // start session to access employee ID
-require_once 'db_connect.php'; // include database connection file
+require_once '../header.php'; // include database connection file
 
 // get current date and time in Asia/Manila timezone
 $dateTime = new DateTime('now', new DateTimeZone('Asia/Manila'));
