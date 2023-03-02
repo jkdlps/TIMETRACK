@@ -20,10 +20,14 @@ if (mysqli_query($conn, $sql)) {
   $_SESSION['user_name'] = $name;
   $_SESSION['user_email'] = $email;
   // Redirect to the dashboard
-  header('Location: dashboard.php');
+  if($_SESSION['user_role'] == 1) {
+    header('Location: employer_dashboard.php');
+} elseif($_SESSION['user_role'] == 0) {
+    header('Location: dashboard.php');
 } else {
   echo "Error updating record: " . mysqli_error($conn);
   header('Location: update-form.php');
+}
 }
 
 mysqli_close($conn);

@@ -5,6 +5,10 @@ include "header.php";
 
 <div>
     <h2>Employer Dashboard</h2>
+    <h3>Welcome, <?php echo $_SESSION['user_name']; ?></h3>
+    <form action="update-form.php" method="post">
+        <button type="submit">Update Info</button>
+    </form>
 </div>
 
 <div>
