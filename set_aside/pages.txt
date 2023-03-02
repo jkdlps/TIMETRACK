@@ -65,6 +65,7 @@ employer view employees
 - displays table format of employee names and their emails
 - on individual rows, buttons to edit and delete employee
 - button to add employee
+- button to add admin
 
     employer add employee
     - form asking for employee's name and email to be inserted
