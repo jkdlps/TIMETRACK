@@ -1,96 +1,90 @@
 <?php
-  session_start();
-  include "header.php";
+session_start(); // start session
 
-  // redirect if already logged in
-  if(isset($_SESSION['id'])) {
-    if($_SESSION['role'] == 1) {
-      header("Location: employer_dashboard.php");
-    } elseif($_SESSION['role'] == 0) {
-      header("Location: employee_dashboard.php");
+// check if user is already logged in
+if(isset($_SESSION["user_id"])) {
+  // redirect to dashboard based on account type
+  if($_SESSION["role"] == 1) {
+    header("Location: employer_dashboard.php");
+  } else {
+    header("Location: employee_dashboard.php");
+  }
+  exit;
+}
+
+// include database connection
+include_once "header.php";
+
+// define variables and set to empty values
+$email = $password = "";
+$email_err = $password_err = "";
+
+// process form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  // validate email
+  if(empty(sanitize($_POST["email"]))) {
+    $email_err = "Please enter your email.";
+  } else {
+    $email = sanitize($_POST["email"]);
+  }
+  
+  // validate password
+  if(empty(sanitize($_POST["password"]))) {
+    $password_err = "Please enter your password.";
+  } else {
+    $password = sanitize($_POST["password"]);
+  }
+
+  // if no errors, attempt login
+  if(empty($email_err) && empty($password_err)) {
+    $sql = "SELECT id, email, password, is_employer FROM employee WHERE email = ?";
+    
+    if($stmt = $conn->prepare($sql)) {
+      $stmt->bind_param("s", $param_email);
+      $param_email = $email;
+      
+      if($stmt->execute()) {
+        $stmt->store_result();
+        
+        // check if email exists
+        if($stmt->num_rows == 1) {
+          $stmt->bind_result($id, $email, $hashed_password, $is_employer);
+          if($stmt->fetch()) {
+            // verify password
+            if(password_verify($password, $hashed_password)) {
+              // password is correct, start session
+              session_start();
+              $_SESSION["user_id"] = $id;
+              $_SESSION["email"] = $email;
+              $_SESSION["is_employer"] = $is_employer;
+              
+              // redirect to dashboard based on account type
+              if($is_employer == 1) {
+                header("Location: employer_dashboard.php");
+              } else {
+                header("Location: employee_dashboard.php");
+              }
+            } else {
+              // password is incorrect
+              $password_err = "The password you entered is not valid.";
+            }
+          }
+        } else {
+          // email not found
+          $email_err = "No account found with that email.";
+        }
+      } else {
+        // query failed
+        echo "Oops! Something went wrong. Please try again later.";
+      }
+      
+      $stmt->close();
     }
   }
   
-  // Handle form submission
-  if (isset($_POST['submit'])) {
-      $email = $_POST['email'];
-      $password = $_POST['password'];
-      $remember = isset($_POST['remember']) ? $_POST['remember'] : 0;
-  
-      // Check if user is an employee or employer
-      $query = "SELECT (name, email, password, role, otp_token, remember_token) FROM users WHERE email = ?";
-      $stmt = $conn->prepare($query);
-      $stmt->bind_param("s", $email);
-      $stmt->execute();
-      $result = $stmt->get_result();
-  
-      if ($result->num_rows == 1) {
-          $row = $result->fetch_assoc();
-          var_dump($_SESSION); 
-          if (password_verify($password, $row['password'])) {
-              // Password is correct, check if user has been validated with a one-time passcode
-              if ($row['validated'] == 1) {
-                  // User is validated, set session variables and redirect to dashboard
-                  $_SESSION['id'] = $row['id'];
-                  $_SESSION['role'] = $row['role'];
-                  $_SESSION['name'] = $row['name'];
-                  var_dump($_SESSION); 
-                  if ($remember == 1) {
-                      setcookie("id", $row['id'], time() + (86400 * 30), "/");
-                      setcookie("role", $row['role'], time() + (86400 * 30), "/");
-                  }
-                  if($row['role'] == 0) {
-                    header("Location: employee_dashboard.php");
-                    exit();
-                  } elseif($row['role'] == 1) {
-                    header("Location: employer_dashboard.php");
-                    exit();
-                  }
-              } else {
-                  // User needs to be validated with a one-time passcode
-                  $_SESSION['temp_id'] = $row['id'];
-                  $_SESSION['temp_role'] = $row['role'];
-                  header("Location: validate.php");
-                  exit();
-              }
-          }
-      }  
-      // If user is not found or password is incorrect, show error message
-      $error_message = "Invalid email or password.";
-  }
-  
-  // Handle forgot password request
-  if (isset($_POST['forgot_password'])) {
-      $email = $_POST['email'];
-  
-      // Check if email exists in database
-      $query = "SELECT * FROM users WHERE email = ?";
-      $stmt = $conn->prepare($query);
-      $stmt->bind_param("s", $email);
-      $stmt->execute();
-      $result = $stmt->get_result();
-  
-      if ($result->num_rows == 1) {
-          // Generate new password and update database
-          $new_password = bin2hex(random_bytes(4));
-          $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-          $query = "UPDATE users SET password = ? WHERE email = ?";
-          $stmt = $conn->prepare($query);
-          $stmt->bind_param("ss", $hashed_password, $email);
-          $stmt->execute();
-  
-          // Send email with new password to user
-          $to = $email;
-          $subject = "New password for your account";
-          $message = "Your new password is: " . $new_password;
-          $headers = "From: timetrack@timetrack.shop";
-          mail($to, $subject, $message, $headers);
-  
-          $success_message = "A new password has been sent to your email.";
-      } else {
-          $error_message = "Invalid email.";
-      }
-  }
+  $conn->close();
+}
 ?>
 
 <div>
