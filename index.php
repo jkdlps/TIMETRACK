@@ -43,10 +43,8 @@
 
 <div>
     <table>
-    <!-- <h4>Created by BSIT 4-1 Group 6 consisting of:</h4> -->
-    <tr>
-        <th>BSIT 4-1 Group 6</th>
-    </tr>
+    <h4>System Created by:</h4>
+    <p>BSIT 4-1 2022-2023 Group 6</p>
         <tr>
             <th>Developers</th>
             <th>Roles</th>
