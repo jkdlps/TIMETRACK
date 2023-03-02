@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     mysqli_close($conn);
 }
-include "headers.php";
+include "header.php";
 ?>
     <?php if (isset($error)) { ?>
         <div class="error"><?php echo $error; ?></div>
