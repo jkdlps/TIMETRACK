@@ -16,7 +16,7 @@ include "header.php";
 </div>
 
 <div>
-    <form action="dashboard.php" method="get">
+    <form action="employee_dashboard.php" method="get">
         <button type="submit">View Dashboard as Employee</button>
     </form>
 </div>

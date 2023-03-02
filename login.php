@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
     if($_SESSION['user_role'] == 1) {
         header('Location: employer_dashboard.php');
     } elseif($_SESSION['user_role'] == 0) {
-        header('Location: dashboard.php');
+        header('Location: employee_dashboard.php');
     }
   } else {
     echo "Invalid password";

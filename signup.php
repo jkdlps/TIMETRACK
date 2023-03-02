@@ -10,7 +10,7 @@ $sql = "INSERT INTO users (email, password, name) VALUES ('$email', '$password',
 
 if (mysqli_query($conn, $sql)) {
   echo "User created successfully";
-  header('Location: dashboard.php');
+  header('Location: login.php');
 } else {
   echo "Error: " . mysqli_error($conn);
 }
