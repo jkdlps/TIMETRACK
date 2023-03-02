@@ -40,7 +40,7 @@ include "header.php";
     <form action="employer_view_dtr.php" method="post">
         <button type="submit">View Daily Time Records</button>
     </form>
-    <form action="employer_view_dtr_requests.php" method="post">
+    <form action="employer_dtr_requests.php" method="post">
         <button type="submit">View Daily Time Record Change Requests</button>
     </form>
     <h3>Manage Leaves</h3>
