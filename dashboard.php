@@ -28,4 +28,3 @@ include "header.php";
         <button type="submit">Log Out</button>
     </form>
 </div>
-

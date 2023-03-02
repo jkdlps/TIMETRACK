@@ -2,14 +2,35 @@
 include "header.php";
 ?>
 
-<form method="post" action="update.php">
-      <label>Name:</label>
-      <input type="text" name="name" value="<?php echo $_SESSION['user_name']; ?>" required>
-      <br>
-      <label>Email:</label>
-      <input type="email" name="email" value="<?php echo $_SESSION['user_email']; ?>" required>
-      <br>
-      <input type="submit" value="Update">
+<div>
+    <form method="post" action="update.php">
+        <label>Name:</label>
+        <input type="text" name="name" value="<?php echo $_SESSION['user_name']; ?>" required>
+        <br>
+        <label>Email:</label>
+        <input type="email" name="email" value="<?php echo $_SESSION['user_email']; ?>" required>
+        <br>
+        <input type="submit" value="Update">
     </form>
-  </body>
+</div>
+
+<?php
+    if($_SESSION['user_role'] == 1) {
+        echo "
+        <div>
+            <form action='employer_dashboard.php' method='post'>
+                <button type='submit'>Back to Dashboard</button>
+            </form>
+        </div>";
+    } elseif($_SESSION['user_role'] == 0) {
+        echo "
+        <div>
+            <form action='employee_dashboard.php' method='post'>
+                <button type='submit'>Back to Dashboard</button>
+            </form>
+        </div>";
+    }
+?>
+
+</body>
 </html>
