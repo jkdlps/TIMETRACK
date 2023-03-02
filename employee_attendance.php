@@ -1,4 +1,5 @@
 <?php
+include "conn.php";
 ?>
     <!-- <script>
       function getLocation() {
@@ -92,30 +93,7 @@
 			alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime);
 
 			// TODO: save record to database
-			// Get the form data
-			$date = $_POST['date'];
-			$time = $_POST['time'];
-			$location = $_POST['location'];
-			$in_office = $_POST['in_office'];
-			$user_id = $_SESSION['user_id'];
-
-			// Check if the user has already timed in
-			$sql = "SELECT * FROM attendance WHERE user_id='$user_id' AND time_out IS NULL";
-			$result = mysqli_query($conn, $sql);
-
-			if (mysqli_num_rows($result) > 0) {
-			// User has already timed in, update the time_out column
-			$row = mysqli_fetch_assoc($result);
-			$id = $row['id'];
-			$sql = "UPDATE attendance SET time_out='$timestamp' WHERE id='$id'";
-			mysqli_query($conn, $sql);
-			} else {
-			// User has not timed in yet, insert a new record
-			$sql = "INSERT INTO attendance (user_id, time_in, location, in_office) VALUES ('$user_id', '$timestamp', '$location', '$in_office')";
-			mysqli_query($conn, $sql);
-			}
-		}
-		mysqli_close($conn);
+			<?php include "submit_attendance.php"; ?>
 
 		function getDistance(lat1, lon1, lat2, lon2) {
 			var R = 6371; // Radius of the earth in km
@@ -134,6 +112,5 @@
 		function deg2rad(deg) {
 			return deg * (Math.PI/180)
 		}
+	}
 	</script>
-	
-
