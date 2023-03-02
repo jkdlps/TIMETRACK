@@ -22,7 +22,7 @@ if (mysqli_query($conn, $sql)) {
   // Redirect to the dashboard
   if($_SESSION['user_role'] == 1) {
     header('Location: employer_dashboard.php');
-} elseif($_SESSION['user_role'] == 0) {
+  } elseif($_SESSION['user_role'] == 0) {
     header('Location: employee_dashboard.php');
 } else {
   echo "Error updating record: " . mysqli_error($conn);

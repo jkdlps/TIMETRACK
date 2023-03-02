@@ -1,5 +1,14 @@
 <?php
+session_start();
 include "header.php";
+
+if(isset($_SESSION['user_id'])) {
+  if($_SESSION['user_role'] == 1) {
+    header('location: employer_dashboard.php');
+  } elseif($_SESSION['user_role'] == 0) {
+    header('location: employee_dashboard.php');
+  }
+}
 ?>
     <h2>Login</h2>
     <form method="post" action="login.php">
