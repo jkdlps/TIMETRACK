@@ -16,9 +16,15 @@ if (mysqli_num_rows($result) > 0) {
   if (password_verify($password, $row['password'])) {
     // Set the session variables
     $_SESSION['user_id'] = $row['id'];
+    $_SESSION['user_email'] = $row['email'];
     $_SESSION['user_name'] = $row['name'];
+    $_SESSION['user_role'] = $row['role'];
     // Redirect to the dashboard
-    header('Location: dashboard.php');
+    if($_SESSION['user_role'] == 1) {
+        header('Location: employer_dashboard.php');
+    } elseif($_SESSION['user_role'] == 0) {
+        header('Location: dashboard.php');
+    }
   } else {
     echo "Invalid password";
     header('Location: login-form.php');
