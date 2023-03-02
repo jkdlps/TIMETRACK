@@ -5,7 +5,7 @@ include "header.php";
 ?>
 
 <div>
-    <h3>Welcome, <?php echo $_SESSION['user_name']; ?></h3>
+    <p>Welcome, <?php echo $_SESSION['user_name']; ?></p>
     <h2>Employer Dashboard</h2>
 </div>
 
