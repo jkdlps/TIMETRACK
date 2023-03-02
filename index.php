@@ -19,13 +19,13 @@
 </div>
 
 <div>
-    <form action="login-form.php" method="post">
+    <form action="login-form.php" method="get">
         <button type="submit">Log In</button>
     </form>
 </div>
 
 <div>
-    <form action="signup-form.php" method="post">
+    <form action="signup-form.php" method="get">
         <button type="submit">Sign Up</button>
     </form>
     <hr>
