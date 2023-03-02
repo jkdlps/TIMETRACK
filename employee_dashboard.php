@@ -6,22 +6,26 @@ include "header.php";
 
 <div>
     <h2>Employee Dashboard</h2>
-    <h3>Welcome, <?php echo $_SESSION['user_name']; ?></h3>
+    <h4>Welcome, <?php echo $_SESSION['user_name']; ?></h4>
+</div>
+
+<div>
+    <h3>Manage Account</h3>
     <form action="update-form.php" method="post">
         <button type="submit">Update Info</button>
     </form>
-</div>
-
-<?php
+    <?php
     if($_SESSION['user_role'] == 1) {
         echo "
-        <div>
             <form action='employer_dashboard.php' method='post'>
                 <button type='submit'>View Dashboard as Employer</button>
-            </form>
-        </div>";
+            </form>";
     }
-?>
+    ?>
+    <form action="logout.php" method="get">
+        <button type="submit">Log Out</button>
+    </form>
+</div>
 
 <div>
     <h3>Take Attendance:</h3>
@@ -43,11 +47,5 @@ include "header.php";
     </form>
     <form action="employee_request_leave.php" method="post">
         <button type="submit">Request Leave</button>
-    </form>
-</div>
-
-<div>
-    <form action="logout.php" method="get">
-        <button type="submit">Log Out</button>
     </form>
 </div>
