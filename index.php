@@ -13,7 +13,6 @@
         <li>Employee Management</li>
         <li>Absent, Late, and On Time Employees Reporting</li>
         <li>One Time Passcode Verification through Email</li>
-        <li>Account Requesting</li>
         <li>Password Change Request</li>
     </ul>
 </div>

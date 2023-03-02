@@ -23,6 +23,18 @@ include "header.php";
 </div>
 
 <div>
+    <form action="view_employees.php" method="post">
+        <button type="submit">View Employees</button>
+    </form>
+    <form action="view_dtr.php" method="post">
+        <button type="submit">View Daily Time Records</button>
+    </form>
+    <form action="view_leaves.php" method="post">
+        <button type="submit">View Leaves</button>
+    </form>
+</div>
+
+<div>
     <form action="logout.php" method="get">
         <button type="submit">Log Out</button>
     </form>
