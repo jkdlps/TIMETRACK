@@ -19,6 +19,7 @@ include "header.php";
 </div>
 
 <div>
+    <h2>Navigation</h2>
     <form action='employer_dashboard.php' method='post'>
         <button type='submit'>Back to Dashboard</button>
     </form>
