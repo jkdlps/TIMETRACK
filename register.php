@@ -1,113 +1,85 @@
 <?php
-// Include config file
-include "header.php";
- 
-// Define variables and initialize with empty values
-$name = $email = $password = $confirm_password = "";
-$name_err = $email_err = $password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Validate name
-    if(empty(trim($_POST["name"]))){
-        $name_err = "Please enter your name.";
-    } else{
-        $name = trim($_POST["name"]);
-    }
-    
-    // Validate email
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter your email.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE email = ?";
-        
-        if($stmt = mysqli_prepare($conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
-            
-            // Set parameters
-            $param_email = trim($_POST["email"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $email_err = "This email is already taken.";
-                } else{
-                    $email = trim($_POST["email"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+// Establish database connection
+require_once('header.php');
 
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have at least 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
-        }
-    }
-    
-    // Check input errors before inserting in database
-    if(empty($name_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
-         
-        if($stmt = mysqli_prepare($conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_name, $param_email, $param_password);
-            
-            // Set parameters
-            $param_name = $name;
-            $param_email = $email;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+// Initialize variables
+$name = '';
+$email = '';
+$password = '';
+$employer_id = ''; // this will be assigned by the employer
+$errors = array();
 
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Close connection
-    mysqli_close($conn);
+// If form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // Validate form inputs
+  $name = mysqli_real_escape_string($conn, $_POST['name']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
+  $password = mysqli_real_escape_string($conn, $_POST['password']);
+  $employer_id = mysqli_real_escape_string($conn, $_POST['employer_id']);
+
+  if (empty($name)) { array_push($errors, 'Name is required'); }
+  if (empty($email)) { array_push($errors, 'Email is required'); }
+  if (empty($password)) { array_push($errors, 'Password is required'); }
+
+  // Check if email already exists in the database
+  $check_email_query = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+  $result = mysqli_query($conn, $check_email_query);
+  $user = mysqli_fetch_assoc($result);
+
+  if ($user) { // If email exists, add error message to errors array
+    array_push($errors, 'Email already exists');
+  }
+
+  // If no errors, insert new user to database
+  if (count($errors) == 0) {
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $query = "INSERT INTO users (name, email, password, employer_id, role, created_on) 
+              VALUES('$name', '$email', '$hashed_password', '$employer_id', 0, NOW())";
+    mysqli_query($conn, $query);
+
+    // Redirect to login page
+    header('location: login.php');
+    exit();
+  }
 }
 ?>
 
-<div>
-    <form method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-        <label for="confirm_password">Confirm password</label>
-        <input type="password" name="confirm_password" id="confirm_password" required>
-        <button type="submit">Register</button>
-    </form>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h2>Register</h2>
+  
+  <?php if (count($errors) > 0): ?>
+    <div>
+      <?php foreach ($errors as $error): ?>
+        <p><?php echo $error; ?></p>
+      <?php endforeach ?>
+    </div>
+  <?php endif ?>
+  
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" value="<?php echo $name; ?>">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" value="<?php echo $email; ?>">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password">
+    </div>
+    <div>
+      <label for="employer_id">Employer ID</label>
+      <input type="text" name="employer_id" value="<?php echo $employer_id; ?>">
+    </div>
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</body>
+</html>
