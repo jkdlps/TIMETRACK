@@ -25,7 +25,6 @@ include "header.php";
             </form>
         </div>";
     }
-    $_SESSION['user_role'] == 0; 
     if($_SESSION['user_role'] == 0) {
         echo "
         <div>
