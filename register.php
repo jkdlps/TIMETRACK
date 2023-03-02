@@ -81,5 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <button type="submit">Register</button>
     </div>
   </form>
+
+  <div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
+</div>
+
 </body>
 </html>

@@ -26,6 +26,13 @@
 </div>
 
 <div>
+    <form action="register.php" method="post">
+        <button type="submit">Register</button>
+    </form>
+    <hr>
+</div>
+
+<div>
     <h2>Documentation</h2>
     <div>
         <form action="desc_schema.php" method="get">
