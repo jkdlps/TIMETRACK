@@ -30,10 +30,10 @@ include "header.php";
     <h2>Employee Attendance</h2>
     <form method="post" action="submit_attendance.php">
       <label>Date:</label>
-      <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" required>
+      <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" readonly>
       <br>
       <label>Time:</label>
-      <input type="time" name="time" value="<?php echo date('H:i'); ?>" required>
+      <input type="time" name="time" value="<?php echo date('H:i'); ?>" readonly>
       <br>
       <label>Location:</label>
       <input type="text" name="location" id="location" readonly>
@@ -45,5 +45,12 @@ include "header.php";
       <br>
       <input type="submit" value="Submit">
     </form>
+
+    <div>
+        <form action='employee_dashboard.php' method='post'>
+            <button type='submit'>Back to Dashboard</button>
+        </form>
+    </div>
+
   </body>
 </html>
