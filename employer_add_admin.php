@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     <?php if (isset($error_msg)) { ?>
       <p><?php echo $error_msg; ?></p>
     <?php } ?>
-    <form method="post" action="add_admin.php">
+    <form method="post" action="employer_add_admin.php">
       <label>Name:</label>
       <input type="text" name="name" required>
       <br>
@@ -57,8 +57,6 @@ if (isset($_POST['submit'])) {
     </form>
   </body>
 </html>
-
-?>
 
 <div>
     <form action='employer_dashboard.php' method='post'>
