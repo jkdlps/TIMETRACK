@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+include "header.php";
  
 // Define variables and initialize with empty values
 $name = $email = $password = $confirm_password = "";
@@ -99,7 +99,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($conn);
 }
-include "header.php";
 ?>
 
 <div>
