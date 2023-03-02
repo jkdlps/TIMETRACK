@@ -6,7 +6,7 @@
 <div>
     <h3>Features:</h3>
     <ul>
-        <li>Geolocation & Geofencing Attendance</li>
+        <li>Attendance Recording through Geolocation and Geofencing</li>
         <li>Printable Daily Time Record Generation & Change Request</li>
         <li>Leave Requesting & Management</li>
         <li>Employee & Employer Panels</li>

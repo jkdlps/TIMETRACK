@@ -37,9 +37,7 @@ mysqli_close($conn);
 // Redirect to the dashboard
 if($_SESSION['role'] == 1) {
     header('location: employer_dashboard.php');
-    exit();
 } elseif($_SESSION['role'] == 0) {
     header('location: employee_dashboard.php');
-    exit();
 }
 exit();
