@@ -24,6 +24,12 @@ include "header.php";
 ?>
 
 <div>
+    <h3>Take Attendance:</h3>
+    <?php include "employee_attendance.php"; ?>
+    <button onclick="getLocation()">Time In</button>
+</div>
+
+<div>
     <form action="employee_attendance.php" method="post">
         <button type="submit">Take Your Attendance</button>
     </form>

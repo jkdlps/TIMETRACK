@@ -1,6 +1,4 @@
 <?php
-include "header.php";
-date_default_timezone_set('Asia/Manila');
 ?>
     <!-- <script>
       function getLocation() {
@@ -118,16 +116,6 @@ date_default_timezone_set('Asia/Manila');
 			}
 		}
 		mysqli_close($conn);
-	
-
-// Redirect to the dashboard
-if($_SESSION['role'] == 1) {
-    header('location: employer_dashboard.php');
-	exit();
-} elseif($_SESSION['role'] == 0) {
-    header('location: employee_dashboard.php');
-}
-exit();
 
 		function getDistance(lat1, lon1, lat2, lon2) {
 			var R = 6371; // Radius of the earth in km
@@ -146,8 +134,6 @@ exit();
 		function deg2rad(deg) {
 			return deg * (Math.PI/180)
 		}
-
-
 	</script>
-	<button onclick="getLocation()">Time In</button>
+	
 
