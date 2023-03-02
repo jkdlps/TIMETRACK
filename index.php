@@ -43,7 +43,10 @@
 
 <div>
     <table>
-    <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
+    <!-- <h4>Created by BSIT 4-1 Group 6 consisting of:</h4> -->
+    <tr>
+        <th>BSIT 4-1 Group 6</th>
+    </tr>
         <tr>
             <th>Developers</th>
             <th>Roles</th>
