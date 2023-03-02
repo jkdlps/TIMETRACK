@@ -25,6 +25,7 @@ include "header.php";
 
 <div>
     <h3>Take Attendance:</h3>
+    <?php include "take_attendance.js"; ?>
     <button onclick="getLocation()">Time In</button>
 </div>
 
