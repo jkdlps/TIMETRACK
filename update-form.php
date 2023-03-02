@@ -24,7 +24,9 @@ include "header.php";
                 <button type='submit'>Back to Dashboard</button>
             </form>
         </div>";
-    } elseif($_SESSION['user_role'] == 0) {
+    }
+    $_SESSION['user_role'] == 0; 
+    if($_SESSION['user_role'] == 0) {
         echo "
         <div>
             <form action='employee_dashboard.php' method='post'>
