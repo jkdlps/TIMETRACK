@@ -41,21 +41,11 @@
     </div>
 </div>
 
-<!-- <div>
-    <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
-    <ul>
-        <li>Casimiro, Alvin as Data Analyst</li>
-        <li>Del Poso, James Kevin as Programmer</li>
-        <li>Dimanlig, Rafaelle as Researcher</li>
-        <li>Marqueta, Marq Joshua as Project Manager</li>
-    </ul>
-</div> -->
-
 <div>
     <table>
     <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
         <tr>
-            <th>Names</th>
+            <th>Developers</th>
             <th>Roles</th>
         </tr>
         <tr>
