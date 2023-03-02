@@ -11,9 +11,9 @@
         <li>Leave Requesting & Management</li>
         <li>Employee & Employer Panels</li>
         <li>Employee Management</li>
-        <li>Absent, Late, and On Time Employees Reporting</li>
-        <li>One Time Passcode Verification through Email</li>
-        <li>Password Change Request</li>
+        <li>Identification of Absent, Late, and On Time Employees</li>
+        <!-- <li>One Time Passcode Verification through Email</li>
+        <li>Password Change Request</li> -->
     </ul>
 </div>
 
@@ -21,9 +21,6 @@
     <form action="login-form.php" method="get">
         <button type="submit">Log In</button>
     </form>
-</div>
-
-<div>
     <form action="signup-form.php" method="get">
         <button type="submit">Sign Up</button>
     </form>
@@ -44,7 +41,7 @@
     </div>
 </div>
 
-<div>
+<!-- <div>
     <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
     <ul>
         <li>Casimiro, Alvin as Data Analyst</li>
@@ -52,6 +49,32 @@
         <li>Dimanlig, Rafaelle as Researcher</li>
         <li>Marqueta, Marq Joshua as Project Manager</li>
     </ul>
+</div> -->
+
+<div>
+    <table>
+    <h4>Created by BSIT 4-1 Group 6 consisting of:</h4>
+        <tr>
+            <th>Names</th>
+            <th>Roles</th>
+        </tr>
+        <tr>
+            <td>Casimiro, Alvin</td>
+            <td>Data Analyst</td>
+        </tr>
+        <tr>
+            <td>Del Poso, James Kevin</td>
+            <td>Programmer</td>
+        </tr>
+        <tr>
+            <td>Dimanlig, Rafaelle</td>
+            <td>Researcher</td>
+        </tr>
+        <tr>
+            <td>Marqueta, Marq Joshua</td>
+            <td>Project Manager</td>
+        </tr>
+    </table>
 </div>
 
 </body>
