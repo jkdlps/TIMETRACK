@@ -109,5 +109,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="password" name="password" id="password">
         <label for="confirm_password">Confirm password</label>
         <input type="password" name="confirm_password" id="confirm_password">
+        <button type="submit">Register</button>
     </form>
 </div>
