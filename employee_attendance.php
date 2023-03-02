@@ -88,7 +88,7 @@ date_default_timezone_set('Asia/Manila');
 		function recordAttendance(status, work_from_home) {
 			var today = new Date();
 			var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-			var time = today.getHours('h') + ":" + today.getMinutes() + ":" + today.getSeconds();
+			var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 			var timezone = "Asia/Manila";
 			var datetime = date + " " + time + " " + timezone;
 			alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime);
