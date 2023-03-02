@@ -21,9 +21,11 @@ if (mysqli_num_rows($result) > 0) {
     header('Location: dashboard.php');
   } else {
     echo "Invalid password";
+    header('Location: login-form.php');
   }
 } else {
   echo "User not found";
+  header('Location: login-form.php');
 }
 
 mysqli_close($conn);

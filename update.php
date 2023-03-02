@@ -23,6 +23,7 @@ if (mysqli_query($conn, $sql)) {
   header('Location: dashboard.php');
 } else {
   echo "Error updating record: " . mysqli_error($conn);
+  header('Location: update-form.php');
 }
 
 mysqli_close($conn);
