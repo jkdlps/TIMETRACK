@@ -12,6 +12,18 @@ include "header.php";
 </div>
 
 <div>
+    <?php
+    // Get attendance records for employee
+    $query = "SELECT * FROM attendance WHERE user_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $attendances = $result->fetch_all(MYSQLI_ASSOC);
+    ?>
+</div>
+
+<div>
     <form action="dashboard.php" method="get">
         <button type="submit">View Dashboard as Employee</button>
     </form>
