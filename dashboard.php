@@ -12,8 +12,20 @@ include "header.php";
     </form>
 </div>
 
+<?php
+    if($_SESSION['user_role'] == 1) {
+        echo "
+        <div>
+            <form action='employer_dashboard.php' method='post'>
+                <button type='submit'>View as Employer</button>
+            </form>
+        </div>";
+    }
+?>
+
 <div>
     <form action="logout.php" method="get">
         <button type="submit">Log Out</button>
     </form>
 </div>
+
