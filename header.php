@@ -5,18 +5,10 @@
     $pass = "|5FnHl7#";
     $db = "u947188626_timetrack";
     
-    $conn = new mysqli($server, $user, $pass, $db);
-    
-    if($conn->connect_error) {
-        die("
-        <div>
-            <p style='color: red'>Connection failed: . $conn->connect_error</p>
-        </div>");
+    $conn = mysqli_connect($server, $user, $pass, $db);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-    echo "
-    <div>
-    <p style='color: gray'>Connection successful. (MySQLi)</p>
-    </div>";
 
     // functions
     function sanitize($data) {

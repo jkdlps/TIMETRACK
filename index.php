@@ -22,12 +22,11 @@
     <form action="login.php" method="post">
         <button type="submit">Log In</button>
     </form>
-    <hr>
 </div>
 
 <div>
-    <form action="register.php" method="post">
-        <button type="submit">Register</button>
+    <form action="signup.php" method="post">
+        <button type="submit">Sign Up</button>
     </form>
     <hr>
 </div>
