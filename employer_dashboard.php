@@ -12,3 +12,9 @@ include "header.php";
         <button type="submit">View Dashboard as Employee</button>
     </form>
 </div>
+
+<div>
+    <form action="logout.php" method="get">
+        <button type="submit">Log Out</button>
+    </form>
+</div>
