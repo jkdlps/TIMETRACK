@@ -9,12 +9,14 @@ login
 - automatically directs user to employee and employer dashboard depending on role (employee = 0, employer = 1)
 - form asking for email and password
 - remember me function
+- forgot password button
 - one time passcode verification through email
 
-request account
-- form asking for name and email
+register
+- form asking for name, email, password
 - to be approved or denied by employer
 - email will be sent containing temporary password to be used
+- redirect to login page
 
 change password
 - form asking for previous password, new password, confirm new password
@@ -37,11 +39,10 @@ employee take attendance
 
 employee daily time records
 - display daily time records according to what month the employee picks
-- calculate total hours so far, then identify if undertime
-- button to request daily time record change for specific day
+- button to request daily time record change
 
-employee request dtr change
-- form asking for time, date, month, reason
+    employee request dtr change
+    - form asking for time, date, month, reason
 
 employee leaves
 - display leave history
@@ -49,7 +50,7 @@ employee leaves
 - button to request leave approval
 
     employee request leave
-    - modal form asking for leave start date, leave end date, reason
+    - form asking for leave start date, leave end date, reason
 
 employer dashboard
 - displays report of absent, late, on time, and currently on leave employees
@@ -67,20 +68,20 @@ employer view employees
 - button to add employee
 
     employer add employee
-    - modal form asking for employee's name and email to be inserted
+    - form asking for employee's name and email to be inserted
 
     employer edit employee
-    - modal form asking for employee's name and email to be changed
+    - form asking for employee's name and email to be changed
 
     employer delete employee
-    - modal form asking for confirmation to delete employee
+    - form asking for confirmation to delete employee
 
 employer view account requests
 - displays table format of users asking for account in system
 - on individual rows, button to approve/deny
 
     employer account request approval
-    - modal form asking if approve or deny, and reason/comment 
+    - form asking if approve or deny, and reason/comment 
     - if approved, automatically add employee to the employee list. if denied, notify user's email and redirect to dashboard
 
 employer view daily time records
@@ -90,7 +91,7 @@ employer view daily time records
 - on individual rows, button to edit time/date
 
     employer print daily time record
-    - modal form asking for employee name, month, and total hours
+    - form asking for employee name, month, and total hours
     - display daily time record in pdf format using fpdf to be printable
 
 employer view daily time record change requests
@@ -98,7 +99,7 @@ employer view daily time record change requests
 - on individual rows, button to approve/deny
 
     employer daily time record change request approval
-    - modal form asking if approve/deny, and reason/comment
+    - form asking if approve/deny, and reason/comment
     - if approved, automatically redirect to employee's requested daily time record to change details. if denied, notify employee and redirect to dashboard
 
 employer view employees on leave list
@@ -109,19 +110,20 @@ employer view leave requests
 - on individual rows, button to approve/deny
 
     employer leave request approval
-    - modal form asking if approve/deny, and reason/comment
+    - form asking if approve/deny, and reason/comment
     - if approved, automatically add leave on list. if denied, notify employee and redirect to dashboard
 
 logout
 - unsets session and redirects user to index
 
 database
-- employee
+- users
     - id
+    - employee_id
     - name
     - email
     - password
-    - is_employer (employer = 1, employee = 0)
+    - role (employer = 1, employee = 0)
     - created_on
     - updated_on
 
@@ -132,13 +134,6 @@ database
     - time_in
     - time_out
     - in_office (in office = 1, work from home = 0)
-    - created_on
-    - updated_on
-
-- calculate dtr
-    - id
-    - attendance_id
-    - total_hours
     - created_on
     - updated_on
 
@@ -165,9 +160,10 @@ database
     - created_on
     - updated_on
 
-- passcodes
+- otp
     - id
-    - passcode
+    - otp
+    - otp_expiry
     - used (used = 1, not used = 0)
     - created_on
     - updated_on
