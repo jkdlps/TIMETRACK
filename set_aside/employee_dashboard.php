@@ -7,7 +7,7 @@
 // }
 
 // Connect to database
-include "conn.php";
+include "header.php";
 
 // Get employee's daily time record for this month
 $user_id = $_SESSION['user_id'];
