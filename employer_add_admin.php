@@ -3,10 +3,10 @@ session_start();
 include "conn.php";
 include "header.php";
 
-if(!($_SESSION['role'] == 1)) {
-    header('location: employee_dashboard.php');
-    exit();
-}
+// if(!($_SESSION['role'] == 1)) {
+//     header('location: employee_dashboard.php');
+//     exit();
+// }
 ?>
 
 <div>
