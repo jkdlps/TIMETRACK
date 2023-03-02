@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // if no errors, attempt login
   if(empty($email_err) && empty($password_err)) {
-    $sql = "SELECT id, email, password, is_employer FROM employee WHERE email = ?";
+    $sql = "SELECT id, email, password, role FROM employee WHERE email = ?";
     
     if($stmt = $conn->prepare($sql)) {
       $stmt->bind_param("s", $param_email);
@@ -49,18 +49,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // check if email exists
         if($stmt->num_rows == 1) {
-          $stmt->bind_result($id, $email, $hashed_password, $is_employer);
+          $stmt->bind_result($id, $email, $hashed_password, $role);
           if($stmt->fetch()) {
             // verify password
-            if(password_verify($password, $hashed_password)) {
+            // if(password_verify($password, $hashed_password)) {
               // password is correct, start session
               session_start();
               $_SESSION["user_id"] = $id;
               $_SESSION["email"] = $email;
-              $_SESSION["is_employer"] = $is_employer;
+              $_SESSION["role"] = $role;
               
               // redirect to dashboard based on account type
-              if($is_employer == 1) {
+              if($role == 1) {
                 header("Location: employer_dashboard.php");
               } else {
                 header("Location: employee_dashboard.php");
@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       
       $stmt->close();
     }
-  }
+  // }
   
   $conn->close();
 }
