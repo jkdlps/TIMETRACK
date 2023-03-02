@@ -6,19 +6,19 @@ include "header.php";
 
 <div>
     <h2>Employer Dashboard</h2>
-    <h3>Welcome, <?php echo $_SESSION['user_name']; ?></h3>
+    <h4>Welcome, <?php echo $_SESSION['user_name']; ?></h4>
+</div>
+
+<div>
+    <h3>Manage Account</h3>
     <form action="update-form.php" method="post">
         <button type="submit">Update Info</button>
     </form>
-</div>
-
-<div>
-
-</div>
-
-<div>
     <form action="employee_dashboard.php" method="post">
         <button type="submit">View Dashboard as Employee</button>
+    </form>
+    <form action="logout.php" method="get">
+        <button type="submit">Log Out</button>
     </form>
 </div>
 
@@ -40,11 +40,5 @@ include "header.php";
     </form>
     <form action="view_leave_requests.php" method="post">
         <button type="submit">View Leave Requests</button>
-    </form>
-</div>
-
-<div>
-    <form action="logout.php" method="get">
-        <button type="submit">Log Out</button>
     </form>
 </div>
