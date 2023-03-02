@@ -29,8 +29,14 @@ include "header.php";
     <form action="view_dtr.php" method="post">
         <button type="submit">View Daily Time Records</button>
     </form>
+    <form action="view_dtr_requests.php" method="post">
+        <button type="submit">View Daily Time Record Change Requests</button>
+    </form>
     <form action="view_leaves.php" method="post">
-        <button type="submit">View Leaves</button>
+        <button type="submit">View Employees on Leave</button>
+    </form>
+    <form action="view_leave_requests.php" method="post">
+        <button type="submit">View Leave Requests</button>
     </form>
 </div>
 

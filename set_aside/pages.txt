@@ -55,7 +55,6 @@ employee leaves
 employer dashboard
 - displays report of absent, late, on time, and currently on leave employees
 - button to view employees
-- button to view account requests
 - button to view daily time records
 - button to view daily time record change requests
 - button to view employees on leave list
