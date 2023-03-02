@@ -30,8 +30,14 @@ include "header.php";
     <form action="employee_view_dtr.php" method="post">
         <button type="submit">View Your Daily Time Records</button>
     </form>
+    <form action="employee_request_dtr.php" method="post">
+        <button type="submit">Request Daily Time Record Change</button>
+    </form>
     <form action="employee_view_leaves.php" method="post">
         <button type="submit">View Your Leaves</button>
+    </form>
+    <form action="employee_request_leave.php" method="post">
+        <button type="submit">Request Leave</button>
     </form>
 </div>
 

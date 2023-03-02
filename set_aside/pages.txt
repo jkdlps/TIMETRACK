@@ -12,7 +12,7 @@ login
 - forgot password button
 - one time passcode verification through email
 
-register
+signup
 - form asking for name, email, password
 - to be approved or denied by employer
 - email will be sent containing temporary password to be used
