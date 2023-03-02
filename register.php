@@ -8,7 +8,6 @@ $name_err = $email_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
     // Validate name
     if(empty(trim($_POST["name"]))){
         $name_err = "Please enter your name.";
@@ -104,11 +103,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div>
     <form method="post">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <label for="confirm_password">Confirm password</label>
-        <input type="password" name="confirm_password" id="confirm_password">
+        <input type="password" name="confirm_password" id="confirm_password" required>
         <button type="submit">Register</button>
     </form>
 </div>
