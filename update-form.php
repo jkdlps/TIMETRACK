@@ -3,11 +3,12 @@ include "header.php";
 ?>
 
 <div>
+    <h2>Update Your Information</h2>
     <form method="post" action="update.php">
-        <label>Name:</label>
+        <label>New Name:</label>
         <input type="text" name="name" value="<?php echo $_SESSION['user_name']; ?>" required>
         <br>
-        <label>Email:</label>
+        <label>New Email:</label>
         <input type="email" name="email" value="<?php echo $_SESSION['user_email']; ?>" required>
         <br>
         <input type="submit" value="Update">
