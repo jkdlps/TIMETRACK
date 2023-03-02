@@ -13,106 +13,16 @@ include "header.php";
         exit();
       }
 
-      // Connect to the database
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "mydb";
-
-      $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-      // Check for errors
-      if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-      }
-
       // Get the user's geolocation
       if (isset($_POST['geo_lat']) && isset($_POST['geo_lng'])) {
         $geo_lat = $_POST['geo_lat'];
         $geo_lng = $_POST['geo_lng'];
 
-        // Check if the user is within the geofence
-        $geofence_lat = 14.8450725;
-        $geofence_lng = 121.1024915;
-        $geofence_radius = 100; // in meters
-
-        $distance = distance($geo_lat, $geo_lng, $geofence_lat, $geofence_lng);
-
-        if ($distance <= $geofence_radius) {
-          $status = 1; // In office
-        } else {
-          $status = 0; // Work from home
-        }
-
-        // Insert the attendance record into the database
-        $user_id = $_SESSION['user_id'];
-        $date = date('Y-m-d');
-        $time = date('H:i:s', strtotime('+8 hours')); // Asia/Manila timezone
-        $sql = "INSERT INTO attendance (user_id, date, time, status) VALUES ('$user_id', '$date', '$time', '$status')";
-        if (mysqli_query($conn, $sql)) {
-          echo "<p>Attendance recorded.</p>";
-        } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-      }
-
-      // Helper function to calculate distance between two points in meters
-      function distance($lat1, $lng1, $lat2, $lng2) {
-        $earth_radius = 6371000; // in meters
-        $lat1_rad = deg2rad($lat1);
-        $lng1_rad = deg2rad($lng1);
-        $lat2_rad = deg2rad($lat2);
-        $lng2_rad = deg2rad($lng2);
-        $delta_lat = $lat2_rad - $lat1_rad;
-        $delta_lng = $lng2_rad - $lng1_rad;
-        $a = sin($delta_lat/2) * sin($delta_lat/2) + cos($lat1_rad) * cos($lat2_rad) * sin($delta_lng/2) * sin($delta_lng/2);
-        $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-        $distance = $earth_radius * $c;
-        return $distance;
-      }
-
-      // Check if the user already timed in
-      $user_id = $_SESSION['user_id'];
-      $date = date('Y-m-d');
-      $sql = "SELECT * FROM attendance WHERE user_id='$user_id' AND date='$date'";
-      $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-// User already timed in, display "Time Out" button
-echo "Time Out";
-$row = mysqli_fetch_assoc($result);
-$attendance_id = $row['id'];
-$status = $row['status'];
-if ($status == 2) {
-// User worked from home
-echo "<p>You worked from home today.</p>";
-} else {
-// User worked in the office
-echo "<p>You worked in the office today.</p>";
-}
-} else {
-// User has not timed in, display "Time In" button
-echo "Time In";
-}
-?>
-</button>
-</form>
-
-  </body>
-</html>
-<?php
-  // Handle form submission
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_id = $_SESSION['user_id'];
-    $date = date('Y-m-d');
-    $time = date('H:i:s');
-    $latitude = $_POST['latitude'];
-    $longitude = $_POST['longitude'];
-
     // Check if the user is within the geofence
     if (is_within_geofence($latitude, $longitude)) {
-      $status = 1; // User worked in the office
+      $in_office = 1; // User worked in the office
     } else {
-      $status = 2; // User worked from home
+      $in_office = 0; // User worked from home
     }
 
     // Check if the user already timed in
@@ -122,12 +32,12 @@ echo "Time In";
       // User already timed in, update the record with the time out
       $row = mysqli_fetch_assoc($result);
       $attendance_id = $row['id'];
-      $sql = "UPDATE attendance SET time_out='$time', status='$status' WHERE id='$attendance_id'";
+      $sql = "UPDATE attendance SET time_out='$time', in_office='$in_office' WHERE id='$attendance_id'";
       mysqli_query($conn, $sql);
       echo "You have successfully timed out.";
     } else {
       // User has not timed in, insert a new record with the time in
-      $sql = "INSERT INTO attendance (user_id, date, time_in, status) VALUES ('$user_id', '$date', '$time', '$status')";
+      $sql = "INSERT INTO attendance (user_id, date, time_in, in_office) VALUES ('$user_id', '$date', '$time', '$in_office')";
       mysqli_query($conn, $sql);
       echo "You have successfully timed in.";
     }
