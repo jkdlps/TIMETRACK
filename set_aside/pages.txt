@@ -83,6 +83,8 @@ employer view absences
 
 employer view lates
 
+employer view on time
+
 employer view daily time records
 - display daily time record of specific employee chosen by combobox
 - show total hours if daily time record is complete
