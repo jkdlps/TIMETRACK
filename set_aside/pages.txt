@@ -76,13 +76,12 @@ employer view employees
     employer delete employee
     - form asking for confirmation to delete employee
 
-employer view account requests
-- displays table format of users asking for account in system
-- on individual rows, button to approve/deny
+    employer add admin
+    - form asking for employee's name and email to be added as admin (change role from 0 to 1)
 
-    employer account request approval
-    - form asking if approve or deny, and reason/comment 
-    - if approved, automatically add employee to the employee list. if denied, notify user's email and redirect to dashboard
+employer view absences
+
+employer view lates
 
 employer view daily time records
 - display daily time record of specific employee chosen by combobox
