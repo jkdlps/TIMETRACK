@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "conn.php";
 
 if(isset($_SESSION['user_id'])) {
