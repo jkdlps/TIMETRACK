@@ -93,7 +93,6 @@ include "conn.php";
 			alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime);
 
 			// TODO: save record to database
-			<?php include "submit_attendance.php"; ?>
 
 		function getDistance(lat1, lon1, lat2, lon2) {
 			var R = 6371; // Radius of the earth in km
