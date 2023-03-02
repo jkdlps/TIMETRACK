@@ -9,6 +9,7 @@ include "header.php";
     <form action="employer_add_employee.php" method="post">
         <button type="submit">Add Employee</button>
     </form>
+    <h2>Manage Admins</h2>
     <form action="employer_add_admin.php" method="post">
         <button type="submit">Add Admin</button>
     </form>
