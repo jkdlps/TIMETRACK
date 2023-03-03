@@ -12,7 +12,7 @@ include "header.php";
     <h2>View Employees</h2>
 	<?php
 		// Retrieve all employees from the database
-		$sql = "SELECT * FROM employees";
+		$sql = "SELECT * FROM users WHERE role=0";
 		$result = mysqli_query($conn, $sql);
 
 		// Display total number of employees
