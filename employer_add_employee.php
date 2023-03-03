@@ -26,6 +26,17 @@ include "header.php";
     </form>
 </div> -->
 
+<h1>Add Employee</h1>
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+		<label>Name:</label>
+		<input type="text" name="name" required>
+		<br>
+		<label>Email:</label>
+		<input type="email" name="email" required>
+		<br>
+		<input type="submit" value="Add Employee">
+	</form>
+
 <?php
 // Initialize variables
 $name = "";
@@ -62,15 +73,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->close();
   $conn->close();
 }
-?>
-
-	<h1>Add Employee</h1>
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-		<label>Name:</label>
-		<input type="text" name="name" required>
-		<br>
-		<label>Email:</label>
-		<input type="email" name="email" required>
-		<br>
-		<input type="submit" value="Add Employee">
-	</form>
