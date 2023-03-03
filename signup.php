@@ -27,12 +27,7 @@ $password = password_hash(sanitize($_POST['password']), PASSWORD_DEFAULT);
 $name = sanitize($_POST['name']);
 $stmt->execute();
 
-if ($conn->query($sql)) {
-  echo "User created successfully";
-  header('Location: login.php');
-} else {
-  echo "Error: " . $conn->error;
-}
+header('Location: login.php');
 
 // Close statement and connection
 $stmt->close();
