@@ -69,6 +69,7 @@ employer view employees
 
     employer add employee
     - form asking for employee's name and email to be inserted
+    - generate random password, display it, and store to database
 
     employer edit employee
     - form asking for employee's name and email to be changed
