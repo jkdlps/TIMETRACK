@@ -96,49 +96,46 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
+// session_start();
+// include "conn.php";
+// // retrieve user ID from session
+// $user_id = $_SESSION['user_id'];
 
-<?php
-session_start();
-include "conn.php";
-// retrieve user ID from session
-$user_id = $_SESSION['user_id'];
+// // retrieve current date and time in the user's timezone
+// $user_timezone = new DateTimeZone('Asia/Manila');
+// $current_time = new DateTime('now', $user_timezone);
+// $current_date = $current_time->format('Y-m-d');
 
-// retrieve current date and time in the user's timezone
-$user_timezone = new DateTimeZone('Asia/Manila');
-$current_time = new DateTime('now', $user_timezone);
-$current_date = $current_time->format('Y-m-d');
+// // check connection
+// if (!$conn) {
+//   die("Connection failed: " . mysqli_connect_error());
+// }
 
-// check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+// // check if user has already timed in today
+// $query = mysqli_prepare($conn, "SELECT * FROM attendance WHERE user_id = ? AND DATE(time_in) = ?");
+// mysqli_stmt_bind_param($query, "is", $user_id, $current_date);
+// mysqli_stmt_execute($query);
+// $attendance_record = mysqli_fetch_assoc(mysqli_stmt_get_result($query));
 
-// check if user has already timed in today
-$query = mysqli_prepare($conn, "SELECT * FROM attendance WHERE user_id = ? AND DATE(time_in) = ?");
-mysqli_stmt_bind_param($query, "is", $user_id, $current_date);
-mysqli_stmt_execute($query);
-$attendance_record = mysqli_fetch_assoc(mysqli_stmt_get_result($query));
+// if ($attendance_record) {
+//   // user has already timed in, display time in and button to time out
+//   $time_in = new DateTime($attendance_record['time_in']);
+//   $time_in->setTimezone($user_timezone);
+//   $location = $attendance_record['location'];
+//   $in_office = $attendance_record['in_office'];
 
-if ($attendance_record) {
-  // user has already timed in, display time in and button to time out
-  $time_in = new DateTime($attendance_record['time_in']);
-  $time_in->setTimezone($user_timezone);
-  $location = $attendance_record['location'];
-  $in_office = $attendance_record['in_office'];
+//   echo "You timed in at " . $time_in->format('Y-m-d H:i:s') . " in " . $location . ".<br>";
+//   if ($attendance_record['time_out'] == NULL) {
+//     echo "<form action='time_out.php' method='post'><input type='submit' value='Time Out'></form>";
+//   } else {
+//     echo "You timed out at " . $attendance_record['time_out'] . ".<br>";
+//   }
+// } else {
+//   // user has not timed in, display button to time in
+//   echo "<form action='time_in.php' method='post'>";
+//   echo "<input type='submit' value='Time In'>";
+//   echo "</form>";
+// }
 
-  echo "You timed in at " . $time_in->format('Y-m-d H:i:s') . " in " . $location . ".<br>";
-  if ($attendance_record['time_out'] == NULL) {
-    echo "<form action='time_out.php' method='post'><input type='submit' value='Time Out'></form>";
-  } else {
-    echo "You timed out at " . $attendance_record['time_out'] . ".<br>";
-  }
-} else {
-  // user has not timed in, display button to time in
-  echo "<form action='time_in.php' method='post'>";
-  echo "<input type='submit' value='Time In'>";
-  echo "</form>";
-}
-
-// close connection
-mysqli_close($conn);
-?>
+// // close connection
+// mysqli_close($conn);
