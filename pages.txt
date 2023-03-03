@@ -35,7 +35,7 @@ employee dashboard
 - button to view employee's leave history and leave credit
 
 employee take attendance
-- button that automatically takes time in asia/manila, date, location (geolocate if in geofence set in municipal office of pulong buhangin, santa maria, bulacan). if already timed in, button will automatically display time out
+- button that automatically takes time in asia/manila, date, location (geolocate if in geofence set in municipal office of pulong buhangin, santa maria, bulacan. if within geofence, user is in office. otherwise, work from home (put into database in_office = 1 if in office, in_office = 0 if work from home, 0 default)). if already timed in, button will automatically display time out
 
 employee daily time records
 - display daily time records according to what month the employee picks
