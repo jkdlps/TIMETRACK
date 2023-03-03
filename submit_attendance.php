@@ -36,4 +36,3 @@ mysqli_close($conn);
 // Redirect to the dashboard
 header("Location: employee_dashboard.php");
 exit();
-?>
