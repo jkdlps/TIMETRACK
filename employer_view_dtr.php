@@ -62,12 +62,11 @@ echo "<input type='submit' value='Go'>";
 echo "</form>";
 
 // Display button for printing daily time record
-echo "<br><a href='employer_print_dtr.php?user_id=$user_id&month=$month&year=$year'>Print Daily Time Record</a>";
+echo "<br><div><a href='employer_print_dtr.php?user_id=$user_id&month=$month&year=$year'>Print Daily Time Record</a></div>";
 
 // Close database connection
 mysqli_close($conn);
 ?>
-
 
 <div>
     <form action='employer_dashboard.php' method='post'>
