@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "conn.php";
+include "header.php";
 // Get user ID
 $user_id = $_SESSION['user_id'];
 
