@@ -9,18 +9,6 @@ include "header.php";
 </div>
 
 <?php
-// Connect to database
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "timetrack";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
 // Get user ID
 $user_id = $_GET['user_id'];
 
