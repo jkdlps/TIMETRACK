@@ -1,89 +1,90 @@
 <?php
+// Start session
 session_start();
-include "conn.php";
 
-// Get the form data
-$date = $_POST['date'];
-$time = $_POST['time'];
-$location = $_POST['location'];
-$in_office = $_POST['in_office'];
-$user_id = $_SESSION['user_id'];
-
-// Convert the time to Asia/Manila timezone
-$datetime = new DateTime($date . ' ' . $time, new DateTimeZone('UTC'));
-$datetime->setTimezone(new DateTimeZone('Asia/Manila'));
-$timestamp = $datetime->format('Y-m-d H:i:s');
-
-// Check if the user has already timed in
-$sql = "SELECT * FROM attendance WHERE user_id='$user_id' AND time_out IS NULL";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-  // User has already timed in, update the time_out column
-  $row = mysqli_fetch_assoc($result);
-  $id = $row['id'];
-  $sql = "UPDATE attendance SET time_out='$timestamp' WHERE id='$id'";
-  mysqli_query($conn, $sql);
-} else {
-  // User has not timed in yet, insert a new record
-  $sql = "INSERT INTO attendance (user_id, time_in, location, in_office) VALUES ('$user_id', '$timestamp', '$location', '$in_office')";
-  mysqli_query($conn, $sql);
+// Check if employee is logged in
+if (!isset($_SESSION['employee_id'])) {
+    header("Location: employee_login.php");
+    exit();
 }
 
-mysqli_close($conn);
-die('location: employer_dashboard.php');
+// Include database connection file
+include "db_connection.php";
 
-// Redirect to the dashboard
-// if($_SESSION['role'] == 1) {
-//     header('location: employer_dashboard.php');
-// } elseif($_SESSION['role'] == 0) {
-//     header('location: employee_dashboard.php');
-// }
-// exit();
-?>
+// Get employee details
+$employee_id = $_SESSION['employee_id'];
+$sql = "SELECT * FROM employees WHERE id = '$employee_id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$employee_name = $row['name'];
 
-<script src="take_attendance.js"></script>
-<?php
-// session_start();
-// include "conn.php";
-// // retrieve user ID from session
-// $user_id = $_SESSION['user_id'];
+// Get current date and time
+$timezone = "Asia/Manila";
+$date_time = new DateTime("now", new DateTimeZone($timezone));
+$date = $date_time->format('Y-m-d');
+$time = $date_time->format('H:i:s');
 
-// // retrieve current date and time in the user's timezone
-// $user_timezone = new DateTimeZone('Asia/Manila');
-// $current_time = new DateTime('now', $user_timezone);
-// $current_date = $current_time->format('Y-m-d');
+// Check if employee has already timed in
+$sql = "SELECT * FROM attendance WHERE employee_id = '$employee_id' AND date = '$date'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // Employee has already timed in, display time out button
+    $row = mysqli_fetch_assoc($result);
+    $attendance_id = $row['id'];
+    $in_office = $row['in_office'];
+    $status = "Time Out";
+    $button_text = "Time Out";
+} else {
+    // Employee has not timed in yet, display time in button
+    $attendance_id = "";
+    $in_office = 0;
+    $status = "Time In";
+    $button_text = "Time In";
+}
 
-// // check connection
-// if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
+// Geolocation parameters
+$geofence_lat = 14.7981472; // latitude of geofence center
+$geofence_lon = 121.0450595; // longitude of geofence center
+$geofence_radius = 500; // radius of geofence in meters
 
-// // check if user has already timed in today
-// $query = mysqli_prepare($conn, "SELECT * FROM attendance WHERE user_id = ? AND DATE(time_in) = ?");
-// mysqli_stmt_bind_param($query, "is", $user_id, $current_date);
-// mysqli_stmt_execute($query);
-// $attendance_record = mysqli_fetch_assoc(mysqli_stmt_get_result($query));
+// Check if user is within geofence
+if (isset($_GET['latitude']) && isset($_GET['longitude'])) {
+    $latitude = $_GET['latitude'];
+    $longitude = $_GET['longitude'];
+    $distance = getDistance($latitude, $longitude, $geofence_lat, $geofence_lon);
 
-// if ($attendance_record) {
-//   // user has already timed in, display time in and button to time out
-//   $time_in = new DateTime($attendance_record['time_in']);
-//   $time_in->setTimezone($user_timezone);
-//   $location = $attendance_record['location'];
-//   $in_office = $attendance_record['in_office'];
+    if ($distance <= $geofence_radius) {
+        // User is in office
+        $in_office = 1;
+    } else {
+        // User is working from home
+        $in_office = 0;
+    }
+}
 
-//   echo "You timed in at " . $time_in->format('Y-m-d H:i:s') . " in " . $location . ".<br>";
-//   if ($attendance_record['time_out'] == NULL) {
-//     echo "<form action='time_out.php' method='post'><input type='submit' value='Time Out'></form>";
-//   } else {
-//     echo "You timed out at " . $attendance_record['time_out'] . ".<br>";
-//   }
-// } else {
-//   // user has not timed in, display button to time in
-//   echo "<form action='time_in.php' method='post'>";
-//   echo "<input type='submit' value='Time In'>";
-//   echo "</form>";
-// }
+// Save attendance record
+if (isset($_POST['submit'])) {
+    $status = $_POST['status'];
+    $in_office = $_POST['in_office'];
+    if ($attendance_id == "") {
+        // Insert new attendance record
+        $sql = "INSERT INTO attendance (employee_id, date, time, status, in_office) VALUES ('$employee_id', '$date', '$time', '$status', '$in_office')";
+    } else {
+        // Update existing attendance record
+        $sql = "UPDATE attendance SET time = '$time', status = '$status', in_office = '$in_office' WHERE id = '$attendance_id'";
+    }
+    mysqli_query($conn, $sql);
+}
 
-// // close connection
-// mysqli_close($conn);
+// Get distance between two points on the Earth's surface
+function getDistance($lat1, $lon1, $lat2, $lon2) {
+    $R = 6371; // Radius of the earth in km
+    $dLat = deg2rad($lat2-$lat1);  // deg2rad below
+    $dLon = deg2rad($lon2-$lon1);
+    $a = sin($dLat/2) * sin($dLat/2) +
+         cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+         sin($dLon/2) * sin($dLon/2);
+    $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+    $d = $R * $c; // Distance in km
+    return $d;
+}
