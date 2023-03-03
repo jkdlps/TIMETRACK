@@ -23,7 +23,7 @@ $date = $date_time->format('Y-m-d');
 $time = $date_time->format('H:i:s');
 
 // Check if employee has already timed in
-$sql = "SELECT * FROM attendance WHERE user_id = '$user_id' AND date = '$date'";
+$sql = "SELECT * FROM attendance WHERE user_id = '$user_id' AND time_in = '$time_in'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // Employee has already timed in, display time out button

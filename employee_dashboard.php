@@ -34,6 +34,9 @@ include "header.php";
     <form action="employee_attendance.php" method="post">
         <button type="submit">Attendance Page</button>
     </form>
+    <form action="attendance.php" method="post">
+        <button type="submit">Attend</button>
+    </form>
 </div>
 
 <div>
