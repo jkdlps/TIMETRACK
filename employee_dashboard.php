@@ -29,11 +29,11 @@ include "header.php";
 
 <div>
     <h3>Your Attendance:</h3>
-    <script src="take_attendance.js"></script>
+    <!-- <script src="take_attendance.js"></script>
         <button onclick="getLocation()">Time In</button>
     <form action="employee_attendance.php" method="post">
         <button type="submit">Attendance Page</button>
-    </form>
+    </form> -->
     <form action="attendance.php" method="post">
         <button type="submit">Attend</button>
     </form>

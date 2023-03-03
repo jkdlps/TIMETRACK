@@ -11,7 +11,7 @@ $current_date = date("Y-m-d");
 $current_time = date("H:i:s");
 
 // Check if user has already timed in for today
-$check_attendance_query = "SELECT * FROM attendance WHERE user_id = '$user_id' AND DATE(created_at) = '$current_date'";
+$check_attendance_query = "SELECT * FROM attendance WHERE user_id = '$user_id'";
 $check_attendance_result = mysqli_query($conn, $check_attendance_query);
 
 if (mysqli_num_rows($check_attendance_result) > 0) {
@@ -36,7 +36,7 @@ if (mysqli_num_rows($check_attendance_result) > 0) {
         
         if ($distance <= 1) {
             // User is within geofence, update the time out and in_office
-            $update_attendance_query = "UPDATE attendance SET time_out = '$current_time', in_office = 1, updated_at = NOW() WHERE id = '$attendance_id'";
+            $update_attendance_query = "UPDATE attendance SET time_out = '$current_time', in_office = 1 WHERE id = '$attendance_id'";
             $update_attendance_result = mysqli_query($conn, $update_attendance_query);
             
             if ($update_attendance_result) {
@@ -46,7 +46,7 @@ if (mysqli_num_rows($check_attendance_result) > 0) {
             }
         } else {
             // User is not within geofence, update the time out and in_office
-            $update_attendance_query = "UPDATE attendance SET time_out = '$current_time', in_office = 0, updated_at = NOW() WHERE id = '$attendance_id'";
+            $update_attendance_query = "UPDATE attendance SET time_out = '$current_time', in_office = 0 WHERE id = '$attendance_id'";
             $update_attendance_result = mysqli_query($conn, $update_attendance_query);
             
             if ($update_attendance_result) {
@@ -57,7 +57,7 @@ if (mysqli_num_rows($check_attendance_result) > 0) {
         }
     } else {
         // User is not in office, update the time out
-        $update_attendance_query = "UPDATE attendance SET time_out = '$current_time', updated_at = NOW() WHERE id = '$attendance_id'";
+        $update_attendance_query = "UPDATE attendance SET time_out = '$current_time' WHERE id = '$attendance_id'";
         $update_attendance_result = mysqli_query($conn, $update_attendance_query);
         
         if ($update_attendance_result) {
@@ -88,7 +88,7 @@ if (mysqli_num_rows($check_attendance_result) > 0) {
     }
     
     // Insert new attendance record
-    $insert_attendance_query = "INSERT INTO attendance (user_id, time_in, in_office, created_at, updated_at) VALUES ('$user_id', '$current_time', '$in_office', NOW(), NOW())";
+    $insert_attendance_query = "INSERT INTO attendance (user_id, time_in, in_office) VALUES ('$user_id', '$current_time', '$in_office')";
     $insert_attendance_result = mysqli_query($conn, $insert_attendance_query);
     
     if ($insert_attendance_result) {
