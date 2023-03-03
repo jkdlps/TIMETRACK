@@ -26,8 +26,8 @@ exit();
 // Delete employee info from the database
 $sql = "DELETE FROM users WHERE id=$id";
 if (mysqli_query($conn, $sql)) {
-// Redirect back to employer dashboard
-header("Location: employer_dashboard.php");
+// Redirect
+header("Location: employer_view_employees.php");
 exit();
 } else {
 echo "Error deleting employee info: " . mysqli_error($conn);
