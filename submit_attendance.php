@@ -34,6 +34,6 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 
 // Redirect to the dashboard
-header("Location: dashboard.php");
+header("Location: employee_dashboard.php");
 exit();
 ?>
