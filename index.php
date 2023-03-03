@@ -29,7 +29,7 @@
 
 <div>
     <h2>Documentation</h2>
-    <div>
+    <!-- <div>
         <form action="desc_schema.php" method="get">
             <button type="submit">Read System Schema</button>
         </form>
@@ -38,7 +38,7 @@
         <form action="desc_structure.php" method="get">
             <button type="submit">Read System Structure</button>
         </form>
-    </div>
+    </div> -->
 </div>
 
 <div>
