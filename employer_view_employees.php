@@ -5,11 +5,10 @@ include "header.php";
 ?>
 
 <div>
-    <h2>Employees</h2>
+    <h2>Manage Employees</h2>
     <form action="employer_add_employee.php" method="post">
         <button type="submit">Add Employee</button>
     </form>
-    <h2>View Employees</h2>
 	<?php
 		// Retrieve all employees from the database
 		$sql = "SELECT * FROM users";
