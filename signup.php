@@ -27,11 +27,11 @@ $password = password_hash(sanitize($_POST['password']), PASSWORD_DEFAULT);
 $name = sanitize($_POST['name']);
 $stmt->execute();
 
-if (mysqli_query($conn, $sql)) {
+if ($conn->query($sql)) {
   echo "User created successfully";
   header('Location: login.php');
 } else {
-  echo "Error: " . mysqli_error($conn);
+  echo "Error: " . $conn->error;
 }
 
 // Close statement and connection
