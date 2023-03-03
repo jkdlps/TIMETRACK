@@ -1,7 +1,6 @@
 <?php
 // Start the session
 session_start();
-
 include "conn.php";
 
 // Get the form data
@@ -35,9 +34,6 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 
 // Redirect to the dashboard
-if($_SESSION['role'] == 1) {
-    header('location: employer_dashboard.php');
-} elseif($_SESSION['role'] == 0) {
-    header('location: employee_dashboard.php');
-}
+header("Location: dashboard.php");
 exit();
+?>
