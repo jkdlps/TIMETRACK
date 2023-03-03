@@ -67,9 +67,38 @@ echo "</select>";
 echo "<input type='submit' value='Go'>";
 echo "</form>";
 
+// Check if request DTR change form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get form data
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $reason = $_POST['reason'];
+
+    // Insert new DTR change request into database
+    $sql = "INSERT INTO dtr_changes (user_id, date, time, reason) VALUES ('$user_id', '$date', '$time', '$reason')";
+    if (mysqli_query($conn, $sql)) {
+        echo "<p>DTR change request submitted successfully!</p>";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+
+// Display request DTR change form
+echo "<h3>Request DTR Change</h3>";
+echo "<form method='post'>";
+echo "<label for='date'>Date:</label>";
+echo "<input type='date' id='date' name='date' required><br>";
+echo "<label for='time'>Time:</label>";
+echo "<input type='time' id='time' name='time' required><br>";
+echo "<label for='reason'>Reason:</label>";
+echo "<textarea id='reason' name='reason' required></textarea><br>";
+echo "<input type='submit' value='Submit'>";
+echo "</form>";
+
 // Close database connection
 mysqli_close($conn);
 ?>
+
 
 <div>
     <form action='employee_dashboard.php' method='post'>
