@@ -34,8 +34,11 @@ include "header.php";
     <form action="employee_attendance.php" method="post">
         <button type="submit">Attendance Page</button>
     </form> -->
-    <form action="attendance.php" method="post">
+    <!-- <form action="attendance.php" method="post">
         <button type="submit">Attend</button>
+    </form> -->
+    <form action="employee_attendance.php" method="post">
+        <button type="submit">Take Attendance</button>
     </form>
 </div>
 
