@@ -38,9 +38,9 @@ include "header.php";
     <form action="employee_view_dtr.php" method="post">
         <button type="submit">View Your Daily Time Records</button>
     </form>
-    <form action="employee_request_dtr.php" method="post">
+    <!-- <form action="employee_request_dtr.php" method="post">
         <button type="submit">Request Daily Time Record Change</button>
-    </form>
+    </form> -->
     <h3>Manage Your Leave</h3>
     <form action="employee_view_leaves.php" method="post">
         <button type="submit">View Your Leaves</button>
