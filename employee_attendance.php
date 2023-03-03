@@ -42,7 +42,7 @@ mysqli_close($conn);
 ?>
 
 <script src="take_attendance.js"></script>
-
+<?php
 // session_start();
 // include "conn.php";
 // // retrieve user ID from session
