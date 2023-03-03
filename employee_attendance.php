@@ -33,12 +33,12 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 
 // Redirect to the dashboard
-if($_SESSION['role'] == 1) {
-    header('location: employer_dashboard.php');
-} elseif($_SESSION['role'] == 0) {
-    header('location: employee_dashboard.php');
-}
-exit();
+// if($_SESSION['role'] == 1) {
+//     header('location: employer_dashboard.php');
+// } elseif($_SESSION['role'] == 0) {
+//     header('location: employee_dashboard.php');
+// }
+// exit();
 ?>
 
 <script src="take_attendance.js"></script>
