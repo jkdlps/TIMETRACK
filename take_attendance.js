@@ -35,6 +35,33 @@ function recordAttendance(status, work_from_home) {
     alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime + " \nTimezone: " + timezone);
 
     // TODO: save record to database
+    
+    // create an XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+
+    // prepare the data to be sent to the server
+    var data = "status=" + encodeURIComponent(status) +
+               "&work_from_home=" + encodeURIComponent(work_from_home) +
+               "&datetime=" + encodeURIComponent(datetime);
+
+    // specify the URL and HTTP method
+    var url = "employee_attendance.php";
+    var method = "POST";
+
+    // specify the request parameters
+    xhr.open(method, url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // handle the response from the server
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // display a success message
+            alert(xhr.responseText);
+        }
+    };
+
+    // send the request to the server
+    xhr.send(data);
 }
 
 function getDistance(lat1, lon1, lat2, lon2) {
