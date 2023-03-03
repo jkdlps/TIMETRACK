@@ -30,7 +30,7 @@ include "header.php";
 <div>
     <h3>Your Attendance:</h3>
     <script src="take_attendance.js"></script>
-        <!-- <button onclick="getLocation()">Time In</button> -->
+        <button onclick="getLocation()">Time In</button>
 </div>
 
 <div>
