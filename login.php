@@ -2,8 +2,8 @@
 session_start();
 include "conn.php";
 // Get the form data
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = sanitize($_POST['email']);
+$password = sanitize($_POST['password']);
 
 // Check if the user exists
 $sql = "SELECT * FROM users WHERE email = '$email'";

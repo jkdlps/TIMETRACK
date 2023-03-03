@@ -9,8 +9,8 @@ include "conn.php";
 <?php
 // Get the form data
 $id = $_SESSION['user_id'];
-$name = $_POST['name'];
-$email = $_POST['email'];
+$name = sanitize($_POST['name']);
+$email = sanitize($_POST['email']);
 
 // Update the user's information
 $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = '$id'";
