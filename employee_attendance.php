@@ -1,19 +1,17 @@
 <?php
 // Start session
 session_start();
+include "conn.php";
 
 // Check if employee is logged in
-if (!isset($_SESSION['employee_id'])) {
-    header("Location: employee_login.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
     exit();
 }
 
-// Include database connection file
-include "db_connection.php";
-
 // Get employee details
-$employee_id = $_SESSION['employee_id'];
-$sql = "SELECT * FROM employees WHERE id = '$employee_id'";
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM users WHERE id = '$user_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $employee_name = $row['name'];
@@ -25,7 +23,7 @@ $date = $date_time->format('Y-m-d');
 $time = $date_time->format('H:i:s');
 
 // Check if employee has already timed in
-$sql = "SELECT * FROM attendance WHERE employee_id = '$employee_id' AND date = '$date'";
+$sql = "SELECT * FROM attendance WHERE user_id = '$user_id' AND date = '$date'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // Employee has already timed in, display time out button
@@ -45,7 +43,7 @@ if (mysqli_num_rows($result) > 0) {
 // Geolocation parameters
 $geofence_lat = 14.7981472; // latitude of geofence center
 $geofence_lon = 121.0450595; // longitude of geofence center
-$geofence_radius = 500; // radius of geofence in meters
+$geofence_radius = 100; // radius of geofence in meters
 
 // Check if user is within geofence
 if (isset($_GET['latitude']) && isset($_GET['longitude'])) {
@@ -68,7 +66,7 @@ if (isset($_POST['submit'])) {
     $in_office = $_POST['in_office'];
     if ($attendance_id == "") {
         // Insert new attendance record
-        $sql = "INSERT INTO attendance (employee_id, date, time, status, in_office) VALUES ('$employee_id', '$date', '$time', '$status', '$in_office')";
+        $sql = "INSERT INTO attendance (user_id, date, time, status, in_office) VALUES ('$user_id', '$date', '$time', '$status', '$in_office')";
     } else {
         // Update existing attendance record
         $sql = "UPDATE attendance SET time = '$time', status = '$status', in_office = '$in_office' WHERE id = '$attendance_id'";
