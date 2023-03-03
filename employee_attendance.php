@@ -31,6 +31,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 mysqli_close($conn);
+die('location: employer_dashboard.php');
 
 // Redirect to the dashboard
 // if($_SESSION['role'] == 1) {
