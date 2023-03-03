@@ -97,3 +97,10 @@ if (mysqli_num_rows($check_attendance_result) > 0) {
         echo "Error inserting new attendance record: " . mysqli_error($conn);
     }
 }
+?>
+
+<div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
+</div>
