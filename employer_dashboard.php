@@ -27,7 +27,7 @@ include "header.php";
     <form action="employer_view_employees.php" method="post">
         <button type="submit">View Employees</button>
     </form>
-    <form action="employer_view_lates.php" method="post">
+    <!-- <form action="employer_view_lates.php" method="post">
         <button type="submit">View Late Employees</button>
     </form>
     <form action="employer_view_absences.php" method="post">
@@ -35,7 +35,7 @@ include "header.php";
     </form>
     <form action="employer_view_ontime.php" method="post">
         <button type="submit">View On Time Employees</button>
-    </form>
+    </form> -->
     <form action="employer_view_admins.php" method="post">
         <button type="submit">View Admins</button>
     </form>

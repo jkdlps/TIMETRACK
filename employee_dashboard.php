@@ -28,11 +28,9 @@ include "header.php";
 </div>
 
 <div>
-    <h3>Take Attendance:</h3>
-        <button onclick="getLocation()">Time In</button>
-    <form action="employee_attendance.php" method="post">
-        <button onclick="getLocation()">Time In</button>
-    </form>
+    <h3>Your Attendance:</h3>
+    <script src="take_attendance.js"></script>
+        <!-- <button onclick="getLocation()">Time In</button> -->
 </div>
 
 <div>

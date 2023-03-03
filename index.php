@@ -11,7 +11,7 @@
         <li>Leave Requesting & Management</li>
         <li>Employee & Employer Panels</li>
         <li>Employee Management</li>
-        <li>Identification of Absent, Late, and On Time Employees</li>
+        <!-- <li>Identification of Absent, Late, and On Time Employees</li> -->
         <!-- <li>One Time Passcode Verification through Email</li>
         <li>Password Change Request</li> -->
     </ul>
