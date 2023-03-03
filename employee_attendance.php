@@ -1,46 +1,7 @@
 <?php
 session_start();
 include "conn.php";
-?>
-<script>
-    function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
 
-function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    var geofence_lat = 14.7981472; // latitude of geofence center
-    var geofence_lon = 121.0450595; // longitude of geofence center
-    var distance = getDistance(lat, lon, geofence_lat, geofence_lon);
-
-    if (distance <= 500) { // check if user is within 500 meters from geofence center
-        // user is in office
-        var status = "Time In";
-        var work_from_home = 0;
-        recordAttendance(status, work_from_home);
-    } else {
-        // user is working from home
-        var status = "Time In (Work from Home)";
-        var work_from_home = 1;
-        recordAttendance(status, work_from_home);
-    }
-}
-
-function recordAttendance(status, work_from_home) {
-    var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var timezone = "Asia/Manila";
-    var datetime = date + " \n" + time;
-    alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime + " \nTimezone: " + timezone);
-
-    // TODO: save record to database
-    <?php
 // Get the form data
 $date = $_POST['date'];
 $time = $_POST['time'];
@@ -80,6 +41,44 @@ if($_SESSION['role'] == 1) {
 exit();
 ?>
 
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var geofence_lat = 14.7981472; // latitude of geofence center
+    var geofence_lon = 121.0450595; // longitude of geofence center
+    var distance = getDistance(lat, lon, geofence_lat, geofence_lon);
+
+    if (distance <= 100) { // check if user is within geofence center
+        // user is in office
+        var status = "Time In";
+        var work_from_home = 0;
+        recordAttendance(status, work_from_home);
+    } else {
+        // user is working from home
+        var status = "Time In (Work from Home)";
+        var work_from_home = 1;
+        recordAttendance(status, work_from_home);
+    }
+}
+
+function recordAttendance(status, work_from_home) {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var timezone = "Asia/Manila";
+    var datetime = date + " \n" + time;
+    alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime + " \nTimezone: " + timezone);
+}
+
 function getDistance(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -97,5 +96,3 @@ function getDistance(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
-}
-</script>

@@ -29,9 +29,9 @@ include "header.php";
 
 <div>
     <h3>Take Attendance:</h3>
-        <!-- <button onclick="getLocation()">Time In</button> -->
+        <button onclick="getLocation()">Time In</button>
     <form action="employee_attendance.php" method="post">
-        <button type="submit">Take Attendance</button>
+        <button onclick="getLocation()">Time In</button>
     </form>
 </div>
 
