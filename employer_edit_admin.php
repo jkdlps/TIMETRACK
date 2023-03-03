@@ -5,7 +5,7 @@ include "header.php";
 ?>
 
 <div>
-    <h2>Edit admin</h2>
+    <h2>Edit Admin</h2>
 </div>
 
 <?php
