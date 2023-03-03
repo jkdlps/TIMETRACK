@@ -27,8 +27,8 @@ include "header.php";
         echo "<tr>";
         echo "<td>" . $row['name'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
-        echo "<td><a href='employer_edit_employee.php?id=" . $row['id'] . "'>Edit</a></td>";
-        echo "<td><a href='employer_delete_employee.php?id=" . $row['id'] . "'>Delete</a></td>";
+        echo "<td><a href='employer_edit_admin.php?id=" . $row['id'] . "'>Edit</a></td>";
+        echo "<td><a href='employer_delete_admin.php?id=" . $row['id'] . "'>Delete</a></td>";
         echo "</tr>";
     }
     echo "</table>";
