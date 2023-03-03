@@ -9,12 +9,6 @@ include "header.php";
 </div>
 
 <?php
-// Connect to database
-$conn = mysqli_connect("localhost", "username", "password", "database");
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
 // Get user id, month, and year from form
 $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : "";
 $month = isset($_GET['month']) ? $_GET['month'] : date('n');
@@ -25,7 +19,7 @@ echo "<h3>Select Employee and Month/Year:</h3>";
 echo "<form method='get'>";
 echo "<label for='user_id'>Select Employee:</label>";
 echo "<select id='user_id' name='user_id'>";
-$sql = "SELECT * FROM employees";
+$sql = "SELECT * FROM users";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row['id'];
@@ -54,11 +48,11 @@ echo "</form>";
 
 // If user id is not empty, get daily time records from database
 if (!empty($user_id)) {
-    $sql = "SELECT * FROM dtr WHERE user_id='$user_id' AND MONTH(date)='$month' AND YEAR(date)='$year' ORDER BY date ASC";
+    $sql = "SELECT * FROM attendance WHERE user_id='$user_id' AND MONTH(date)='$month' AND YEAR(date)='$year' ORDER BY date ASC";
     $result = mysqli_query($conn, $sql);
 
     // Get user name
-    $sql2 = "SELECT name FROM employees WHERE id='$user_id'";
+    $sql2 = "SELECT name FROM users WHERE id='$user_id'";
     $result2 = mysqli_query($conn, $sql2);
     $row2 = mysqli_fetch_assoc($result2);
     $name = $row2['name'];
