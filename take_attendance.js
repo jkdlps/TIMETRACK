@@ -32,7 +32,7 @@ function recordAttendance(status, work_from_home) {
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var timezone = "Asia/Manila";
     var datetime = date + " \n" + time;
-    alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime);
+    alert("Attendance recorded:\nStatus: " + status + "\nDate and Time: " + datetime + " \nTimezone: " + timezone);
 
     // TODO: save record to database
 }
