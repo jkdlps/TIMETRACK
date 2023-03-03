@@ -15,22 +15,25 @@ include "header.php";
 </div>
 
 <?php
+
 // Get employee ID
 $user_id = $_SESSION['user_id'];
 
-// Check if month is selected
-if (isset($_GET['month'])) {
+// Check if month and year are selected
+if (isset($_GET['month']) && isset($_GET['year'])) {
     $month = $_GET['month'];
+    $year = $_GET['year'];
 } else {
     $month = date('m');
+    $year = date('Y');
 }
 
 // Retrieve daily time records from database
-$sql = "SELECT * FROM attendance WHERE user_id = '$user_id' AND MONTH(date) = '$month'";
+$sql = "SELECT * FROM attendance WHERE user_id = '$user_id' AND MONTH(date) = '$month' AND YEAR(date) = '$year'";
 $result = mysqli_query($conn, $sql);
 
-// Display daily time records for the current month
-echo "<h2>Daily Time Records for " . date('F Y', strtotime("01-$month-01")) . "</h2>";
+// Display daily time records for the selected month and year
+echo "<h2>Daily Time Records for " . date('F Y', strtotime("$year-$month-01")) . "</h2>";
 echo "<table>";
 echo "<tr><th>Date</th><th>Clock In</th><th>Clock Out</th><th>Status</th><th>Request Change</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) {
@@ -39,19 +42,26 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo "<td>" . date('h:i A', strtotime($row['clock_in'])) . "</td>";
     echo "<td>" . date('h:i A', strtotime($row['clock_out'])) . "</td>";
     echo "<td>" . $row['status'] . "</td>";
-    echo "<td><a href='employee_request_dtr.php?id=" . $row['id'] . "'>Request Change</a></td>";
+    echo "<td><a href='request_change.php?id=" . $row['id'] . "'>Request Change</a></td>";
     echo "</tr>";
 }
 echo "</table>";
 
-// Display dropdown for selecting month
-echo "<h3>Select Month:</h3>";
+// Display dropdowns for selecting month and year
+echo "<h3>Select Month and Year:</h3>";
 echo "<form method='get'>";
 echo "<select name='month'>";
 for ($i = 1; $i <= 12; $i++) {
     $month_name = date('F', strtotime("01-$i-01"));
     $selected = ($i == $month) ? "selected" : "";
     echo "<option value='$i' $selected>$month_name</option>";
+}
+echo "</select>";
+echo " ";
+echo "<select name='year'>";
+for ($i = date('Y'); $i >= 2020; $i--) {
+    $selected = ($i == $year) ? "selected" : "";
+    echo "<option value='$i' $selected>$i</option>";
 }
 echo "</select>";
 echo "<input type='submit' value='Go'>";
