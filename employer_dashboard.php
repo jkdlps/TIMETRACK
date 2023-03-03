@@ -36,6 +36,10 @@ include "header.php";
     <form action="employer_view_ontime.php" method="post">
         <button type="submit">View On Time Employees</button>
     </form>
+    <form action="employer_view_admins.php" method="post">
+        <button type="submit">View Admins</button>
+    </form>
+
     <h3>Manage Daily Time Records</h3>
     <form action="employer_view_dtr.php" method="post">
         <button type="submit">View Daily Time Records</button>
@@ -43,6 +47,7 @@ include "header.php";
     <form action="employer_dtr_requests.php" method="post">
         <button type="submit">View Daily Time Record Change Requests</button>
     </form>
+
     <h3>Manage Leaves</h3>
     <form action="employer_view_leaves.php" method="post">
         <button type="submit">View Employees on Leave</button>

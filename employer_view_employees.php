@@ -37,17 +37,6 @@ include "header.php";
 </div>
 
 <div>
-
-    <h2>Manage Admins</h2>
-    <form action="employer_add_admin.php" method="post">
-        <button type="submit">Add Admin</button>
-    </form>
-    <form action="employer_remove_admin.php" method="post">
-        <button type="submit">Remove Admin</button>
-    </form>
-</div>
-
-<div>
     <h2>Navigation</h2>
     <form action='employer_dashboard.php' method='post'>
         <button type='submit'>Back to Dashboard</button>
