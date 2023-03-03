@@ -61,12 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   // Execute the statement
   if ($stmt->execute()) {
+    echo "<script>alert('";
     echo "Employee added successfully! <br>";
     echo "Name: " . $name . "<br>";
     echo "Email: " . $email . "<br>";
     echo "Password: " . $password . "<br>";
+    echo "');</script>";
   } else {
-    echo "Error: " . $stmt->error;
+    echo "<script>alert('Error: " . $stmt->error . "');</script>";
   }
   
   // Close the statement and connection
