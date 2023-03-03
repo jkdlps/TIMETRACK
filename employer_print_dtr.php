@@ -79,6 +79,8 @@ if (!empty($user_id)) {
         mysqli_close($conn);
         ?>
 
+<button onclick="window.print()">Print this page</button>
+
 <div>
     <form action='employer_dashboard.php' method='post'>
         <button type='submit'>Back to Dashboard</button>
