@@ -4,10 +4,6 @@ include "conn.php";
 include "header.php";
 ?>
 
-<div>
-    <h2>Approve Daily Time Record Change Request</h2>
-</div>
-
 <?php
 // Get request ID
 $request_id = $_GET['id'];

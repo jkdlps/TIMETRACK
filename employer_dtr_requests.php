@@ -4,10 +4,6 @@ include "conn.php";
 include "header.php";
 ?>
 
-<div>
-    <h2>Daily Time Record Change Requests</h2>
-</div>
-
 <?php
 
 // Retrieve all daily time record change requests
