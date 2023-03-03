@@ -31,7 +31,7 @@ include "header.php";
     <h3>Take Attendance:</h3>
         <!-- <button onclick="getLocation()">Time In</button> -->
     <form action="employee_attendance.php" method="post">
-        <button onclick="getLocation()">Time In</button>
+        <button type="submit">Take Attendance</button>
     </form>
 </div>
 
