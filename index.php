@@ -42,7 +42,8 @@
       <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand nav-link" target="_blank" href="index.php">
-          <strong><h1>TIMETRACK:<p>GPS Timekeeping System</p></h1></strong>
+          <strong><h1>TIMETRACK:</h1></strong>
+          <p>GPS Timekeeping System</p>
         </a>
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
           aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,14 +52,7 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-                target="_blank">Learn Bootstrap 5</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
+              <a class="nav-link" aria-current="page" href="#intro">Login</a>
             </li>
           </ul>
 
