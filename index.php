@@ -21,7 +21,7 @@
         <header>
             <style>
             #intro {
-                background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
+                background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/2d/Plan_du_jardin_et_chateau_de_la_Reine.png);
                 height: 100vh;
             }
 
@@ -41,8 +41,8 @@
             <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
             <div class="container-fluid">
                 <!-- Navbar brand -->
-                <a class="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-                <strong>MDB</strong>
+                <a class="navbar-brand nav-link" target="_blank" href="index.php">
+                <strong>TIMETRACK</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
                 aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -176,8 +176,7 @@
 
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy<?php echo date('Y'); ?>Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <p>&copy<?php echo date('Y'); ?></p>
             </div>
             <!-- Copyright -->
         </footer>
