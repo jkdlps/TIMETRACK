@@ -42,8 +42,7 @@
       <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand nav-link" target="_blank" href="index.php">
-          <strong><h1>TIMETRACK:</h1></strong>
-          <p>GPS Timekeeping System</p>
+          <strong>TIMETRACKING: GPS Timekeeping System</strong>
         </a>
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
           aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
