@@ -19,7 +19,7 @@
 <body>
     <!-- Start your project here-->
     <div style="height: 100vh">
-        <nav class="nav">
+        <nav class="nav text-center container-fluid mt-5 p-5">
             <h1 class="h1">TIMETRACK: GPS Timekeeping System</h1>
         </nav>
     </div>
