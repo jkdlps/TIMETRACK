@@ -58,32 +58,7 @@
                 <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" href="#intro">Home</a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav d-flex flex-row">
-                    <!-- Icons -->
-                    <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-                        target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                    <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <a class="nav-link" aria-current="page" href="#intro">GPS Timekeeping System</a>
                     </li>
                 </ul>
                 </div>
@@ -124,12 +99,12 @@
 
                         <div class="col text-center">
                             <!-- Simple link -->
-                            <a href="#!">Forgot password?</a>
+                            <a href="forgot_password.php">Forgot password?</a>
                         </div>
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-block" onclick="location.href='register.php'">Sign in</button>
                     </form>
                     </div>
                 </div>
