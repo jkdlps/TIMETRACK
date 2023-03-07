@@ -76,14 +76,14 @@ include "header.php";
         <a
            href="employee_dashboard.php"
            class="list-group-item list-group-item-action py-2 ripple"
-           aria-current="true"
+           aria-current="true active"
            >
           <i class="fas fa-tachometer-alt fa-fw me-3"></i
             ><span>Employee Dashboard</span>
         </a>
         <a
            href="update-form.php"
-           class="list-group-item list-group-item-action py-2 ripple active"
+           class="list-group-item list-group-item-action py-2 ripple"
            >
           <i class="fas fa-chart-area fa-fw me-3"></i
             ><span>Update Info</span>
