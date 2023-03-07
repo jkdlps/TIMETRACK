@@ -12,8 +12,6 @@ include "header.php";
       <br>
       <input type="submit" value="Login">
     </form>
-  </body>
-</html>
 
 <div>
     <form action="index.php" method="get">
@@ -71,13 +69,13 @@ include "header.php";
               <form class="bg-white rounded-5 shadow-5-strong p-5" method="post" action="login.php">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="email" class="form-control" required />
+                  <input type="email" id="email" class="form-control" required>
                   <label class="form-label" for="email">Email: </label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="password" class="form-control" required />
+                  <input type="password" id="password" class="form-control" required>
                   <label class="form-label" for="password">Password:</label>
                 </div>
 
@@ -86,7 +84,7 @@ include "header.php";
                   <div class="col d-flex justify-content-center">
                     <!-- Checkbox -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="remember-me" checked />
+                      <input class="form-check-input" type="checkbox" value="" id="remember-me" unchecked>
                       <label class="form-check-label" for="remember-me">
                         Remember me
                       </label>
@@ -116,3 +114,19 @@ include "header.php";
     <!-- Background image -->
   </header>
   <!--Main Navigation-->
+
+  <form method="post" action="login.php">
+      <label>Email:</label>
+      <input type="email" name="email" required>
+      <br>
+      <label>Password:</label>
+      <input type="password" name="password" required>
+      <br>
+      <input type="submit" value="Login">
+    </form>
+
+<div>
+    <form action="index.php" method="get">
+        <button type="submit">Back to Homepage</button>
+    </form>
+</div>

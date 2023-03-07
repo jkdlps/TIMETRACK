@@ -49,17 +49,17 @@ include "header.php";
           <div class="row justify-content-center">
             <div class="col-xl-5 col-md-8">
             <form method="post" action="signup.php" class="bg-white rounded-5 shadow-5-strong p-5">
-    <div class="form-outline">
+    <div class="form-outline mb-4">
     <label class="form-label" for="name">Name:</label>
         <input class="form-control" type="text" name="name" required>
     </div>
 
-    <div class="form-outline">
+    <div class="form-outline mb-4">
     <label class="form-label" for="email">Email:</label>
         <input class="form-control" type="email" name="email" required>
     </div>
 
-    <div class="form-outline">
+    <div class="form-outline mb-4">
     <label class="form-label" for="password">Password:</label>
         <input class="form-control" type="password" name="password" required>
     </div>
@@ -78,6 +78,3 @@ include "header.php";
         </div>
       </div>
     </div>
-
-
-<h2>Signup</h2>
