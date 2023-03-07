@@ -12,7 +12,19 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
  
 // Include config file
-require_once "config.php";
+// require_once "config.php";
+$server = "localhost";
+$user = "u947188626__TIMETRACK";
+$pass = "*kN8xw+v$";
+$db = "u947188626__TIMETRACK";
+
+// Create connection
+$conn = mysqli_connect($server, $user, $pass, $db);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
  
 // Define variables and initialize with empty values
 $email = $password = "";

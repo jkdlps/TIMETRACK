@@ -6,7 +6,18 @@ The form contains an input field for the user to enter the verification code the
 session_start();
  
 // Include config file
-require_once "config.php";
+// require_once "config.php";
+$server = "localhost";
+$user = "u947188626__TIMETRACK";
+$pass = "*kN8xw+v$";
+$db = "u947188626__TIMETRACK";
+
+$conn = mysqli_connect($server, $user, $pass, $db);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
  
 // Define variables and initialize with empty values
 $verification_code = "";
