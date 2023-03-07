@@ -4,7 +4,7 @@ include "conn.php";
 include "header.php";
 ?>
 
-<div>
+<!-- <div>
     <p>Welcome, <?php echo $_SESSION['user_name']; ?></p>
     <h2>Employee Dashboard</h2>
 </div>
@@ -15,12 +15,12 @@ include "header.php";
         <button type="submit">Update Info</button>
     </form>
     <?php
-    if($_SESSION['user_role'] == 1) {
-        echo "
-            <form action='employer_dashboard.php' method='post'>
-                <button type='submit'>View Dashboard as Employer</button>
-            </form>";
-    }
+    // if($_SESSION['user_role'] == 1) {
+    //     echo "
+    //         <form action='employer_dashboard.php' method='post'>
+    //             <button type='submit'>View Dashboard as Employer</button>
+    //         </form>";
+    // }
     ?>
     <form action="logout.php" method="get">
         <button type="submit">Log Out</button>
@@ -28,7 +28,7 @@ include "header.php";
 </div>
 
 <div>
-    <h3>Your Attendance:</h3>
+    <h3>Your Attendance:</h3> -->
     <!-- <script src="take_attendance.js"></script>
         <button onclick="getLocation()">Time In</button> -->
     <!-- <form action="employee_attendance.php" method="post">
@@ -40,7 +40,7 @@ include "header.php";
     <!-- <form action="submit_attendance.php" method="post">
         <button type="submit">Take Attendance</button>
     </form> -->
-    <form action="timein.php" method="post">
+    <!-- <form action="timein.php" method="post">
         <button type="submit">Time In</button>
     </form>
 </div>
@@ -49,18 +49,18 @@ include "header.php";
     <h3>Manage Your Daily Time Records</h3>
     <form action="employee_view_dtr.php" method="post">
         <button type="submit">View Your Daily Time Records</button>
-    </form>
+    </form> -->
     <!-- <form action="employee_request_dtr.php" method="post">
         <button type="submit">Request Daily Time Record Change</button>
     </form> -->
-    <h3>Manage Your Leave</h3>
+    <!-- <h3>Manage Your Leave</h3>
     <form action="employee_view_leaves.php" method="post">
         <button type="submit">View Your Leaves</button>
-    </form>
+    </form> -->
     <!-- <form action="employee_request_leave.php" method="post">
         <button type="submit">Request Leave</button>
     </form> -->
-</div>
+<!-- </div> -->
 
 <!--  -->
 
