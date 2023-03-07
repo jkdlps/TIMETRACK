@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT id, email, password FROM employees WHERE email = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
             
@@ -78,7 +78,7 @@ if(password_verify($password, $hashed_password)){
     // Generate and store a one-time verification code in the database
     $verification_code = rand(100000, 999999);
     $sql = "UPDATE employees SET verification_code = ? WHERE id = ?";
-    if($stmt = mysqli_prepare($link, $sql)){
+    if($stmt = mysqli_prepare($conn, $sql)){
         mysqli_stmt_bind_param($stmt, "ii", $verification_code, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -126,7 +126,7 @@ if(password_verify($password, $hashed_password)){
     }
     
     // Close connection
-    mysqli_close($link);
+    mysqli_close($conn);
 }
 ?>
  
@@ -135,7 +135,7 @@ if(password_verify($password, $hashed_password)){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <conn rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }

@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT id FROM employees WHERE verification_code = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_verification_code);
             
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Update user status to active and clear verification code
                     $sql = "UPDATE employees SET status = 'active', verification_code = NULL WHERE verification_code = ?";
                     
-                    if($stmt = mysqli_prepare($link, $sql)){
+                    if($stmt = mysqli_prepare($conn, $sql)){
                         // Bind variables to the prepared statement as parameters
                         mysqli_stmt_bind_param($stmt, "s", $param_verification_code);
                         
@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($link);
+    mysqli_close($conn);
 }
 ?>
  
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Verification</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <conn rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
