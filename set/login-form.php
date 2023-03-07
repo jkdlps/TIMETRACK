@@ -3,6 +3,7 @@ session_start();
 include "header.php";
 
 if(isset($_SESSION['user_id'])) {
+  $_SESSION['loggedin'] = true;
   if($_SESSION['user_role'] == 1) {
     header('location: employer_dashboard.php');
   } elseif($_SESSION['user_role'] == 0) {

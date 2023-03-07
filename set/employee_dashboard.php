@@ -29,8 +29,8 @@ include "header.php";
 
 <div>
     <h3>Your Attendance:</h3>
-    <script src="take_attendance.js"></script>
-        <button onclick="getLocation()">Time In</button>
+    <!-- <script src="take_attendance.js"></script>
+        <button onclick="getLocation()">Time In</button> -->
     <!-- <form action="employee_attendance.php" method="post">
         <button type="submit">Attendance Page</button>
     </form> -->
@@ -40,6 +40,9 @@ include "header.php";
     <!-- <form action="submit_attendance.php" method="post">
         <button type="submit">Take Attendance</button>
     </form> -->
+    <form action="timein.php" method="post">
+        <button type="submit">Time In</button>
+    </form>
 </div>
 
 <div>
