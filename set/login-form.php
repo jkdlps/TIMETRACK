@@ -22,7 +22,6 @@ include "header.php";
 </div> -->
 
   <!--Main Navigation-->
-  <header>
     <style>
       #intro {
         background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
