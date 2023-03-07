@@ -2,6 +2,15 @@
 session_start();
 include "conn.php";
 
+if(isset($_SESSION['user_id'])) {
+    $_SESSION['loggedin'] = true;
+    if($_SESSION['user_role'] == 1) {
+      header('location: employer_dashboard.php');
+    } elseif($_SESSION['user_role'] == 0) {
+      header('location: employee_dashboard.php');
+    }
+  }
+
 // Get the form data
 $email = sanitize($_POST['email']);
 $password = sanitize($_POST['password']);
