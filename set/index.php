@@ -106,11 +106,11 @@
       }
 
       /* Height for devices larger than 576px */
-      @media (min-width: 992px) {
+      /* @media (min-width: 992px) {
         #intro {
           margin-top: -58.59px;
         }
-      }
+      } */
 
       .navbar .nav-link {
         color: #fff !important;
