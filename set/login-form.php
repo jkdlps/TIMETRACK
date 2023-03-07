@@ -69,17 +69,17 @@ include "header.php";
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-md-8">
-              <form class="bg-white  rounded-5 shadow-5-strong p-5" method="post" action="login.php">
+              <form class="bg-white rounded-5 shadow-5-strong p-5" method="post" action="login.php">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email" id="email" class="form-control" required />
-                  <label class="form-label" for="email">Email address</label>
+                  <label class="form-label" for="email">Email: </label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                   <input type="password" id="password" class="form-control" required />
-                  <label class="form-label" for="password">Password</label>
+                  <label class="form-label" for="password">Password:</label>
                 </div>
 
                 <!-- 2 column grid layout for inline styling -->
