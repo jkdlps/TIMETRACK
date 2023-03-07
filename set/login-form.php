@@ -95,7 +95,7 @@ include "header.php";
 
                   <div class="col text-center">
                     <!-- Simple link -->
-                    <a href="forgot_password.php">Forgot password?</a>
+                    <a href="signup-form.php">No account yet? Sign up here</a>
                   </div>
                 </div>
 
