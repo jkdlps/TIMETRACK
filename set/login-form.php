@@ -98,7 +98,7 @@ include "header.php";
 </form>
 
 <div class="container">
-    <form action="index.php" method="get" class="bg-white rounded-2 shadow-2-strong p-2">
+    <form action="index.php" method="get" class="bg-white rounded-3 shadow-3-strong p-3">
       <button type="submit" class="btn btn-secondary btn-block">Back to Homepage</button>
     </form>
 </div>

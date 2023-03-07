@@ -68,7 +68,7 @@ include "header.php";
 </form>
 
 <div>
-    <form action="index.php" method="get" class="bg-white rounded-5 shadow-5-strong p-5">
+    <form action="index.php" method="get" class="bg-white rounded-3 shadow-3-strong p-3">
         <button class="btn btn-secondary btn-block" type="submit">Back to Homepage</button>
     </form>
 </div>
