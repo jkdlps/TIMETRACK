@@ -110,38 +110,13 @@
       }
     </style>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-      <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" href="https://mdbootstrap.com/docs/standard/">
-          <strong>TIMETRACK</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarExample01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <p>GPS Timekeeping System</p>
-            </li>
-            <li class="nav-item">
-                <p>For Onsite and Remote Working Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar -->
-
     <!-- Background image -->
     <div id="intro" class="bg-image shadow-2-strong">
       <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
         <div class="container d-flex align-items-center justify-content-center text-center h-100">
           <div class="text-white">
-            <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
-            <h5 class="mb-4">Best & free guide of responsive web design</h5>
+            <h1 class="mb-3">TIMETRACK: GPS Timekeeping System</h1>
+            <h5 class="mb-4">Developed for Onsite & Remote Working Employees in Barangay Pulong Buhangin, Santa Maria, Bulacan</h5>
             <a class="btn btn-outline-light btn-lg m-2" href="login-form.php" role="button"
               rel="nofollow">Log In</a>
             <a class="btn btn-outline-light btn-lg m-2" href="signup-form.php"
@@ -151,29 +126,6 @@
       </div>
     </div>
     <!-- Background image -->
-  </header>
-  <!--Main Navigation-->
-
-  <!--Main layout-->
-  <main class="mt-5">
-    <div class="container">
-      <!--Section: Content-->
-      <section>
-        <div class="row">
-          <div class="col-md-6 gx-5 mb-4">
-            <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-              <img src="https://mdbootstrap.com/img/new/slides/031.jpg" class="img-fluid" />
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </a>
-            </div>
-          </div>
-    </div>
-    </section>
-    </div>
-    </main>
-  <!--Main layout-->
-       </div>
        <!-- End your project here-->
        <!-- jQuery -->
        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
