@@ -66,21 +66,18 @@ include "header.php";
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-md-8">
-              <form class="bg-white rounded-5 shadow-5-strong p-5" method="post" action="login.php">
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="email" class="form-control" required>
-                  <label class="form-label" for="email">Email: </label>
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="password" class="form-control" required>
-                  <label class="form-label" for="password">Password:</label>
-                </div>
-
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
+            <form method="post" action="login.php" class="bg-white rounded-5 shadow-5-strong p-5">
+  <div class="form-outline">
+    <label class="form-label">Email:</label>
+    <input type="email" name="email" class="form-control" required>
+  </div>
+  <div class="form-outline">
+    <label class="form-label">Password:</label>
+    <input type="password" name="password" class="form-control" required>
+  </div>
+  <div class="form-outline">
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
                   <div class="col d-flex justify-content-center">
                     <!-- Checkbox -->
                     <div class="form-check">
@@ -96,15 +93,15 @@ include "header.php";
                     <a href="signup-form.php">No account yet? Sign up here</a>
                   </div>
                 </div>
+  </div>
+    <input type="submit" value="Login" class="btn btn-primary btn-block">
+</form>
 
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-              </form>
-
-              <div>
-    <form class="bg-white  rounded-5 shadow-5-strong p-5" action="index.php" method="get">
-        <button type="submit" class="btn btn-secondary btn-block">Back to Homepage</button>
+<div class="container">
+    <form action="index.php" method="get" class="bg-white rounded-2 shadow-2-strong p-2">
+      <button type="submit" class="btn btn-secondary btn-block">Back to Homepage</button>
     </form>
+</div>
 </div>
             </div>
           </div>
@@ -115,18 +112,3 @@ include "header.php";
   </header>
   <!--Main Navigation-->
 
-  <form method="post" action="login.php">
-      <label>Email:</label>
-      <input type="email" name="email" required>
-      <br>
-      <label>Password:</label>
-      <input type="password" name="password" required>
-      <br>
-      <input type="submit" value="Login">
-    </form>
-
-<div>
-    <form action="index.php" method="get">
-        <button type="submit">Back to Homepage</button>
-    </form>
-</div>
