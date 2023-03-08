@@ -1,12 +1,9 @@
 <?php
-include "logout.php";
 session_start();
 include "config.php";
 $password = $_POST['password'];
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

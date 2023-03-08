@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,7 @@
     <div class="container-fluid text-center mt-5 p-3">
         <div>
             <h1 class="h1">Timetrack: GPS Timekeeping System</h1>
-            <p>Developed for Onsite, Remote, and Hybrid Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan</p>
+            <p>Developed for Onsite, Remote, and Hybrid Working Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan</p>
         </div>
         <div class="m-3 p-3">
             <a href="login.php" class="btn btn-primary">Log In</a>
