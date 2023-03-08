@@ -32,15 +32,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("location: dashboard.php");
                 exit();
             } else {
-                echo "<div class='alert alert-danger m-3'>
-                <span>Log in failed.</span>
-            </div>";
+                alerter("Log in failed.", "danger");
             }
         }
     } else {
-        echo "<div class='alert alert-danger m-3'>
-        <span>Fetch from database failed.</span>
-    </div>";
+        alerter("Fetch from database failed.", "danger");
     }
 
     // Close statement and database connection
@@ -83,8 +79,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" class="btn btn-primary" value="Log In">
                 </div>
             </form>
-
-            <?php alerter("try", "info"); ?>
         </div>
     </div>
 </body>
