@@ -18,10 +18,10 @@
             <h1 class="h1">Timetrack: GPS Timekeeping System</h1>
             <p>Developed for Onsite, Remote, and Hybrid Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan</p>
         </div>
-        <div>
+        <div class="m-3 p-3">
             <a href="login.php" class="btn btn-primary">Log In</a>
         </div>
-        <div>
+        <div class="m-3 p-3">
             <a href="signup.php" class="btn btn-primary">Sign Up</a>
         </div>
     </div>
