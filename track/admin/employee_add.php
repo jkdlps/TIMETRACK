@@ -20,8 +20,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = $_POST['role'];
 
     // Insert the employee into the database
-    $stmt = $conn->prepare("INSERT INTO employees (name, email, password, role) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $email, $password, $role);
+    $stmt = $conn->prepare("INSERT INTO employees (set_id, firstname, lastname, designation) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $set_id, $firstname, $lastname, $designation);
     $stmt->execute();
     $success_message = '
     <div class="alert alert-success">

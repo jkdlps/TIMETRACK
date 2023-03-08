@@ -27,9 +27,6 @@ include "functions.php";
             <a href="login.php" class="btn btn-primary">Log In</a>
             <a href="signup.php" class="btn btn-primary">Sign Up</a>
         </div>
-        <div>
-            <?php alerter("try", "info"); ?>
-        </div>
     </div>
 </body>
 </html>
