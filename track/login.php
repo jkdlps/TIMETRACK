@@ -30,8 +30,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif($_SESSION['user_role'] == 0) {
                 header("location: dashboard.php");
                 exit();
+            } else {
+                echo "Log in failed.";
             }
         }
+    } else {
+        echo "Fetching data from database failed.";
     }
 
     // Close statement and database connection
