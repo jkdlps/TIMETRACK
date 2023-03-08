@@ -1,2 +1,0 @@
-TIMETRACK: GPS Timekeeping System PHP MySQL
-For Onsite, Remote, and Hybrid Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan
