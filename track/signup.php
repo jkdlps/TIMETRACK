@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];    
 
     db();
-
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $query = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
     mysqli_query($con, $query);
 
