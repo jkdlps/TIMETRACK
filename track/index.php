@@ -21,6 +21,9 @@
         <div>
             <a href="login.php" class="btn btn-primary">Log In</a>
         </div>
+        <div>
+            <a href="signup.php" class="btn btn-primary">Sign Up</a>
+        </div>
     </div>
 </body>
 </html>
