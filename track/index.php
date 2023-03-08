@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid text-center mt-5 p-3">
+    <div class="container-fluid">
         <div>
             <h1>Timetrack: GPS Timekeeping System</h1>
             <p>Developed for Onsite, Remote, and Hybrid Employees of Brarangay Pulong Buhangin, Santa Maria, Bulacan</p>
