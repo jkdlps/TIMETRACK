@@ -8,6 +8,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare and bind parameters to the SQL statement
     $email = $_POST['email'];
+    $password = $_POST['password'];
+    $user_id = $_POST['id'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
 
