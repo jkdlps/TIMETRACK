@@ -16,10 +16,10 @@
     <div class="container-fluid text-center mt-5 p-3">
         <div>
             <h1 class="h1">Timetrack: GPS Timekeeping System</h1>
-            <p class="p">Developed for Onsite, Remote, and Hybrid Employees of Brarangay Pulong Buhangin, Santa Maria, Bulacan</p>
+            <p>Developed for Onsite, Remote, and Hybrid Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan</p>
         </div>
         <div>
-            <p style="color: red;" ></p>
+            <p style="color: red;">Under Maintenance</p>
         </div>
     </div>
 </body>
