@@ -7,11 +7,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     include "config.php";
 
     // Prepare and bind parameters to the SQL statement
+    $email = $_POST['email'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
 
     // Set parameters and execute the statement
-    $email = $_POST['email'];
     $stmt->execute();
 
     // Bind the result variables

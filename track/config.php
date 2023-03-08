@@ -8,6 +8,13 @@
     $conn = new mysqli($server, $user, $pass, $db);
 
     if($conn->connect_error) {
-        echo "Connection failed; " . $conn->connect_error;
-    } echo "Connection successful.";
+        echo "<div class='alert alert-danger m-3'>
+        <span>Connection failed: $conn->connect_error</span>
+    </div>";
+    } echo "<div class='alert alert-success m-3'>
+    <span>Connection successful.</span>
+</div>";
 ?>
+
+
+
