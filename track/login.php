@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "redirect.php";
+include "functions.php";
 
 // Check if the form has been submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -82,6 +83,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" class="btn btn-primary" value="Log In">
                 </div>
             </form>
+
+            <?php alerter("try", "info"); ?>
         </div>
     </div>
 </body>
