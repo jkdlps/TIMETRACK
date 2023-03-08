@@ -31,13 +31,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("location: dashboard.php");
                 exit();
             } else {
-                echo "<div class='alert alert-danger'>
-                <p>Log in failed.</p>
+                echo "<div class='alert alert-danger m-3'>
+                <span>Log in failed.</span>
             </div>";
             }
         }
     } else {
-        echo "<div class='alert alert-danger'>
+        echo "<div class='alert alert-danger m-3'>
         <span>Fetch from database failed.</span>
     </div>";
     }
