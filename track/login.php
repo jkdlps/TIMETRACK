@@ -31,11 +31,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("location: dashboard.php");
                 exit();
             } else {
-                echo "Log in failed.";
+                echo "<div class='alert alert-danger'>
+                <p>Log in failed.</p>
+            </div>";
             }
         }
     } else {
-        echo "Fetching data from database failed.";
+        echo "<div class='alert alert-danger'>
+        <p>Fetch from database failed.</p>
+    </div>";
     }
 
     // Close statement and database connection
