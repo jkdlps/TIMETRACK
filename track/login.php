@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     include "config.php";
 
     // Prepare and bind parameters to the SQL statement
-    $stmt = $conn->prepare("SELECT id, , role, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
 
     // Set parameters and execute the statement
@@ -24,8 +24,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             // Store the user ID in the session variable
             $_SESSION['user_id'] = $user_id;
             // Redirect to the employee panel page
-            header("Location: employee_panel.php");
-            exit;
+            if($_SESSION['user_role'] == 1) {
+                header("location: admin/dashboard.php");
+                exit();
+            } elseif($_SESSION['user_role'] == 0) {
+                header("location: dashboard.php");
+                exit();
+            }
         }
     }
 
