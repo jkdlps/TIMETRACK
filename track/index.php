@@ -20,8 +20,6 @@
         </div>
         <div class="m-3 p-3">
             <a href="login.php" class="btn btn-primary">Log In</a>
-        </div>
-        <div class="m-3 p-3">
             <a href="signup.php" class="btn btn-primary">Sign Up</a>
         </div>
     </div>
