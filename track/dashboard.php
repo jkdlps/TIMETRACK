@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +22,9 @@
         <div>
             <h1 class="h1">Employee Dashboard | Timetrack</h1>
         </div>
+    </div>
+    <div>
+        <a href="logout.php">Log Out</a>
     </div>
 </body>
 </html>
