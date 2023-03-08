@@ -1,0 +1,9 @@
+TIMETRACK: GPS Timekeeping System
+Developed for Onsite, Remote, and Hybrid Working Employees of Barangay Pulong Buhangin, Santa Maria, Bulacan
+Using PHP and MySQLi
+
+Features:
+- Attendance Taking through Geolocation and Geofencing
+- One Time Passcode Verification through Email
+- Employee Panel for Managing Attendance, Personal Time Records, and Personal Leaves
+- Employer Panel for Managing Employees, Time Records, and Leaves
