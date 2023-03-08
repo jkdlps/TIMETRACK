@@ -1,11 +1,12 @@
 <?php
+include "logout.php";
 session_start();
 include "config.php";
 $password = $_POST['password'];
 $hashed = password_hash($password, PASSWORD_DEFAULT);
-
-echo "The hashed password is: " . var_dump($hashed);
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
