@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "<div class='alert alert-danger'>
-        <p>Fetch from database failed.</p>
+        <span>Fetch from database failed.</span>
     </div>";
     }
 
