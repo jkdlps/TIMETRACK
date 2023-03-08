@@ -3,52 +3,28 @@ session_start();
 include "redirect.php";
 include "functions.php";
 
-// Check if the form has been submitted
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "config.php";
-
-    // Prepare and bind parameters to the SQL statement
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-
-    // Set parameters and execute the statement
-    $stmt->execute();
-
-    // Bind the result variables
-    $stmt->bind_result($user_id, $email, $hashed_password);
-
-    // Check if there is a match for the email
-    if($stmt->fetch()) {
-        // Verify the entered password with the hashed password from the database
-        if(password_verify($_POST['password'], $hashed_password)) {
-            // Store the user ID in the session variable
-            $_SESSION['user_id'] = $user_id;
-            // Redirect to the employee panel page
-            if($_SESSION['user_role'] == 1) {
-                header("location: admin/dashboard.php");
-                exit();
-            } elseif($_SESSION['user_role'] == 0) {
-                header("location: dashboard.php");
-                exit();
-            } else {
-                alerter("Log in failed.", "danger");
-            }
-        }
+    $password = $_POST['password'];
+  
+    db();
+  
+    $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $query);
+  
+    if (mysqli_num_rows($result) > 0) {
+      $_SESSION['email'] = $email;
+      header('Location: dashboard.php');
     } else {
-        alerter("Fetch from database failed.", "danger");
+      echo 'Invalid email or password';
     }
-
-    // Close statement and database connection
-    $stmt->close();
-    $conn->close();
-
-    // Display error message
-    $error_message = "Invalid email or password.";
-}
+  
+    mysqli_close($conn);
+  }
 
 head("Login");
 ?>
+
     <div class="container-fluid text-center">
         <div class="m-3 p-3">
             <h1>Login</h1>

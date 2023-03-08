@@ -24,10 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("INSERT INTO employees (set_id, firstname, lastname, designation) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $set_id, $firstname, $lastname, $designation);
     $stmt->execute();
-    $success_message = '
-    <div class="alert alert-success">
-        <p>Employee added successfully.</p>
-    </div>';
+    $success_message = alerter("Employee added successfully.", "success");
 
     // Close statement
     $stmt->close();
