@@ -46,23 +46,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Display error message
     $error_message = "Invalid email or password.";
 }
+
+head("Login");
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Timetrack</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
     <div class="container-fluid text-center">
         <div class="m-3 p-3">
             <h1>Login</h1>
@@ -79,6 +65,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="submit" class="btn btn-primary" value="Log In">
                 </div>
             </form>
+            <div>
+                <a href=""></a>
+            </div>
         </div>
     </div>
 </body>
