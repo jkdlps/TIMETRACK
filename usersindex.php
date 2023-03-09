@@ -84,8 +84,9 @@ head("Attendance");
                                         <h3>
                                             <?php
                                                 date_default_timezone_set('Asia/Manila');
-                                                $time = date('Y-m-d');
-                                                echo $time;
+                                                $date = date('l, F d, Y');
+                                                echo $date;
+                                                
                                                 ?>
                                         </h3>
                                     </div>
