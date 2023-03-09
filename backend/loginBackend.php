@@ -9,13 +9,12 @@ $password = $_POST['password'];
 $errors = array();
 
     // Escape input to prevent SQL injection
-    $email = mysqli_real_escape_string($con, $email);
-    $password = mysqli_real_escape_string($con, $password);
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
 
     // Query database for user
-    $sql = "SELECT * FROM users WHERE email ='" . $email . "' AND password = '" . $password ."'";
-    echo $sql;
-    $result = mysqli_query($con, $sql);
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
 
     // Check if user exists
     if ($result->num_rows > 0) {
@@ -23,12 +22,7 @@ $errors = array();
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          header("location: employee_dashboard.php");
-        //   if($_SESSION['role'] == 0) {
-        //     header("location: employee_dashboard.php");
-        //   } else {
-        //     header("location: admin_dashboard.php");
-        //   }
+          header("location: ./usersindex.php");
       }
   }
     else {
