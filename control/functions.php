@@ -1,5 +1,4 @@
 <?php
-
 function head($title) {
     echo '
     <!DOCTYPE html>

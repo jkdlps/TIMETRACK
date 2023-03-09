@@ -1,7 +1,6 @@
 <?php
 session_start();
-include "functions.php";
-
+include "../control/functions.php";
 head("Employee Dashboard");
 ?>
 
@@ -11,5 +10,5 @@ head("Employee Dashboard");
     </div>
 </div>
 <div>
-    <a href="../logout.php">Log Out</a>
+    <a href="../control/logout.php">Log Out</a>
 </div>

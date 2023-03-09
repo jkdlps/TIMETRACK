@@ -1,13 +1,13 @@
 <?php
 session_start();
-include "functions.php";
+include "../control/functions.php";
 head("Login");
 ?>
 
 <div class="container-fluid text-center">
     <div class="m-3 p-3">
         <h1>Login</h1>
-        <form action="../login.php" method="post">
+        <form action="../control/login.php" method="post">
             <div class="mt-3">
                 <label for="email" class="form-label">Email: </label>
                 <input type="email" name="email" id="email" class="form-control" required>

@@ -5,7 +5,7 @@ head("Sign Up");
 ?>
 
 <div class="container-fluid text-center m-3 p-3">
-    <form method="post" action="../signup.php" class="form-outline">
+    <form method="post" action="../control/signup.php" class="form-outline">
     
     <div class="form-group">
         <input type="email" class="form-control" name="email" class="form-control" placeholder="Email">

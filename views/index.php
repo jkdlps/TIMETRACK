@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "functions.php";
+include "../control/functions.php";
 head("Home");
 ?>
     <div class="container-fluid text-center mt-5 p-3">
