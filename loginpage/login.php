@@ -1,7 +1,7 @@
 <div class="col-lg-6 text-center text-lg-start">
                 <img class="img-fluid" src="./images/login.png" />
             </div>
-            <div class="col-md-10 mx-auto col-lg-6">
+            <div class="col-md-10 mx-auto col-lg-5">
 
                 <form class="p-4 p-md-5  rounded-3" method="post">
                     
