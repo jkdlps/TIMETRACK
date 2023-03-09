@@ -14,7 +14,7 @@ include "header.php";
       @media (max-width: 991px) {
               #intro {
               /* Margin to fix overlapping fixed navbar */
-              margin-top: 45px;
+              /* margin-top: 45px; */
       	}
       }
     </style>
@@ -28,7 +28,7 @@ include "header.php";
             <h1 class="mb-3">Employee Attendance</h1>
 
             <!-- Time Counter -->
-            <h3 id="time-counter" class="border border-light my-4 p-4"></h3>
+            <!-- <h3 id="time-counter" class="border border-light my-4 p-4"></h3> -->
 
             <a class="btn btn-outline-light btn-lg m-2" href="timein.php" role="button">Time In</a>
             <a class="btn btn-outline-light btn-lg m-2" href="timeout.php" role="button">Time Out</a>
