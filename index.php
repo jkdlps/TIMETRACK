@@ -18,7 +18,7 @@ head("Home");
         include("./components/hero.php");
         ?>
             <div class="container-fluid text-center">
-        <a href="usersindex.php" class="btn btn-primary btn-block">Take Attendance</a>
+        <a href="usersindex.php" class="btn btn-primary btn-block p-3 m-3">Take Attendance</a>
     </div>
     <?php
         include("./components/footer.php");
