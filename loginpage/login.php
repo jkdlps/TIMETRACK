@@ -24,7 +24,7 @@ head("Login")
             </div>
             <div class="col-md-10 mx-auto col-lg-6">
 
-                <form class="p-4 p-md-5  rounded-3" action="../control/login.php" >
+                <form class="p-4 p-md-5  rounded-3" method="post" action="../control/login.php" >
 
                     <h1 class="my-2">Login</h1>
 
