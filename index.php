@@ -18,7 +18,11 @@
     <div class="">
         <?php
         include("./components/navbar.php");
-        include("./components/hero.php");
+        include("./components/hero.php"); ?>
+        <div class="container-fluid text-center">
+            <a href="usersindex.php" class="btn btn-primary btn-block m-3 p-3">Go to Attendance</a>
+        </div>
+        <?php
         include("./components/footer.php");
         ?>
 
