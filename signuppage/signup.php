@@ -23,7 +23,11 @@
                 <img class="img-fluid" src="./images/signup.png" />
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5  rounded-3">
+                <form class="p-4 p-md-5 rounded-3">
+
+                    <?php
+                    include("./backend/signupbackend.php");
+                    ?>
 
                     <h1 class="my-3">Signup</h1>
 
