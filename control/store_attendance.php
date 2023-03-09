@@ -71,7 +71,7 @@
         }
         map.on('locationfound', onLocationFound);
     </script>
-    <form method="post" action="../backend/attendancebackend.php">
+    <form method="post" action="./backend/attendancebackend.php">
         <input type="hidden" name="latitude" id="latitude" required>
         <input type="hidden" name="longitude" id="longitude" required>
         <button type="submit" name="submit">Store Location</button>

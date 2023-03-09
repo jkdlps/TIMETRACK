@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
     $sql = "INSERT INTO location (latitude,longitude) VALUES ('$latitude','$longitude')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "test";
         $_SESSION['message'] = "Reserved Successfully";
         header("location: ../usersindex.php");
     } else {
