@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     
     if ($distance <= 100) {        
         // User is within the geofence, record their attendance
-        $sql = "INSERT INTO attendance (time_in) VALUES ($timein)";
+        $sql = "INSERT INTO attendance (time_in, designation) VALUES ($timein, $designation)";
         
         // Get the user's email from the session
         $email = $_SESSION['email'];

@@ -3,7 +3,7 @@ session_start();
 include "functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $email = $_SESSION['email'];
+  $user_id = $_SESSION['user_id'];
   $date = date('Y-m-d');
   $time = date('H:i:s');
   $latitude = $_POST['latitude'];
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 db();
 
-  $query = "INSERT INTO attendance (email, date, time, latitude, longitude) VALUES ('$email', '$date', '$time', '$latitude', '$longitude')";
+  $query = "INSERT INTO attendance (user_id, date, time, latitude, longitude) VALUES ('$user_id', '$date', '$time', '$latitude', '$longitude')";
   mysqli_query($con, $query);
 
   mysqli_close($con);
