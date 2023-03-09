@@ -41,9 +41,10 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
+    echo $latitude;
 
     $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude')";
-    echo "<script>alert('$sql')</script>";
+    echo $sql;
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";
