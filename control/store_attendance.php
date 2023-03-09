@@ -3,10 +3,10 @@
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['email'])) {
-    header("Location: ../loginpage.php");
-    exit();
-}
+// if (!isset($_SESSION['email'])) {
+//     header("Location: ../loginpage.php");
+//     exit();
+// }
 
 // Check if it's a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
