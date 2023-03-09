@@ -22,7 +22,7 @@
     <div class="container col-xl-10 col-xxl-8 px-4 py-5">
         <div class="row align-items-center g-lg-5 py-5">
 
-            <div class="col-lg-6 text-center text-lg-start">
+            <div class="col-lg-4 text-center text-lg-start">
                 <img class="img-fluid" src="./images/login.png" />
             </div>
             <div class="col-md-10 mx-auto col-lg-6">
