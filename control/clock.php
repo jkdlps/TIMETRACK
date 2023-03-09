@@ -16,6 +16,7 @@
 	<script>
 		function updateTime() {
 			var now = new Date();
+            now.getTime();
 			var hours = now.getHours();
 			var minutes = now.getMinutes();
 			var seconds = now.getSeconds();
@@ -26,7 +27,8 @@
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 
 			// Format the time as "hh:mm:ss"
-			var timeString = hours + ":" + minutes + ":" + seconds;
+			// var timeString = hours + ":" + minutes + ":" + seconds;
+            var timeString = now.getTime();
 
 			// Update the clock element with the new time
 			document.getElementById("clock").innerHTML = timeString;
