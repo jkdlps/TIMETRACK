@@ -41,13 +41,12 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
-    echo $latitude;
-    echo $_SESSION['id'];
 
-    $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude') WHERE id=$id";
+    $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude')";
     echo $sql;
 
     if ($conn->query($sql) === TRUE) {
+        echo "test";
         $_SESSION['message'] = "Reserved Successfully";
         header("location: ../usersindex.php");
     } else {
