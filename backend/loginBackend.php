@@ -14,6 +14,7 @@ $errors = array();
 
     // Query database for user
     $sql = "SELECT * FROM users WHERE email ='" . $email . "' AND password = '" . $password ."'";
+    echo $sql;
     $result = mysqli_query($con, $sql);
 
     // Check if user exists
