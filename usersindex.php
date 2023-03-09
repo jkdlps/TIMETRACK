@@ -53,20 +53,20 @@ head("Attendance");
                             <div class='row'>
                                 <div class='col-lg-6'>
                                     <!-- Lat  -->
-                                    <div class="form-outline mb-4">
+                                    <!-- <div class="form-outline mb-4">
                                         <label class="form-label" for="latitude">Latitude: </label>
                                         <input type="text" name="latitude" id="latitude"
                                             class="form-control" />
                                     </div>
                                 </div>
-                                <div class='col-lg-6'>
+                                <div class='col-lg-6'> -->
                                     <!-- Long -->
-                                    <div class="form-outline mb-4">
+                                    <!-- <div class="form-outline mb-4">
                                         <label class="form-label" for="longitude">Longitude: </label>
                                         <input type="text" name="longitude" id="longitude"
                                             class="form-control" />
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class='row'>
