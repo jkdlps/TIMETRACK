@@ -3,7 +3,6 @@ session_start();
 include "control/functions.php";
 db();
 
-
 $rows = mysqli_query($con, "SELECT * FROM attendance");
 $i = 1;
 
@@ -67,16 +66,16 @@ head("Attendance")
                                 <div class='col-lg-6'>
                                     <!-- Lat  -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="form1Example1">Latitude</label>
-                                        <input required type="text" name="latitude" id="form1Example1"
+                                        <label class="form-label" for="latitude">Latitude: </label>
+                                        <input type="text" name="latitude" id="latitude"
                                             class="form-control" />
                                     </div>
                                 </div>
                                 <div class='col-lg-6'>
                                     <!-- Long -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="form1Example1">longitude</label>
-                                        <input required type="text" name="longitude" id="form1Example1"
+                                        <label class="form-label" for="longitude">Longitude: </label>
+                                        <input type="text" name="longitude" id="longitude"
                                             class="form-control" />
                                     </div>
                                 </div>
@@ -86,26 +85,23 @@ head("Attendance")
                                 <div class='col-lg-6'>
                                     <!-- Time  -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="form1Example1">Time</label>
+                                        <label class="form-label" for="time">Time</label>
                                         <h3 id="clock"></h3>
                                     </div>
                                 </div>
                                 <div class='col-lg-6'>
                                     <!-- Date -->
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="form1Example1">Date</label>
+                                        <label class="form-label" for="date">Date</label>
                                         <h3>
                                             <?php
                                                 date_default_timezone_set('Asia/Manila');
-                                                $time = date('Y-m-d ');
-
+                                                $time = date('Y-m-d');
                                                 echo $time;
                                                 ?>
                                         </h3>
                                     </div>
                                 </div>
-
-
 
                                 <div class="mapouter card">
                                     <div class="gmap_canvas">
@@ -136,10 +132,7 @@ head("Attendance")
 
                             <!-- Timein button -->
 
-                            <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit'
-                                value="signup">TimeIn </button>
-
-
+                            <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="signup">Time In</button>
                         </form>
                     </div>
                 </div>
