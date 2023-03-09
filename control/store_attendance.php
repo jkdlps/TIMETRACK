@@ -1,6 +1,6 @@
 <?php
 // Start the session
-session_start();
+// session_start();
 
 // Check if the user is logged in
 // if (!isset($_SESSION['email'])) {
@@ -8,29 +8,52 @@ session_start();
 //     exit();
 // }
 
-// Check if it's a POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// // Check if it's a POST request
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // Get the user's location from the POST data
+//     // Get the user's location from the POST data
+//     $latitude = $_POST['latitude'];
+//     $longitude = $_POST['longitude'];
+    
+//     // Get the user's email from the session
+//     $email = $_SESSION['email'];
+    
+//     // Insert the location record into the database
+//     include "functions.php";
+//     db();
+//     $stmt = mysqli_prepare($con, "INSERT INTO attendance (latitude, longitude) VALUES (?, ?, ?) WHERE email = $email");
+//     mysqli_stmt_bind_param($stmt, 'dd', $latitude, $longitude);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
+//     mysqli_close($con);
+    
+
+
+//     // Redirect the user to the map page
+//     header("Location: ../usersindex.php");
+//     exit();
+// }
+?>
+<?php
+session_start();
+include("connection.php");
+
+if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
-    
-    // Get the user's email from the session
-    $email = $_SESSION['email'];
-    
-    // Insert the location record into the database
-    include "functions.php";
-    db();
-    $stmt = mysqli_prepare($con, "INSERT INTO attendance (latitude, longitude) VALUES (?, ?, ?) WHERE email = $email");
-    mysqli_stmt_bind_param($stmt, 'dd', $latitude, $longitude);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    mysqli_close($con);
-    
-    // Redirect the user to the map page
-    header("Location: ../usersindex.php");
-    exit();
+
+    $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude')";
+    echo "<script>alert('$sql')</script>";
+
+    if ($conn->query($sql) === TRUE) {
+        $_SESSION['message'] = "Reserved Successfully";
+        header("location: ../usersindex.php");
+    } else {
+        $_SESSION['message'] = "Wrong Password";
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
+
 
 ?>
 
@@ -73,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="post">
         <input type="hidden" name="latitude" id="latitude" required>
         <input type="hidden" name="longitude" id="longitude" required>
-        <button type="submit">Store Location</button>
+        <button type="submit" name="submit">Store Location</button>
     </form>
 </body>
 </html>
