@@ -42,9 +42,9 @@ if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     echo $latitude;
-    echo $_POST['user_id'];
+    echo $_SESSION['id'];
 
-    $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude') WHERE user_id=$user_id";
+    $sql = "INSERT INTO attendance (latitude,longitude) VALUES ('$latitude','$longitude') WHERE id=$id";
     echo $sql;
 
     if ($conn->query($sql) === TRUE) {
