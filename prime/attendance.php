@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $time = date('Y-m-d H:i:s');
         
         // Insert the attendance record into the database
-        $conn = mysqli_connect('localhost', 'username', 'password', 'database');
+        include "conn.php";
         $stmt = mysqli_prepare($conn, "INSERT INTO attendance (email, time_in) VALUES (?, ?)");
         mysqli_stmt_bind_param($stmt, 'ss', $email, $time);
         mysqli_stmt_execute($stmt);
