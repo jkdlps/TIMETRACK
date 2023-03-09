@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_query($con, $query);
 
     mysqli_close($con);
+    
 }
 
 head("Sign Up");
