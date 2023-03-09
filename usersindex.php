@@ -45,7 +45,7 @@ head("Attendance");
 
                     <div class="col-md-10 mx-auto col-lg-12">
 
-                        <form class="myForm p-4 p-md-5 card mx-2" action="./backend/insertAttendance.php" method="POST"
+                        <form class="myForm p-4 p-md-5 card mx-2" action="control/store_attendance.php" method="POST"
                             enctype="multipart/form-data">
 
 
