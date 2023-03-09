@@ -90,11 +90,15 @@ head("Attendance");
                                         </h3>
                                     </div>
                                 </div>
-
+<!-- 
                                 <div class="mapouter card">
                                     <div class="gmap_canvas">
                                         <iframe width="480" height="481" id="gmap_canvas"
-                                            src="https://maps.google.com/maps?q= <?php echo $row['latitude']; ?>,<?php echo $row['longitude']; ?>&hl=es;z=14&output=embed"
+                                            src="https://maps.google.com/maps?q= <?php 
+                                            // echo $row['latitude']; ?>,
+                                            <?php 
+                                            // echo $row['longitude']; 
+                                            ?>&hl=es;z=14&output=embed"
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                         <style>
                                         .mapouter {
@@ -113,7 +117,7 @@ head("Attendance");
                                         }
                                         </style>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
