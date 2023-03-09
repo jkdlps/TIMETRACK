@@ -1,3 +1,6 @@
+<?php 
+include "header.php";
+?>
   <!--Main Navigation-->
   <header>
     <!-- Intro settings -->
