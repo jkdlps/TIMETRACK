@@ -2,7 +2,30 @@
 session_start();
 include "../control/functions.php";
 db();
-head("Login")
+head("Login");
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $decoded = password_verify($password, PASSWORD_DEFAULT);
+
+    $query = "SELECT * FROM users WHERE email='$email' AND password='$decoded'";
+    $result = mysqli_query($con, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['email'] = $email;
+        header('Location: dashboard.php');
+        exit();
+    } else {
+        echo 'Invalid email or password';
+        header("location: ../loginpage.php");
+        exit();
+    }
+
+    mysqli_close($con);
+}
+
 ?>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
