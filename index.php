@@ -16,13 +16,14 @@ head("Home");
         <?php
         include("./components/navbar.php");
         include("./components/hero.php");
+        ?>
+            <div class="container-fluid text-center">
+        <a href="usersindex.php" class="btn btn-primary btn-block">Take Attendance</a>
+    </div>
+    <?php
         include("./components/footer.php");
         ?>
 
-    </div>
-
-    <div class="container-fluid text-center">
-        <a href="usersindex.php" class="btn btn-primary btn-block">Take Attendance</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
