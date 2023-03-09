@@ -11,5 +11,6 @@ if (isset($_POST['submit'])) {
     mysqli_query($con, $query);
     mysqli_close($con);
     header("location: ../loginpage.php");
+    exit();
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../control/functions.php";
+db();
 head("Login")
 ?>
     <link rel="stylesheet" href="styles.css">
@@ -15,7 +16,6 @@ head("Login")
 </head>
 
 <body>
-
     <div class="container col-xl-10 col-xxl-8 px-4 py-5">
         <div class="row align-items-center g-lg-5 py-5">
 
@@ -29,11 +29,11 @@ head("Login")
                     <h1 class="my-2">Login</h1>
 
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                         <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="checkbox mb-3">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "control/functions.php";
+db();
 head("Login")
 ?>
     <link rel="stylesheet" href="styles.css">

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "control/functions.php";
+db();
 head("Signup")
 ?>
     <link rel="stylesheet" href="styles.css">

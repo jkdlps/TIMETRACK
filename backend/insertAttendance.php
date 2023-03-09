@@ -3,13 +3,12 @@ session_start();
 include("connection.php");
 
 if (isset($_POST['submit'])) {
+    $user_id = $_SESSION['user_id'];
     $latitude = $_POST['latitude'];
-    $longitude = $_POST['longitude'];
-    
+    $longitude = $_POST['longitude'];    
 
-    $sql = "INSERT INTO attendance (latitude,longitude )
-    VALUES ('$latitude','$longitude')";
-
+    $sql = "INSERT INTO attendance (latitude,longitude)
+    VALUES ('$latitude','$longitude') WHERE id=$user_id";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";
@@ -19,13 +18,5 @@ if (isset($_POST['submit'])) {
         $_SESSION['message'] = "Wrong Password";
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
-
 }
-
-
-
-
-
-
 ?>

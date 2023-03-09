@@ -4,7 +4,7 @@ include "control/functions.php";
 db();
 
 
-$rows = mysqli_query($conn, "SELECT * FROM attendance");
+$rows = mysqli_query($con, "SELECT * FROM attendance");
 $i = 1;
 
 foreach($rows as $row) :
