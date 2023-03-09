@@ -13,7 +13,7 @@ include "conn.php";
 
 // Get the form data
 $email = sanitize($_POST['email']);
-$password = sanitize($_POST['password']);
+$password = $_POST['password'];
 
 // Check if the user exists
 $sql = "SELECT * FROM users WHERE email = '$email'";
