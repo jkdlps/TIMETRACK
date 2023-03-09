@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("connection.php");
+include "../control/functions.php";
+db();
 
 if (isset($_POST['submit'])) {
     $user_id = $_SESSION['user_id'];
@@ -18,5 +19,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['message'] = "Wrong Password";
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+} else {
+    alerter("Error", "danger");
 }
 ?>
