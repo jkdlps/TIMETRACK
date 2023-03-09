@@ -1,9 +1,10 @@
-<?php
-session_start();
-include "../control/functions.php";
-db();
-head("Signup");
-?>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signup</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -22,21 +23,21 @@ head("Signup");
                 <img class="img-fluid" src="./images/signup.png" />
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5  rounded-3" method="post" action="../control/signup.php">
+                <form class="p-4 p-md-5  rounded-3">
 
                     <h1 class="my-3">Signup</h1>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" placeholder="Input your name">
-                        <label for="name">Name</label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Input your email">
-                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Input your password">
-                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
                     </div>
                     <div class="checkbox mb-3">
                         <label>
@@ -45,7 +46,8 @@ head("Signup");
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Signup</button>
                     <hr class="my-4">
-                    <small class="text-muted mb-3"> By using this service, you understood and agree to the Timetrack: GPS Timekeeping System <a href="terms.php"> Terms of Use and Privacy Statement</small>
+                    <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
+                        Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small>
                 </form>
             </div>
         </div>
