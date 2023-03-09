@@ -13,11 +13,9 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['email'] = $email;
         header('Location: employee_dashboard.php');
-        exit();
     } else {
         echo 'Invalid email or password';
         header("location: ../loginpage.php");
-        exit();
     }
 
     mysqli_close($con);
