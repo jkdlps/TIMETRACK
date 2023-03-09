@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
         }
         map.on('locationfound', onLocationFound);
     </script>
-    <form method="post">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <input type="hidden" name="latitude" id="latitude" required>
         <input type="hidden" name="longitude" id="longitude" required>
         <button type="submit" name="submit">Store Location</button>
