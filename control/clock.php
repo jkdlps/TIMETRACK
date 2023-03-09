@@ -27,8 +27,7 @@
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 
 			// Format the time as "hh:mm:ss"
-			// var timeString = hours + ":" + minutes + ":" + seconds;
-            var timeString = now.getTime();
+			var timeString = hours + ":" + minutes + ":" + seconds;
 
 			// Update the clock element with the new time
 			document.getElementById("clock").innerHTML = timeString;
