@@ -120,7 +120,11 @@ $errors = array();
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          header("location: ./usersindex.php");
+          if($_SESSION['role'] == 0) {
+            header("location: employee_dashboard.php");
+          } else {
+            header("location: admin_dashboard.php");
+          }
       }
   }
     else {
