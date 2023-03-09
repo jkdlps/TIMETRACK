@@ -10,5 +10,6 @@ if (isset($_POST['submit'])) {
     $query = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
     mysqli_query($con, $query);
     mysqli_close($con);
+    header("location: ../loginpage.php");
 }
 ?>

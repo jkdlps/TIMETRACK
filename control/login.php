@@ -17,6 +17,8 @@ if (isset($_POST['submit'])) {
         header('Location: dashboard.php');
     } else {
         echo 'Invalid email or password';
+        header("location: ../loginpage.php");
+        exit();
     }
 
     mysqli_close($con);
