@@ -23,7 +23,7 @@ $errors = array();
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          header("location: ./usersindex.php");
+          header("location: ../control/store_attendance.php");
       }
   }
     else {
