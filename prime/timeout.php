@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Time Out</title>
-</head>
-<body>
-    <h1>Time Out</h1>
-    <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
-    <form method="post">
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitude" name="latitude" required><br>
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" required><br>
-        <button type="button" onclick="getLocation()">Share location</button>
-        <input type="submit" value="Time Out">
-    </form>
-<script>
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
-
-    function showPosition(position) {
-        document.getElementById("latitude").value = position.coords.latitude;
-        document.getElementById("longitude").value = position.coords.longitude;
-    }
-</script>
-</body>
-</html>
 <?php
-
 // Start the session
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['user_email'])) {
     header("Location: login.php");
     exit();
 }
@@ -65,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $time = date('Y-m-d H:i:s');
         
         // Update the attendance record in the database with the time out
-        $conn = mysqli_connect('localhost', 'username', 'password', 'database');
-        $stmt = mysqli_prepare($conn, "UPDATE attendance SET time_out = ? WHERE email = ? AND DATE(time_in) = CURDATE()");
-        mysqli_stmt_bind_param($stmt, 'ss', $time, $email);
+        include "conn.php";
+        $stmt = mysqli_prepare($conn, "UPDATE attendance SET time_out = ? WHERE user_id = ? AND DATE(time_in) = CURDATE()");
+        mysqli_stmt_bind_param($stmt, 'si', $time, $user_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
@@ -115,3 +82,37 @@ if (empty($time_in)) {
     // User has already timed out today, show an error message
     $error = "You have already timed out for today.";
 }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Out</title>
+</head>
+<body>
+    <h1>Time Out</h1>
+    <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
+    <form method="post">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required><br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required><br>
+        <button type="button" onclick="getLocation()">Share location</button>
+        <input type="submit" value="Time Out">
+    </form>
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        document.getElementById("latitude").value = position.coords.latitude;
+        document.getElementById("longitude").value = position.coords.longitude;
+    }
+</script>
+</body>
+</html>
