@@ -54,7 +54,7 @@
                 <form class="p-4 p-md-5  rounded-3" method="post">
                     
                     <?php
-                    include("./backend/loginbackend.php");
+                    // include("./backend/loginbackend.php");
                     ?>
 
                     <h1 class="my-2">Login</h1>
@@ -75,7 +75,7 @@
                         </label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" value="Login">Login</button>
-                    <small class="text-muted">Don't have an account?<a href="./signuppage.php"> Sign Up </a></small>
+                    <small class="text-muted">Don't have an account?<a href="./loginpage.php"> Sign Up </a></small>
                     <hr class="my-4">
                     <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
                         Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small>
