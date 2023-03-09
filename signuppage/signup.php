@@ -7,8 +7,6 @@ head("Signup")
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-
     <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,16 +27,16 @@ head("Signup")
                     <h1 class="my-3">Signup</h1>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input your name">
-                        <label for="floatingInput">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Input your name">
+                        <label for="name">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="Input your email">
-                        <label for="floatingInput">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Input your email">
+                        <label for="email">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Input your password">
-                        <label for="floatingPassword">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Input your password">
+                        <label for="password">Password</label>
                     </div>
                     <div class="checkbox mb-3">
                         <label>

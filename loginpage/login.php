@@ -18,23 +18,19 @@ head("Login")
 <body>
     <div class="container col-xl-10 col-xxl-8 px-4 py-5">
         <div class="row align-items-center g-lg-5 py-5">
-
             <div class="col-lg-6 text-center text-lg-start">
                 <img class="img-fluid" src="./images/login.png" />
             </div>
             <div class="col-md-10 mx-auto col-lg-6">
-
                 <form class="p-4 p-md-5  rounded-3" method="post" action="../control/login.php" >
-
                     <h1 class="my-2">Login</h1>
-
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-                        <label for="floatingInput">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        <label for="email">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
-                        <label for="floatingPassword">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <label for="password">Password</label>
                     </div>
                     <div class="checkbox mb-3">
                         <label>
@@ -44,7 +40,7 @@ head("Login")
                     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Login</button>
                     <small class="text-muted">Don't have an account?<a href="./signuppage.php"> Sign Up </a></small>
                     <hr class="my-4">
-                    <small class="text-muted mb-3"> By using this service, you understood and agree to the Timetrack: GPS Timekeeping System <a href="terms.php"> Terms of Use and Privacy Statement</small>
+                    <small class="text-muted mb-3">By using this service, you understood and agree to the Timetrack: GPS Timekeeping System <a href="terms.php"> Terms of Use and Privacy Statement</small>
                 </form>
             </div>
         </div>
