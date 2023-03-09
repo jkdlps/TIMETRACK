@@ -32,6 +32,9 @@ include "header.php";
 
             <a class="btn btn-outline-light btn-lg m-2" href="timein.php" role="button">Time In</a>
             <a class="btn btn-outline-light btn-lg m-2" href="timeout.php" role="button">Time Out</a>
+            <div>
+            <a class="btn btn-outline-light btn-lg m-2" href="employee_dashboard.php" role="button">Back to Dashboard</a>
+            </div>
           </div>
         </div>
       </div>
