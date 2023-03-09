@@ -1,0 +1,171 @@
+TIMETRACK: GPS Timekeeping System for Barangay Pulong Buhangin, Santa Maria, Bulacan
+Using PHP and MySQL
+
+index
+- shows system details
+- shows system documentation 
+
+login
+- automatically directs user to employee and employer dashboard depending on role (employee = 0, employer = 1)
+- form asking for email and password
+- remember me function
+- forgot password button
+- one time passcode verification through email
+
+signup
+- form asking for name, email, password
+- to be approved or denied by employer
+- email will be sent containing temporary password to be used
+- redirect to login page
+
+change password
+- form asking for previous password, new password, confirm new password
+- afterwards, redirect to login page 
+
+forgot password
+- send email to user to reset password
+- direct to form asking new password, confirm new password
+- afterwards, redirect to login page 
+
+employee dashboard
+- display employee's daily time record for this month
+- show employee's status if timed in, timed out, or not yet taken attendance for the day
+- button to take employee's attendance
+- button to view employee's daily time records
+- button to view employee's leave history and leave credit
+
+employee take attendance
+- button that automatically takes time in asia/manila, date, location (geolocate if in geofence set in municipal office of pulong buhangin, santa maria, bulacan. if within geofence, user is in office. otherwise, work from home (put into database in_office = 1 if in office, in_office = 0 if work from home, 0 default)). if already timed in, button will automatically display time out
+
+employee daily time records
+- display daily time records according to what month the employee picks
+- button to request daily time record change
+
+    employee request dtr change
+    - form asking for time, date, month, reason
+
+employee leaves
+- display leave history
+- displays remaining leave credit
+- button to request leave approval
+
+    employee request leave
+    - form asking for leave start date, leave end date, reason
+
+employer dashboard
+- displays report of absent, late, on time, and currently on leave employees
+- button to view employees
+- button to view daily time records
+- button to view daily time record change requests
+- button to view employees on leave list
+- button to view leave requests
+
+employer view employees
+- display total number of employees
+- displays table format of employee names and their emails
+- on individual rows, buttons to edit and delete employee
+- button to add employee
+- button to add admin
+
+    employer add employee
+    - form asking for employee's name and email to be inserted
+    - generate random password, display it, and store to database
+
+    employer edit employee
+    - form asking for employee's name and email to be changed
+
+    employer delete employee
+    - form asking for confirmation to delete employee
+
+    employer add admin
+    - form asking for employee's name and email to be added as admin (change role from 0 to 1)
+
+employer view absences
+
+employer view lates
+
+employer view on time
+
+employer view daily time records
+- display daily time record of specific employee chosen by combobox
+- show total hours if daily time record is complete
+- button to print daily time record
+- on individual rows, button to edit time/date
+
+    employer print daily time record
+    - form asking for employee name, month, and total hours
+    - display daily time record in pdf format using fpdf to be printable
+
+employer view daily time record change requests
+- display table format of employees requesting daily time record changes
+- on individual rows, button to approve/deny
+
+    employer daily time record change request approval
+    - form asking if approve/deny, and reason/comment
+    - if approved, automatically redirect to employee's requested daily time record to change details. if denied, notify employee and redirect to dashboard
+
+employer view employees on leave list
+- display table form of employees on leave with their name, leave start date, leave end date, and reason for leave 
+
+employer view leave requests
+- display table format of employees requesting leave
+- on individual rows, button to approve/deny
+
+    employer leave request approval
+    - form asking if approve/deny, and reason/comment
+    - if approved, automatically add leave on list. if denied, notify employee and redirect to dashboard
+
+logout
+- unsets session and redirects user to index
+
+database
+- users
+    - id
+    - employee_id
+    - name
+    - email
+    - password
+    - role (employer = 1, employee = 0)
+    - created_on
+    - updated_on
+
+- attendance
+    - id
+    - employee_id
+    - date
+    - time_in
+    - time_out
+    - in_office (in office = 1, work from home = 0)
+    - created_on
+    - updated_on
+
+- dtr changes
+    - id
+    - employee_id
+    - date
+    - time_in
+    - time_out
+    - in_office 
+    - status ('pending', 'approved', 'denied')
+    - comment
+    - created_on
+    - updated_on
+
+- leaves
+    - id
+    - employee_id
+    - reason
+    - start_date
+    - end_date
+    - status ('pending', 'approved', 'denied')
+    - comment
+    - created_on
+    - updated_on
+
+- otp
+    - id
+    - otp
+    - otp_expiry
+    - used (used = 1, not used = 0)
+    - created_on
+    - updated_on
