@@ -65,7 +65,6 @@ function distance($lat1, $lon1, $lat2, $lon2) {
 
 // Check if the user's attendance record for today has already been recorded
 $email = $_SESSION['email'];
-$conn = mysqli_connect('localhost', 'username', 'password', 'database');
 $stmt = mysqli_prepare($conn, "SELECT time_in, time_out FROM attendance WHERE email = ? AND DATE(time_in) = CURDATE()");
 mysqli_stmt_bind_param($stmt, 's', $email);
 mysqli_stmt_execute($stmt);
@@ -76,7 +75,7 @@ mysqli_stmt_close($stmt);
 // Check if the user has already timed in today
 if (empty($time_in)) {
     // User has not timed in yet, redirect to the time in page
-    header("Location: time_in.php");
+    header("Location: timein.php");
     exit();
 } elseif (!empty($time_out)) {
     // User has already timed out today, show an error message
