@@ -126,8 +126,11 @@ include "control/follow_user.php";
                             <!-- Timein button -->
 
                             <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="signup">Time In</button>
+
+                            <a href="index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Back to Homepage</a>
                         </form>
                     </div>
+                    
                 </div>
             </div>
 
