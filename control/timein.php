@@ -1,17 +1,15 @@
 <?php
-
 // Start the session
 session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../views/login-form.php");
     exit();
 }
 
 // Check if it's a POST request
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+if (isset($_POST['submit'])) {    
     // Get the user's location from the POST data
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
@@ -21,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $geofence_longitude = 120.983491;
     $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
     
-    if ($distance <= 100) {
-        
+    if ($distance <= 100) {        
         // User is within the geofence, record their attendance
+        $sql = "INSERT INTO attendance (time_in) VALUES ($timein)";
         
         // Get the user's email from the session
         $email = $_SESSION['email'];
@@ -68,24 +66,4 @@ function distance($lat1, $lon1, $lat2, $lon2) {
     $km = $dist * 60 * 1.1515 * 1.609344;
     return $km * 1000;
 }
-
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Time In</title>
-</head>
-<body>
-    <h1>Time In</h1>
-    <?php if (isset($error)) { echo "<p style='color: red;'>{$error}</p>"; } ?>
-<form method="POST">
-<label for="latitude">Latitude:</label>
-<input type="text" name="latitude" required><br><br>
-<label for="longitude">Longitude:</label>
-<input type="text" name="longitude" required><br><br>
-<input type="submit" value="Time In">
-</form>
-
-</body>
-</html>
