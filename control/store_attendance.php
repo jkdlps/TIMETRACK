@@ -34,28 +34,6 @@
 //     exit();
 // }
 ?>
-<?php
-session_start();
-include("connection.php");
-
-if (isset($_POST['submit'])) {
-    $latitude = $_POST['latitude'];
-    $longitude = $_POST['longitude'];
-
-    $sql = "INSERT INTO location (latitude,longitude) VALUES ('$latitude','$longitude')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "test";
-        $_SESSION['message'] = "Reserved Successfully";
-        header("location: ../usersindex.php");
-    } else {
-        $_SESSION['message'] = "Wrong Password";
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -93,7 +71,7 @@ if (isset($_POST['submit'])) {
         }
         map.on('locationfound', onLocationFound);
     </script>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="post" action="./backend/attendancebackend.php">
         <input type="hidden" name="latitude" id="latitude" required>
         <input type="hidden" name="longitude" id="longitude" required>
         <button type="submit" name="submit">Store Location</button>
