@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     db();
 
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($con, $query);
 
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['email'] = $email;
@@ -18,6 +18,6 @@ if (isset($_POST['submit'])) {
         echo 'Invalid email or password';
     }
 
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>

@@ -18,8 +18,10 @@ function head($title) {
 }
 
 function db() {
-    $con = mysqli_connect("localhost", "u947188626__TIMETRACK", "*kN8xw+v$", "u947188626__TIMETRACK");
-    $conn = new mysqli("localhost", "u947188626__TIMETRACK", "*kN8xw+v$", "u947188626__TIMETRACK");
+    // $con = mysqli_connect("localhost", "u947188626__TIMETRACK", "*kN8xw+v$", "u947188626__TIMETRACK");
+    // $conn = new mysqli("localhost", "u947188626__TIMETRACK", "*kN8xw+v$", "u947188626__TIMETRACK");
+    $con = mysqli_connect("localhost", "u947188626_timetrack", "|5FnHl7#", "u947188626_timetrack");
+    $conn = new mysqli("localhost", "u947188626_timetrack", "|5FnHl7#", "u947188626_timetrack");
     return $con;
     return $conn;
 }
