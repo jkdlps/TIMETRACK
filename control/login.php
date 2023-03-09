@@ -1,8 +1,7 @@
 <?php
-session_start();
+// session_start();
 include "functions.php";
 db();
-
 
 if (isset($_POST['submit'])) {
     alerter("logged in!", "success");
