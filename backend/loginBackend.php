@@ -3,9 +3,36 @@
 include("connection.php");
 
 // Check if form is submitted
-if (isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $email = $_POST['email'];
 $password = $_POST['password'];
+$errors = array();
+
+
+  // Validate input
+    if (empty($email) && empty($password)) {
+    $errors['name'] = 'Empty fields is Required';
+    echo '<span style="color:#DC0000;text-align:center;">Email and Password is required</span>';
+    }
+
+    else if (empty($email) ) 
+    {
+    $errors['email'] = 'Email Address is Required';
+
+    echo '<span style="color:#DC0000;text-align:center;">Email is Required</span>';
+
+    }
+    else if (empty($password) ) 
+    {
+    $errors['password'] = 'Password is Required';
+    echo '<span style="color:#DC0000;text-align:center;">Password is required</span>';
+    }
+
+    else {
+      ob_start();
+    // Escape input to prevent SQL injection
+    $email = mysqli_real_escape_string($conn, $email);
+    $password = mysqli_real_escape_string($conn, $password);
 
     // Query database for user
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
@@ -17,7 +44,7 @@ $password = $_POST['password'];
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          header("location: ../control/store_attendance.php");
+          header("location: ./control/store_attendance.php");
       }
   }
     else {
@@ -25,7 +52,7 @@ $password = $_POST['password'];
     }
 
     mysqli_close($conn); // Close database connection
-
+}
 }
 
 ?>
