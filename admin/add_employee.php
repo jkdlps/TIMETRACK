@@ -40,9 +40,9 @@ include "header.php";
 </div>
 
 <div>
-    <form action='employer_dashboard.php' method='post'>
-        <button type='submit'>Back to Dashboard</button>
-    </form>
+  <form action='admin_dashboard.php' method='post'>
+    <button type='submit'>Back to Dashboard</button>
+  </form>
 </div>
 
 <?php
