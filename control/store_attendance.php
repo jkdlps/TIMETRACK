@@ -24,7 +24,7 @@
 </head>
 <body onload="getLocation();">
     <h1>Attendance | Timetrack</h1>
-    <!-- <div id="map"></div> -->
+    <div id="map"></div>
     
     <script>
         var map = L.map('map').setView([0, 0], 1);
