@@ -1,15 +1,8 @@
 <!--Admin Private Component Logic-->
 <?php
 session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-  // if user is not logged in, redirect to login page
-  header('Location: index.php');
-  exit();
-}
 // if user is logged in, show dashboard or homepage content
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
