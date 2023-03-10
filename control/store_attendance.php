@@ -1,44 +1,7 @@
-<?php
-// Start the session
-// session_start();
-
-// Check if the user is logged in
-// if (!isset($_SESSION['email'])) {
-//     header("Location: ../loginpage.php");
-//     exit();
-// }
-
-// // Check if it's a POST request
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-//     // Get the user's location from the POST data
-//     $latitude = $_POST['latitude'];
-//     $longitude = $_POST['longitude'];
-    
-//     // Get the user's email from the session
-//     $email = $_SESSION['email'];
-    
-//     // Insert the location record into the database
-//     include "functions.php";
-//     db();
-//     $stmt = mysqli_prepare($con, "INSERT INTO attendance (latitude, longitude) VALUES (?, ?, ?) WHERE email = $email");
-//     mysqli_stmt_bind_param($stmt, 'dd', $latitude, $longitude);
-//     mysqli_stmt_execute($stmt);
-//     mysqli_stmt_close($stmt);
-//     mysqli_close($con);
-    
-
-
-//     // Redirect the user to the map page
-//     header("Location: ../usersindex.php");
-//     exit();
-// }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Store Location</title>
+    <title>Attendance</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.js"></script>
     <style>
@@ -49,7 +12,7 @@
     </style>
 </head>
 <body>
-    <h1>Store Location</h1>
+    <h1>Attendance</h1>
     <div id="map"></div>
     <script>
         var map = L.map('map').setView([0, 0], 1);
