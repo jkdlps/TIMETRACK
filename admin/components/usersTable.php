@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    <?php
+include("./includes/addEmployeeModal.php"); ?>
     <h1 class='text-center mt-5'>Employees Table</h1>
     <!--Table-->
     <div class="container-fluid  pt-4" id='body'>

@@ -6,10 +6,9 @@ if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $role = 1;
 
-    $sql = "INSERT INTO users (name,email,password,role)
-    VALUES ('$name','$email','$password', '$role')";
+    $sql = "INSERT INTO users (name,email,password)
+    VALUES ('$name','$email','$password')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Account Created Successfully";
