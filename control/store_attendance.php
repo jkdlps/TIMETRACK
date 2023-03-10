@@ -1,4 +1,3 @@
-<?php include "follow_user.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +33,7 @@
             id: 'osm.streets'
         }).addTo(map);
         map.locate({setView: true, maxZoom: 16});
+        
         function onLocationFound(e) {
             var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map)
