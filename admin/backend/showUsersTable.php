@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
