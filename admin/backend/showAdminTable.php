@@ -1,6 +1,5 @@
 <?php
-include("connection.php");
-
+include "../TIMETRACK/control/connection.php";
 
 $sql = "SELECT * FROM admin";
 $result = $conn->query($sql);
@@ -18,8 +17,6 @@ if ($result->num_rows > 0) {
         <td>" . $row['password'] . "</td>
         <td>
         
-        
-        
     <a class='btn btn-dark btn-sm' name='update' href='./components/updateForm_admin.php   ?GETid=" . $row['id'] . "   '>  Update</a>
    
 
@@ -31,8 +28,4 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 $conn->close();
-
-
-
-
 ?>

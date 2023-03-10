@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 if(isset($_POST['update']))
 {
@@ -21,18 +21,8 @@ if(isset($_POST['update']))
     header("location: ../usersPage.php");
   } else {
     echo "Error updating record: " . mysqli_error($conn);
-  }
-
-
-
-  
+  }  
   $conn->close();
   
 }
-
-
-
-
-
-
 ?>

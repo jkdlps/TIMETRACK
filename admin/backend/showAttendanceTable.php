@@ -1,8 +1,8 @@
 <?php
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 
-$sql = "SELECT * FROM attendance";
+$sql = "SELECT * FROM location";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

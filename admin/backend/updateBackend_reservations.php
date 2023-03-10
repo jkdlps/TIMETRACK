@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 if(isset($_POST['update']))
 {
@@ -13,7 +13,6 @@ if(isset($_POST['update']))
     $contact= $_POST['contact'];
     $message=$_POST['message'];
   
-
     $sql = "UPDATE reservation SET name='$name', email='$email', events='$events', date='$date', time='$time', contact='$contact', message='$message' WHERE id='$id'";
   
   if (mysqli_query($conn, $sql)) {
@@ -22,17 +21,6 @@ if(isset($_POST['update']))
   } else {
     echo "Error updating record: " . mysqli_error($conn);
   }
-
-
-
-  
   $conn->close();
-  
 }
-
-
-
-
-
-
 ?>

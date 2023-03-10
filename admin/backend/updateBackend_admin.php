@@ -1,14 +1,13 @@
 <?php
 session_start();
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 if(isset($_POST['update']))
 {
     $id=$_POST['id'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-  
-
+    
     $sql = "UPDATE admin SET email='$email', password='$password' WHERE id='$id'";
   
   if (mysqli_query($conn, $sql)) {

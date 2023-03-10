@@ -1,6 +1,6 @@
 <?php
 
-include("connection.php");
+include "../TIMETRACK/control/connection.php";
 
 if(isset($_POST['delete']))
 {
