@@ -79,6 +79,11 @@
                                     <h3>
                                         <p id="clock"></p>
                                         <script>
+                                            <?php
+                                            date_default_timezone_set("Asia/Manila");
+                                            $current_time = date("h:i:s A");
+                                            echo "Current time is: " . $current_time;
+                                            ?>
                                             function updateTime() {
                                                 var now = new Date();
                                                 var hours = now.getHours() % 12 || 12; // convert to 12-hour format
