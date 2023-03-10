@@ -118,6 +118,9 @@
         </form>
     </div>
     <div>
+        <script>
+                    map.on('locationfound', onLocationFound);
+        </script>
         <a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
     </div>
 </body>
