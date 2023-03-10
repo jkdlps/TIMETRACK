@@ -6,7 +6,6 @@ include("connection.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $email = $_POST['email'];
 $password = $_POST['password'];
-$role = $_POST['role'];
 $errors = array();
 
 
@@ -43,9 +42,10 @@ $errors = array();
     if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
+          $_SESSION['role'] = $row['role'];
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          if($role == 1) {
+          if($_SESSION['role'] == 1) {
             header("location: ./admin/admin_dashboard.php");
           } else {
             header("location: ./control/store_attendance.php");
