@@ -46,7 +46,7 @@ $errors = array();
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
           if($_SESSION['role'] == 1) {
-            header("location: ./admin/admin_dashboard.php");
+            header("location: ./admin/home.php");
           } else {
             header("location: ./control/store_attendance.php");
           }
