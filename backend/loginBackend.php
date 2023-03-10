@@ -3,18 +3,12 @@
 include("connection.php");
 
 // Check if form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['submit'])) {
 $email = $_POST['email'];
 $password = $_POST['password'];
-$errors = array();
-
-    // Escape input to prevent SQL injection
-    $email = mysqli_real_escape_string($conn, $email);
-    $password = mysqli_real_escape_string($conn, $password);
 
     // Query database for user
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-    echo $sql;
     $result = mysqli_query($conn, $sql);
 
     // Check if user exists
