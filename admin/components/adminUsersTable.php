@@ -41,22 +41,14 @@ include("./includes/addAdminModal.php"); ?>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     include("./backend/showAdminTable.php");
                     ?>
                 </tbody>
-
-
             </table>
-
         </div>
-
-
     </div>
     <!--End of Table-->
-
-
 
 </body>
 

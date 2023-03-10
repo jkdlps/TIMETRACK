@@ -1,5 +1,5 @@
 <?php
-include "../TIMETRACK/control/connection.php";
+include "connection.php";
 
 $sql = "SELECT * FROM users WHERE role=1";
 $result = $conn->query($sql);
