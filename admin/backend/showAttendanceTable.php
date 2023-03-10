@@ -1,5 +1,5 @@
 <?php
-include "../TIMETRACK/control/connection.php";
+include "connection.php";
 
 $sql = "SELECT * FROM location";
 $result = $conn->query($sql);
