@@ -54,7 +54,7 @@
 
     <div class="col-md-10 mx-auto col-lg-12">
 
-        <form class="myForm p-4 p-md-5 card mx-2" action="control/store_attendance.php" method="POST"
+        <form class="myForm p-4 p-md-5 card mx-2" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"
             enctype="multipart/form-data">
 
     <h1>Time In</h1>
