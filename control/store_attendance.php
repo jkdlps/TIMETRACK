@@ -1,4 +1,4 @@
-<?php include "control/follow_user.php"; ?>
+<?php include "follow_user.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
