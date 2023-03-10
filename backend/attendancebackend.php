@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
 
-    $sql = "INSERT INTO location (latitude,longitude) VALUES ('$latitude','$longitude')";
+    $sql = "INSERT INTO location (latitude,longitude,date) VALUES ('$latitude','$longitude', '$date')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";
