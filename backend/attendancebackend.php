@@ -5,8 +5,10 @@ include("connection.php");
 if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
+    $time_in = $_POST['time_in'];
+    $time_out = $_POST['time_out'];
 
-    $sql = "INSERT INTO location (latitude,longitude,date) VALUES ('$latitude','$longitude', '$date')";
+    $sql = "INSERT INTO location (latitude, longitude, time_in, time_out) VALUES ('$latitude', '$longitude', '$time_in', '$time_out')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";

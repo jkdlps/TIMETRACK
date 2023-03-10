@@ -86,7 +86,8 @@
     <form method="post" action="../backend/attendancebackend.php">
         <input type="hidden" name="latitude" id="latitude" required>
         <input type="hidden" name="longitude" id="longitude" required>
-        <input type="hidden" name="date" id="date">
+        <input type="hidden" name="time_in" id="time_in" value="<?php echo date('Y-m-d H:i:s'); ?>" required>
+        <input type="hidden" name="time_out" id="time_out" value="<?php echo date('Y-m-d H:i:s'); ?>" required>
         <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
 
 <a href="index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
