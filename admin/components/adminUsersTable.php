@@ -36,7 +36,6 @@ include("./includes/addAdminModal.php"); ?>
                         <th>id</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Actions</th>
 
                     </tr>
