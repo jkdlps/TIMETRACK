@@ -22,7 +22,7 @@ include("./includes/addEmployeeModal.php"); ?>
     <h1 class='text-center mt-5'>Employees Table</h1>
     <!--Table-->
     <div class="container-fluid  pt-4" id='body'>
-    <button onclick="location.href='add_employee.php'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Add Employee
         </button>
         <div class="table-responsive text-center ">
