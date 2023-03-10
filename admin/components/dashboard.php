@@ -32,17 +32,7 @@
                             <div class="card-footer d-flex align-items-center justify-content-between">
 
                                 <?php
-                                $servername = "localhost";
-                                $username = "root";
-                                $password = "";
-                                $dbname = "users";
-
-                                // Create connection
-                                $conn = new mysqli($servername, $username, $password, $dbname);
-                                // Check connection
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
+                                include "../TIMETRACK/control/connection.php";
                                 // COUNT By ID
                                 $sql = "SELECT id FROM users ORDER BY id";
                                 $query_run = mysqli_query($conn, $sql);
@@ -64,17 +54,7 @@
                             <div class="card-body">Administrators</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <?php
-                                $servername = "localhost";
-                                $username = "root";
-                                $password = "";
-                                $dbname = "users";
-
-                                // Create connection
-                                $conn = new mysqli($servername, $username, $password, $dbname);
-                                // Check connection
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
+                                include "../TIMETRACK/control/connection.php";
                                 // COUNT By ID
                                 $sql = "SELECT id FROM admin ORDER BY id";
                                 $query_run = mysqli_query($conn, $sql);
@@ -95,17 +75,7 @@
                             <div class="card-body">Attendance</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <?php
-                                $servername = "localhost";
-                                $username = "root";
-                                $password = "";
-                                $dbname = "users";
-
-                                // Create connection
-                                $conn = new mysqli($servername, $username, $password, $dbname);
-                                // Check connection
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                }
+                                include "../TIMETRACK/control/connection.php";
                                 // COUNT By ID
                                 $sql = "SELECT id FROM reservation ORDER BY id";
                                 $query_run = mysqli_query($conn, $sql);
