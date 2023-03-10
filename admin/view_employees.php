@@ -33,10 +33,3 @@ include "header.php";
 		mysqli_close($conn);
 	?>
 </div>
-
-<div>
-    <h2>Navigation</h2>
-    <form action='admin_dashboard.php' method='post'>
-        <button type='submit'>Back to Dashboard</button>
-    </form>
-</div>
