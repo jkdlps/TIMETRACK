@@ -117,7 +117,7 @@ include "control/follow_user.php";
 
                     <div class="col-md-10 mx-auto col-lg-12">
 
-                        <form class="myForm p-4 p-md-5 card mx-2" action="control/frontend_attendance.php" method="POST"
+                        <form class="myForm p-4 p-md-5 card mx-2" action="frontend_attendance.php" method="POST"
                             enctype="multipart/form-data">
 
                             </div>
@@ -184,26 +184,21 @@ include "control/follow_user.php";
         }
     }
 
-    function updateTime() {
-        var now = new Date();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
-        var seconds = now.getSeconds();
-
-        // Add leading zeros to the hours, minutes, and seconds
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        // Format the time as "hh:mm:ss"
-        var timeString = hours + ":" + minutes + ":" + seconds;
-
-        // Update the clock element with the new time
-        document.getElementById("clock").innerHTML = timeString;
-    }
-
-    // Call updateTime every second to update the clock
-    setInterval(updateTime, 1000);
+function updateTime() {
+  var now = new Date();
+  var hours = now.getHours() % 12 || 12; // convert to 12-hour format
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12; // convert to 12-hour format
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  var timeString = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+  document.getElementById('clock').innerHTML = timeString;
+}
+setInterval(updateTime, 1000);
+</script>
     </script>
 
 
