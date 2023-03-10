@@ -112,8 +112,8 @@
     </form>
     <div>
         <form action="timeout.php" method="post">
-            <input type="text" class="form-control" name="latitude" id="latitude">
-            <input type="text" class="form-control" name="longitude" id="longitude">
+            <input type="hidden" class="form-control" name="latitude" id="latitude">
+            <input type="hidden" class="form-control" name="longitude" id="longitude">
             <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
         </form>
     </div>
