@@ -56,7 +56,7 @@
                                 <?php
                                 include "../TIMETRACK/control/connection.php";
                                 // COUNT By ID
-                                $sql = "SELECT id FROM admin ORDER BY id";
+                                $sql = "SELECT id FROM users WHERE role=1 ORDER BY id";
                                 $query_run = mysqli_query($conn, $sql);
 
                                 $row=mysqli_num_rows($query_run);
@@ -77,7 +77,7 @@
                                 <?php
                                 include "../TIMETRACK/control/connection.php";
                                 // COUNT By ID
-                                $sql = "SELECT id FROM reservation ORDER BY id";
+                                $sql = "SELECT id FROM location ORDER BY id";
                                 $query_run = mysqli_query($conn, $sql);
 
                                 $row=mysqli_num_rows($query_run);

@@ -26,6 +26,10 @@
 
 
                     <div class="sb-sidenav-menu-heading">Settings</div>
+                    <a class="nav-link" href="../control/store_attendance.php">
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        Take Attendance as Employee
+                    </a>
                     <a class="nav-link" href="logout.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Logout
