@@ -105,9 +105,9 @@
 
     <form method="post" action="../backend/attendancebackend.php">
         <label for="latitude" class="form-label">Latitude: </label>
-        <input type="text" class="form-control" name="latitude" id="latitude">
+        <input type="text" class="form-control" name="latitude" id="latitude" disabled>
         <label for="longitude" class="form-label">Longitude: </label>
-        <input type="text" class="form-control" name="longitude" id="longitude">
+        <input type="text" class="form-control" name="longitude" id="longitude" disabled>
         <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
     </form>
     <div>
@@ -116,8 +116,8 @@
             document.getElementById("longitude").value = longitude;
         </script>
         <form action="timeout.php" method="post">
-            <input type="hidden" class="form-control" name="latitude" id="latitude">
-            <input type="hidden" class="form-control" name="longitude" id="longitude">
+            <input type="text" class="form-control" name="latitude" id="latitude" disabled>
+            <input type="text" class="form-control" name="longitude" id="longitude" disabled>
             <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
         </form>
     </div>

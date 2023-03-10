@@ -111,15 +111,95 @@
         <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
     </form>
     <div>
+    <body onload="getLocation();">
+    <div id="map"></div>
+    
     <script>
+        var map = L.map('map').setView([0, 0], 1);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+            id: 'osm.streets'
+        }).addTo(map);
+        map.locate({setView: true, maxZoom: 16});
+
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius.toFixed(2) + " meters of this point.").openPopup();
+            L.circle(e.latlng, radius).addTo(map);
+            var latitude = e.latlng.lat.toFixed(6);
+            var longitude = e.latlng.lng.toFixed(6);
             document.getElementById("latitude").value = latitude;
             document.getElementById("longitude").value = longitude;
-        </script>
-        <form action="timeout.php" method="post">
-            <input type="hidden" class="form-control" name="latitude" id="latitude">
-            <input type="hidden" class="form-control" name="longitude" id="longitude">
-            <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
-        </form>
+        }
+        map.on('locationfound', onLocationFound);
+    </script>
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-5" id='body'>
+    <div class="row align-items-center g-lg-5 ">
+
+    <div class="col-md-10 mx-auto col-lg-12">
+
+        <form class="myForm p-4 p-md-5 card mx-2" action="../backend/timeoutbackend.php" method="POST"
+            enctype="multipart/form-data">
+
+    <h1>Time In</h1>
+    <div class='row'>
+        <div class='col-lg-6'>
+    </div>
+    <div class='row'>
+        <div class='col-lg-6'>
+            <!-- Time  -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="time">Time</label>
+                <h3 id="clock"></h3>
+                <script>
+                function updateTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        // Add leading zeros to the hours, minutes, and seconds
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        // Format the time as "hh:mm:ss"
+        var timeString = hours + ":" + minutes + ":" + seconds;
+
+        // Update the clock element with the new time
+        document.getElementById("clock").innerHTML = timeString;
+    }
+
+    // Call updateTime every second to update the clock
+    setInterval(updateTime, 1000);
+    </script>
+            </div>
+        </div>
+        <div class='col-lg-6'>
+            <!-- Date -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="date">Date</label>
+                <h3>
+                    <?php
+                        date_default_timezone_set('Asia/Manila');
+                        $date = date('l, F d, Y');
+                        echo $date;
+                        ?>
+                </h3>
+            </div>
+        </div>
+
+
+    <form method="post" action="../backend/timeoutbackend.php">
+        <label for="latitude" class="form-label">Latitude: </label>
+        <input type="text" class="form-control" name="latitude" id="latitude">
+        <label for="longitude" class="form-label">Longitude: </label>
+        <input type="text" class="form-control" name="longitude" id="longitude">
+        <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
+    </form>
     </div>
     <div>
 
