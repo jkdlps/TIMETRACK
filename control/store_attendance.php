@@ -47,8 +47,6 @@
         map.on('locationfound', onLocationFound);
     </script>
 
-
-
 <div class="container col-xl-10 col-xxl-8 px-4 py-5" id='body'>
     <div class="row align-items-center g-lg-5 ">
 
