@@ -44,7 +44,7 @@ $errors = array();
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
-          header("location: ./control/store_attendance.php");
+          header("location: ./admin_dashboard.php");
       }
   }
     else {
