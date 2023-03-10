@@ -119,7 +119,8 @@
     </div>
     <div>
         <script>
-                    map.on('locationfound', onLocationFound);
+            document.getElementById("latitude").value = latitude;
+            document.getElementById("longitude").value = longitude;
         </script>
         <a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
     </div>
