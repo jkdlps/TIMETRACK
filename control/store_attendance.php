@@ -1,3 +1,4 @@
+<?php include "control/follow_user.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
 <body onload="getLocation();">
     <h1>Attendance | Timetrack</h1>
     <!-- <div id="map"></div> -->
-    <?php include "control/follow_user.php"; ?>
+    
     <script>
         var map = L.map('map').setView([0, 0], 1);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
