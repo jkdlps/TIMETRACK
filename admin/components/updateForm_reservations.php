@@ -1,8 +1,6 @@
 <?php
 include("edit_reservations.php");
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

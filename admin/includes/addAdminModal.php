@@ -19,7 +19,7 @@
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form1Example1">Email address</label>
-                        <input required type="email" name="email" id="form1Example1" class="form-control" />
+                        <input required type="email" name="email" id="form1Example1" class="form-control"/>
 
                     </div>
 

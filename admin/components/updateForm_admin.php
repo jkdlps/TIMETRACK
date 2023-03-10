@@ -1,8 +1,6 @@
 <?php
 include("edit_admin.php");
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
