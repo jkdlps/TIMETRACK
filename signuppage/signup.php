@@ -26,7 +26,7 @@
                 <form class="p-4 p-md-5 rounded-3">
 
                     <?php
-                    include("./backend/signupbackend.php");
+                    include("../backend/signupbackend.php");
                     ?>
 
                     <h1 class="my-3">Signup</h1>
