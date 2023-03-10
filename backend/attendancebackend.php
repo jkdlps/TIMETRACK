@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";
-        header("location: ../loginpage.php");
+        header("location: ../control/store_attendance.php");
 
     } else {
         $_SESSION['message'] = "Wrong Password";
