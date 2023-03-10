@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $time = date('H:i:s');
     $date = date('Y-m-d');
 
-    $sql = "INSERT INTO attendance (latitude,longitude,time,date )
+    $sql = "INSERT INTO location (latitude,longitude,time,date )
     VALUES ('$latitude','$longitude','$time','$date')";
 
     if ($conn->query($sql) === TRUE) {
