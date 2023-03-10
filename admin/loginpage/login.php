@@ -30,7 +30,7 @@
                 <form class="p-4 p-md-5  rounded-3" method="post">
                     
                     <?php
-                    include("./admin/backend/loginBackend.php");
+                    include("../backend/loginBackend.php");
                     ?>
 
                     <h1 class="my-2">Login</h1>
