@@ -23,18 +23,11 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="#">About</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link mx-2  active btn btn-primary text-white" aria-current="page"
                             href="loginpage.php">Login</a>
                     </li>
-
-
-
                 </ul>
-
             </div>
         </div>
     </nav>
