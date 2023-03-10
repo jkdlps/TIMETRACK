@@ -12,11 +12,11 @@ if (isset($_POST['submit'])) {
     VALUES ('$latitude','$longitude','$time','$date')";
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Reserved Successfully";
+        $_SESSION['message'] = "Timein Successfully";
         header("location: ../control/store_attendance.php");
 
     } else {
-        $_SESSION['message'] = "Wrong Password";
+        $_SESSION['message'] = "Error!";
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
