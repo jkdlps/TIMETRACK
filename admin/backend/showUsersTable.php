@@ -7,13 +7,18 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
+        if($row['designation'] == 1) {
+            $designation = "onsite";
+        } else {
+            $designation = "remote";
+        }
         //table & Modal Buttons
         //Button trigger modal || id=#updatemodal  
         echo "<tr>
         <td>" . $row['id'] . "</td>
         <td>" . $row['name'] . "</td>
         <td>" . $row['email'] . "</td>
-        <td>" . $row['designation'] . "</td>
+        <td>" . $designation . "</td>
         <td>
         <div class='row m-1'>
             <div class='col-lg-6'>

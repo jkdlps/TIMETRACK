@@ -30,11 +30,7 @@
                         <th>name</th>
                         <th>Email</th>
                         <th>Designation</th>
-                        <th>Date added</th>
-                        <th>Password</th>
                         <th>Action</th>
-                       
-
                     </tr>
                 </thead>
                 <tbody>
