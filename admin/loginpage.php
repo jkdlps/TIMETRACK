@@ -16,9 +16,9 @@
 <body>
     <div class="">
         <?php
-        include("components/navbar.php");
-        include("loginpage/login.php");
-        include("components/footer.php");
+        include("../components/navbar.php");
+        include("../loginpage/login.php");
+        include("../components/footer.php");
         ?>
 
     </div>
