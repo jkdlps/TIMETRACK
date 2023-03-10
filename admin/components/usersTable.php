@@ -18,9 +18,8 @@
 
 <body>
     <h1 class='text-center mt-5'>Employees Table</h1>
-
+    <a href="../add_employee.php" class="btn btn-secondary">Add Employee</a>
     <!--Table-->
-
     <div class="container-fluid  pt-4" id='body'>
         <div class="table-responsive text-center ">
             <table class="table table-bordered bg-white " id="datatable">
