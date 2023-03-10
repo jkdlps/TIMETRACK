@@ -23,9 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="#">About</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link mx-2  active btn btn-primary text-white" aria-current="page"
                             href="loginpage.php">Login</a>
