@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View Attendances</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -17,12 +17,8 @@
 </head>
 
 <body>
-
-
     <h1 class='text-center mt-5'>Attendance</h1>
-
     <!--Table-->
-
     <div class="container pt-4" id='body'>
         <div class="table-responsive text-center">
             <table class="table table-bordered bg-white " id="datatable">
@@ -34,28 +30,17 @@
                         <th>Time-In</th>
                         <th>Time-Out</th>
                         <th>Date</th>
-
-
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     include("./backend/showAttendanceTable.php");
                     ?>
                 </tbody>
-
-
             </table>
-
         </div>
-
-
     </div>
     <!--End of Table-->
-
-
-
 </body>
 
 </html>
