@@ -33,7 +33,7 @@
             id: 'osm.streets'
         }).addTo(map);
         map.locate({setView: true, maxZoom: 16});
-        
+
         function onLocationFound(e) {
             var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map)
@@ -105,8 +105,8 @@
 
 
     <form method="post" action="../backend/attendancebackend.php">
-        <input type="hidden" name="latitude" id="latitude" disabled>
-        <input type="hidden" name="longitude" id="longitude" disabled>
+        <input type="text" name="latitude" id="latitude">
+        <input type="text" name="longitude" id="longitude">
         <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
 <a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
     </form>
