@@ -16,17 +16,5 @@ if(isset($_POST['update']))
   } else {
     echo "Error updating record: " . mysqli_error($conn);
   }
-
-
-
-  
-  $conn->close();
-  
+  $conn->close();  
 }
-
-
-
-
-
-
-?>

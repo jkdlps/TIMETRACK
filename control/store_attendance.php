@@ -108,19 +108,8 @@
         <input type="text" class="form-control" name="latitude" id="latitude" disabled>
         <label for="longitude" class="form-label">Longitude: </label>
         <input type="text" class="form-control" name="longitude" id="longitude" disabled>
-        <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
+        <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In / Time Out</button>
     </form>
-    <div>
-    <script>
-            document.getElementById("latitude").value = latitude;
-            document.getElementById("longitude").value = longitude;
-        </script>
-        <form action="timeout.php" method="post">
-            <input type="text" class="form-control" name="latitude" id="latitude" disabled>
-            <input type="text" class="form-control" name="longitude" id="longitude" disabled>
-            <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
-        </form>
-    </div>
     <div>
 
         <a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>

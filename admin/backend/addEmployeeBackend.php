@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Account Created Successfully";
-        header("location: ../admin_dashboard.php");
+        header("location: ../usersPage.php");
     } else {
         $_SESSION['message'] = "Wrong Password";
         echo "Error: " . $sql . "<br>" . $conn->error;
