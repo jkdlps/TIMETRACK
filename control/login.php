@@ -77,8 +77,8 @@
                     <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" value="Login">Login</button>
                     <small class="text-muted">Don't have an account?<a href="./loginpage.php"> Sign Up </a></small>
                     <hr class="my-4">
-                    <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
-                        Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small>
+                    <!-- <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
+                        Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small> -->
                 </form>
             </div>
         </div>

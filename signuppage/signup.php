@@ -50,8 +50,8 @@
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Signup</button>
                     <hr class="my-4">
-                    <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
-                        Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small>
+                    <!-- <small class="text-muted mb-3"> By using this service, you understood and agree to the Linawan
+                        Christian Church <a href="terms.php"> Terms of Use and Privacy Statement</small> -->
                 </form>
             </div>
         </div>
