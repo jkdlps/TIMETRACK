@@ -15,8 +15,8 @@
 
     <style>
         #map {
-            height: 500px;
-            width: 100%;
+            height: 300px;
+            width: 70%;
         }
     </style>
 </head>
@@ -25,7 +25,7 @@
     <div id="map"></div>
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
-        var map = L.map('map').setView([0, 0], 1);
+        var map = L.map('map').setView([0, 0], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
             maxZoom: 18,
@@ -38,17 +38,15 @@
 
         // Define the geofence as a circle on the map
         var geofence = L.circle([14.871546, 121.001179], {
-            color: 'red',
+            color: 'green',
             fillColor: '#f03',
             fillOpacity: 0.2,
-            radius: 50
+            radius: 30
         }).addTo(map);
 
         function onLocationFound(e) {
-            var radius = e.accuracy / 2;
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius.toFixed(2) + " meters of this point.").openPopup();
-            L.circle(e.latlng, radius).addTo(map);
+			var marker = L.marker(e.latlng).addTo(map);
+			marker.bindPopup("You are here!").openPopup();
             var latitude = e.latlng.lat.toFixed(6);
             var longitude = e.latlng.lng.toFixed(6);
             document.getElementById("latitude").value = latitude;
