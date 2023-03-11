@@ -25,7 +25,7 @@ include("./includes/addEmployeeModal.php"); ?>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Add Employee
         </button>
-        <button onclick="window.print();">Print Attendance Table</button>
+        
         <div class="table-responsive text-center ">
             <table class="table table-bordered bg-white " id="datatable">
                 <thead class="bg-primary text-light">
