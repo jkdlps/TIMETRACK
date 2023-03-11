@@ -39,7 +39,7 @@
         // Define the geofence as a circle on the map
         var geofence = L.circle([14.871546, 121.001179], {
             color: 'green',
-            fillColor: '#f03',
+            fillColor: 'green',
             fillOpacity: 0.2,
             radius: 30
         }).addTo(map);
