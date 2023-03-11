@@ -27,7 +27,7 @@ include("edit_users.php");
 
     <div class='container m-5'>
         <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
-            action="../backend/updateBackend_user.php" method="POST">
+            action="../backend/updateUserBackend.php" method="POST">
 
             <div class="card-header">
                 <h3 class="fw-normal">Update Employee</h3>

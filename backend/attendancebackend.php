@@ -34,17 +34,19 @@ if (isset($_POST['submit'])) {
         $km = $dist * 60 * 1.1515 * 1.609344;
         return $km * 1000;
     }
+
+
+    // geofence
+    $geofence_latitude = 14.871546;
+    $geofence_longitude = 121.001179;
+    $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
+
     // Determine whether the employee is working onsite or remotely
     if ($distance <= 50) {
         $location = "onsite";
     } else {
         $location = "remote";
     }
-
-    // geofence
-    $geofence_latitude = 14.871546;
-    $geofence_longitude = 121.001179;
-    $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
 
     $sql = "INSERT INTO attendances (id,employee_id,latitude,longitude,location,date,timein,timeout)
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
