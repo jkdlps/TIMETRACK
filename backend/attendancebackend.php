@@ -27,12 +27,13 @@ session_start();
 include("connection.php");
 
 if (isset($_POST['submit'])) {
+    $id = $_SESSION['id'];
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     $date = date('Y-m-d');
     
     // Check if user has already timed in today
-    $check_sql = "SELECT * FROM location WHERE date = '$date' LIMIT 1";
+    $check_sql = "SELECT * FROM location WHERE id = '$id' LIMIT 1";
     $check_result = $conn->query($check_sql);
     if ($check_result->num_rows > 0) {
         $row = $check_result->fetch_assoc();
