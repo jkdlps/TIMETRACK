@@ -19,6 +19,6 @@ if(isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <label for="employeeid">Randomized Employee ID</label>
-    <input type="text" name="employeeid" id="employeeid" value="<?php $employeeid?>">
+    <input type="text" name="employeeid" id="employeeid" value="employeeid" disabled>
     <input type="submit" value="submit" id="submit">
 </form>
