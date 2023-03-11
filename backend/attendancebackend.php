@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         return $km * 1000;
     }
     // Determine whether the employee is working onsite or remotely
-    if ($distance <= 100) {
+    if ($distance <= 50) {
         $location = "onsite";
     } else {
         $location = "remote";
