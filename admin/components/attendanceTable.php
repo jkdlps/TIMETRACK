@@ -19,8 +19,9 @@
 <body>
     <h1 class='text-center mt-5'>Attendance</h1>
     <!--Table-->
-    <button onclick="window.print();" class="btn btn-primary">Print Attendance Table</button>
+    
     <div class="container pt-4" id='body'>
+    <button onclick="window.print();" class="btn btn-primary">Print Attendance Table</button>
         <div class="table-responsive text-center">
             <table class="table table-bordered bg-white " id="datatable">
                 <thead class="bg-primary text-light">
