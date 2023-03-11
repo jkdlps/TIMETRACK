@@ -1,13 +1,13 @@
 <?php
 
 include("connection.php");
+date_default_timezone_set('Asia/Manila');
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $email = $_POST['email'];
 $password = $_POST['password'];
 $errors = array();
-
 
   // Validate input
     if (empty($email) && empty($password)) {
@@ -44,6 +44,7 @@ $errors = array();
       while ($row = $result->fetch_assoc()) {
           $_SESSION["login"] = true;
           $_SESSION["id"] = $row["id"];
+          $_SESSION["employee_id"] = $row["employee_id"];
           header("location: ./control/store_attendance.php");
       }
   }
@@ -54,5 +55,3 @@ $errors = array();
     mysqli_close($conn); // Close database connection
 }
 }
-
-?>
