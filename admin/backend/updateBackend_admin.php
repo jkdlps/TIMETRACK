@@ -8,7 +8,7 @@ if(isset($_POST['update']))
     $email = $_POST['email'];
     $password = $_POST['password'];
     
-    $sql = "UPDATE admin SET email='$email', password='$password' WHERE id='$id'";
+    $sql = "UPDATE users SET email='$email', password='$password' WHERE id='$id'";
   
   if (mysqli_query($conn, $sql)) {
     echo "Record updated successfully";

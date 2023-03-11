@@ -2,8 +2,6 @@
 include("edit_users.php");
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -51,7 +51,6 @@ if (isset($_POST['submit'])) {
         exit();
         
     } else {
-        
         // User is outside the geofence, show an error message
         $error = "You are outside the geofence. Please go to the municipal office of Pulong Buhangin, Santa Maria, Bulacan to time in.";
     }

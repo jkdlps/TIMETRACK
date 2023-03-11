@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("connection.php");
+include "message.php";
 
 if (isset($_POST['submit'])) {
     $latitude = $_POST['latitude'];
