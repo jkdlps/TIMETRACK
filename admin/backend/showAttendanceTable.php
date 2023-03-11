@@ -11,11 +11,13 @@ if ($result->num_rows > 0) {
         //Button trigger modal || id=#updatemodal  
         echo "<tr>
         <td>" . $row['id'] . "</td>
-        <td>" . $row['longitude'] . "</td>
+        <td>" . $row['employee_id'] . "</td>
         <td>" . $row['latitude'] . "</td>
-        <td>" . $row['time'] . "</td>
-        <td>" . $row['time'] . "</td>
+        <td>" . $row['longitude'] . "</td>
+        <td>" . $row['location'] . "</td>
         <td>" . $row['date'] . "</td>
+        <td>" . $row['timein'] . "</td>
+        <td>" . $row['timeout'] . "</td>
     </td>
     </tr>";
     }

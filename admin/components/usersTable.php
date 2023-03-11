@@ -29,11 +29,15 @@ include("./includes/addEmployeeModal.php"); ?>
             <table class="table table-bordered bg-white " id="datatable">
                 <thead class="bg-primary text-light">
                     <tr>
-                        <th>id</th>
-                        <th>name</th>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
+                        <th>Password</th>
+                        <th>Role</th>
                         <th>Designation</th>
-                        <th>Action</th>
+                        <th>Date Created</th>
+                        <th>Date Updated</th>
                     </tr>
                 </thead>
                 <tbody>

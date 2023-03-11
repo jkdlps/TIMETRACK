@@ -24,12 +24,14 @@
             <table class="table table-bordered bg-white " id="datatable">
                 <thead class="bg-primary text-light">
                     <tr>
-                        <th>id</th>
-                        <th>Longitude</th>
+                        <th>Attendance ID</th>
+                        <th>Employee ID</th>
                         <th>Latitude</th>
-                        <th>Time-In</th>
-                        <th>Time-Out</th>
+                        <th>Longitude</th>
+                        <th>Location</th>
                         <th>Date</th>
+                        <th>Time In</th>
+                        <th>Time Out</th>
                     </tr>
                 </thead>
                 <tbody>
