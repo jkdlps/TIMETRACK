@@ -15,8 +15,8 @@
 
     <style>
         #map {
-            height: 300px;
-            width: 70%;
+            height: 500px;
+            width: 100%;
         }
     </style>
 </head>
