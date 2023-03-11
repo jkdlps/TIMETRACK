@@ -15,6 +15,8 @@ if (isset($_POST['submit'])) {
 
     $sql = "UPDATE location SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
 
+    echo $sql;
+
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Reserved Successfully";
         header("location: store_attendance.php");
