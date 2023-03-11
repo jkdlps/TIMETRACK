@@ -42,10 +42,10 @@ $errors = array();
     if ($result->num_rows > 0) {
       // output data of each row
       while ($row = $result->fetch_assoc()) {
+          $_SESSION['id'] = $row['id'];
           $_SESSION['role'] = $row['role'];
           $_SESSION["login"] = true;
-          $_SESSION["id"] = $row["id"];
-          if($_SESSION['role'] == 1) {
+          if($_SESSION['role'] == "admin") {
             header("location: ./admin/home.php");
           } else {
             header("location: ./control/store_attendance.php");

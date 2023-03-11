@@ -1,19 +1,29 @@
 <?php
 session_start();
 include "connection.php";
-// include "message.php";
+include "message.php";
 
 if (isset($_POST['submit'])) {
-    $employee_id = $_SESSION['employee_id'];
+    date_default_timezone_set('Asia/Manila');
+    $employee_id = $_SESSION['id'];
+    $datenow = date('Y-m-d');
+
+    $sql = "SELECT * FROM location WHERE employee_id = '$employee_id' AND date='$datenow'";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $_SESSION['attendance_id'] = $row['id'];
+        }
+    }
+    $id = $_SESSION['attendance_id'];
+
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     $timein = date('H:i:s');
     $date = date('Y-m-d');
+    $distance = '';
 
-    // geofence
-    $geofence_latitude = 14.810880;
-    $geofence_longitude = 120.983491;
-    $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
     // Function to calculate the distance between two points (in kilometers)
     function distance($lat1, $lon1, $lat2, $lon2)
     {
@@ -31,8 +41,13 @@ if (isset($_POST['submit'])) {
         $location = "remote";
     }
 
-    $sql = "INSERT INTO location (employee_id,latitude,longitude,location,date,timein,timeout)
-    VALUES ('$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
+    // geofence
+    $geofence_latitude = 14.810880;
+    $geofence_longitude = 120.983491;
+    $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
+
+    $sql = "INSERT INTO location (id,employee_id,latitude,longitude,location,date,timein,timeout)
+    VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Time in Successful.";

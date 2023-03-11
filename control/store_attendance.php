@@ -23,7 +23,7 @@
 </head>
 <body onload="getLocation();">
     <div id="map"></div>
-    
+    <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
         var map = L.map('map').setView([0, 0], 1);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -42,6 +42,8 @@
             var longitude = e.latlng.lng.toFixed(6);
             document.getElementById("latitude").value = latitude;
             document.getElementById("longitude").value = longitude;
+            document.getElementById("latitude").disabled = false;
+            document.getElementById("longitude").disabled = false;
         }
         map.on('locationfound', onLocationFound);
     </script>
