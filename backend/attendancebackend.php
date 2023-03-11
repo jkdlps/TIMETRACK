@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "connection.php";
-include "message.php";
+// include "message.php";
 
 if (isset($_POST['submit'])) {
     $employee_id = $_SESSION['employee_id'];
