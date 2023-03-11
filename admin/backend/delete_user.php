@@ -11,6 +11,5 @@ if (isset($_POST['delete'])) {
   } else {
     echo "Error deleting record: " . mysqli_error($conn);
   }
-
   $conn->close();
 }

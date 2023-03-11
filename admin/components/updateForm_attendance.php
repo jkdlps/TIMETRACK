@@ -1,5 +1,5 @@
 <?php
-include("edit_reservations.php");
+include("edit_attendance.php");
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ include("edit_reservations.php");
 
     <div class='container m-5'>
         <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
-            action="../backend/updateBackend_reservations.php" method="POST">
+            action="../backend/updateBackend_attendance.php" method="POST">
 
             <div class="card-header">
-                <h3 class="fw-normal">Update Reservations</h3>
+                <h3 class="fw-normal">Update Attendance</h3>
             </div>
             <div class='card-body'>
 
@@ -71,7 +71,7 @@ include("edit_reservations.php");
 
 
                 <button class="btn btn-dark form-control" name="update"
-                    href="../backend/updateBackend_reservations.php">Update</button>
+                    href="../backend/updateBackend_attendance.php">Update</button>
 
             </div>
 

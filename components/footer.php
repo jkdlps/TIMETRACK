@@ -16,8 +16,8 @@
                 <ul class="list-inline mb-2">
                     <li class="list-inline-item"><a href="loginpage.php">Login</a></li>
 
-                    <li class="list-inline-item">⋅</li>
-                    <li class="list-inline-item"><a href="terms.php">Terms of Use</a></li>
+                    <!-- <li class="list-inline-item">⋅</li>
+                    <li class="list-inline-item"><a href="terms.php">Terms of Use</a></li> -->
 
                 </ul>
 
