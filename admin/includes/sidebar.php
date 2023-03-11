@@ -8,19 +8,19 @@
                         <div class="sb-nav-link-icon"><i class="bi bi-speedometer"></i></div>
                         Dashboard
                     </a>
-
+                    <div class="sb-sidenav-menu-heading">Tables</div>
                     <a class="nav-link" href="usersPage.php">
                         <div class="sb-nav-link-icon"><i class="bi bi-person-fill"></i></div>
-                        Users
+                        View Employees
                     </a>
-                    <a class="nav-link" href="administrators.php">
+                    <!-- <a class="nav-link" href="administrators.php">
                         <div class="sb-nav-link-icon"><i class="bi bi-person-fill-exclamation"></i></div>
                         Administrators
-                    </a>
+                    </a> -->
 
                     <a class="nav-link" href="attendanceAdmin.php">
                         <div class="sb-nav-link-icon"><i class="bi bi-bookmarks-fill"></i></div>
-                        Attendance
+                        View Attendances
                     </a>
 
 
