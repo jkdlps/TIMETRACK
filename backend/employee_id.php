@@ -10,16 +10,6 @@ function generateRandomEmployeeId($length = 8) {
     return $randomString;
 }
 
-if(isset($_POST['submit'])) {
-    $employeeid = $_POST['employeeid'];
-    $employeeid = generateRandomEmployeeId(6);
-    echo "<script>alert('Randomized employee ID: $employeeid');</script>";
-}
-
+$employeeid = generateRandomEmployeeId(8);
+echo $employeeid;
 ?>
-
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="employeeid">Randomized Employee ID</label>
-    <input type="text" name="employeeid" id="employeeid" value="employeeid" disabled>
-    <input type="submit" value="submit" id="submit">
-</form>
