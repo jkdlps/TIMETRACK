@@ -33,11 +33,11 @@ include("./includes/addEmployeeModal.php"); ?>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Role</th>
                         <th>Designation</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
