@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $employee_id = $_SESSION['id'];
     $datenow = date('Y-m-d');
 
-    $sql = "SELECT * FROM location WHERE employee_id = '$employee_id' AND date='$datenow'";
+    $sql = "SELECT * FROM attendances WHERE employee_id = '$employee_id' AND date='$datenow'";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
     $geofence_longitude = 120.983491;
     $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
 
-    $sql = "INSERT INTO location (id,employee_id,latitude,longitude,location,date,timein,timeout)
+    $sql = "INSERT INTO attendances (id,employee_id,latitude,longitude,location,date,timein,timeout)
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {

@@ -30,46 +30,39 @@ include("edit_users.php");
             action="../backend/updateBackend_user.php" method="POST">
 
             <div class="card-header">
-                <h3 class="fw-normal">Update users</h3>
+                <h3 class="fw-normal">Update Employee</h3>
             </div>
             <div class='card-body'>
-
-
-
                 <!-- Input fields -->
                 <label for="exampleInputEmail1" class="form-label">Id</label>
                 <input type="text" id="id" value="<?php echo $row['id'];?>" name="id" class="form-control mb-4"
                     placeholder="Id">
 
-                <label for="exampleInputEmail1" class="form-label">Firstname</label>
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
                 <input type="text" id="firstname" value="<?php echo $row['firstname']; ?>" name="firstname"
                     class="form-control mb-4" placeholder="Firstname">
 
-                <label for="exampleInputEmail1" class="form-label">Lastname</label>
+                <label for="exampleInputEmail1" class="form-label">Last Name</label>
                 <input type="text" id="lastname" value="<?php echo $row['lastname'];?>" name="lastname"
                     class="form-control mb-4" placeholder="Lastname">
 
-                <label for="exampleInputEmail1" class="form-label">Contact</label>
-                <input type="text" id="contact" value="<?php echo $row['contact'];?>" name="contact"
-                    class="form-control mb-4" placeholder="Contact">
+                <label for="exampleInputEmail1" class="form-label">email</label>
+                <input type="email" id="email" value="<?php echo $row['email'];?>" name="email"
+                    class="form-control mb-4" placeholder="email">
 
-                <label for="exampleInputEmail1" class="form-label">Address</label>
-                <input type="text" id="address" value="<?php echo $row['address'];?>" name="address"
-                    class="form-control mb-4" placeholder="address">
+                <label for="exampleInputEmail1" class="form-label">password</label>
+                <input type="text" id="password" value="<?php echo $row['password'];?>" name="password"
+                    class="form-control mb-4" placeholder="password">
 
-                <label for="exampleInputEmail1" class="form-label">Gender</label>
-                <input type="text" id="gender" value="<?php echo $row['gender'];?>" name="gender"
-                    class="form-control mb-4" placeholder="gender">
+                <label for="exampleInputEmail1" class="form-label">role</label>
+                <input type="text" id="role" value="<?php echo $row['role'];?>" name="role"
+                    class="form-control mb-4" placeholder="role">
 
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" id="email" value="<?php echo $row['email']; ?>" name="email"
-                    class="form-control mb-4" placeholder="Email">
+                <label for="exampleInputEmail1" class="form-label">designation</label>
+                <input type="text" id="designation" value="<?php echo $row['designation']; ?>" name="designation"
+                    class="form-control mb-4" placeholder="designation">
 
-                <label for="exampleInputEmail1" class="form-label">Password</label>
-                <input type="text" id="password" value="<?php echo $row['password']; ?>" name="password"
-                    class="form-control mb-4" placeholder="Password">
-
-                <button class="btn btn-dark form-control" name="update"
+                <button class="btn btn-dark form-control" name="update" id="update"
                     href="../backend/updateBackend_user.php">Update</button>
 
             </div>

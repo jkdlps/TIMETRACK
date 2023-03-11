@@ -33,6 +33,6 @@ if ($result->num_rows > 0) {
     </tr>";
     }
 } else {
-    echo "0 results";
+    alerter("danger", "No results found.");
 }
 $conn->close();

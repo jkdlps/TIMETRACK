@@ -5,7 +5,7 @@ include "../TIMETRACK/control/connection.php";
 if(isset($_POST['update']))
 {
     $id=$_POST['id'];
-    $name= $_POST['name'];
+    $employee_id= $_POST['employee_id'];
     $email= $_POST['email'];
     $events= $_POST['events'];
     $date= $_POST['date'];
@@ -13,7 +13,7 @@ if(isset($_POST['update']))
     $contact= $_POST['contact'];
     $message=$_POST['message'];
   
-    $sql = "UPDATE reservation SET name='$name', email='$email', events='$events', date='$date', time='$time', contact='$contact', message='$message' WHERE id='$id'";
+    $sql = "UPDATE attendance SET name='$name', email='$email', events='$events', date='$date', time='$time', contact='$contact', message='$message' WHERE id='$id'";
   
   if (mysqli_query($conn, $sql)) {
     echo "Record updated successfully";

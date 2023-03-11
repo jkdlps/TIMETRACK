@@ -3,19 +3,22 @@ session_start();
 include "connection.php";
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
+    $designation = $_POST['designation'];
 
-    $sql = "INSERT INTO users (name,email,password)
-    VALUES ('$name','$email','$password')";
+    $sql = "INSERT INTO users (firstname, lastname, email, password, role, designation)
+            VALUES ('$firstname', '$lastname', '$email', '$password', '$role', '$designation')";
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Account Created Successfully";
-        header("location: ../usersPage.php");
+        alerter("success", "Successfully added employee");
     } else {
-        $_SESSION['message'] = "Wrong Password";
         echo "Error: " . $sql . "<br>" . $conn->error;
+        alerter("danger", "Error: $sql <br> $conn->error");
     }
 }
+$conn->close();
 ?>

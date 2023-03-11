@@ -3,7 +3,7 @@ include "../TIMETRACK/control/connection.php";
 
 $id = $_GET['GETid'];
 
-$sql = "SELECT * FROM reservation WHERE id =$id";
+$sql = "SELECT * FROM attendance WHERE id =$id";
 
 $result=mysqli_query($conn,$sql);
 $row = mysqli_fetch_assoc($result);
