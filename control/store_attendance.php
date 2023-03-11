@@ -111,7 +111,7 @@
         <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
     </form>
     <div>
-        <form action="../backend/timeoutbackend.php" method="post">
+        <form action="timeout.php" method="post">
             <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
         </form>
         <a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
