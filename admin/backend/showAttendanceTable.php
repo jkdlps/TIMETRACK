@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 
-$sql = "SELECT * FROM location";
+$sql = "SELECT * FROM attendances";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
