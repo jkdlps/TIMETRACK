@@ -8,8 +8,8 @@ if (isset($_POST['submit'])) {
     $time = date('H:i:s');
     $date = date('Y-m-d');
 
-    $sql = "INSERT INTO timeout (latitude,longitude,time,date )
-    VALUES ('$latitude','$longitude','$time','$date')";
+    $sql = "INSERT INTO timeout (latitude,longitude,timein,timeout,date )
+    VALUES ('$latitude','$longitude',NULL,'$timeout','$date')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Timein Successfully";
