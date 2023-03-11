@@ -11,6 +11,7 @@ function generateRandomEmployeeId($length = 8) {
 }
 
 if(isset($_POST['submit'])) {
+    $employeeid = $_POST['employeeid'];
     $employeeid = generateRandomEmployeeId(6);
     echo "<script>alert('Randomized employee ID: $employeeid');</script>";
 }
