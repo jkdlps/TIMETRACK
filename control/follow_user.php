@@ -24,7 +24,9 @@
 		var map = L.map('map').setView([0, 0], 15);
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
+			attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+			maxZoom: 18,
+			id: 'osm.streets'
 		}).addTo(map);
 
 		// Add a marker at the user's geolocation
@@ -33,6 +35,14 @@
 			maxZoom: 15
 		});
 
+		// Define the geofence as a circle on the map
+		var geofence = L.circle([14.871546, 121.001179], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.2,
+			radius: 50
+		}).addTo(map);
+
 		function onLocationFound(e) {
 			var marker = L.marker(e.latlng).addTo(map);
 			marker.bindPopup("You are here!").openPopup();
@@ -40,7 +50,8 @@
 			// Store the geolocation in the database
 			var latitude = e.latlng.lat;
 			var longitude = e.latlng.lng;
-			storeLocation(latitude, longitude);
+			document.getElementById("latitude").value = latitude;
+			document.getElementById("longitude").value = longitude;
 		}
 		map.on('locationfound', onLocationFound);
 
@@ -49,19 +60,22 @@
 			alert(e.message);
 		}
 		map.on('locationerror', onLocationError);
-
-		// Store the geolocation in the database using AJAX
-		function storeLocation(latitude, longitude) {
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					console.log(this.responseText);
-				}
-			};
-			xmlhttp.open("POST", "store_location.php", true);
-			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xmlhttp.send("latitude=" + latitude + "&longitude=" + longitude);
-		}
 	</script>
+
+	<form method="post" action="../backend/attendancebackend.php">
+		<label for="latitude" class="form-label">Latitude: </label>
+		<input type="text" class="form-control" name="latitude" id="latitude" disabled>
+		<label for="longitude" class="form-label">Longitude: </label>
+		<input type="text" class="form-control" name="longitude" id="longitude" disabled>
+		<button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
+	</form>
+	<div>
+		<form action="timeout.php" method="post">
+			<button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
+		</form>
+		<a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
+	</div>
+
 </body>
+
 </html>

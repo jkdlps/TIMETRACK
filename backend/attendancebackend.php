@@ -42,8 +42,8 @@ if (isset($_POST['submit'])) {
     }
 
     // geofence
-    $geofence_latitude = 14.810880;
-    $geofence_longitude = 120.983491;
+    $geofence_latitude = 14.871546;
+    $geofence_longitude = 121.001179;
     $distance = distance($latitude, $longitude, $geofence_latitude, $geofence_longitude);
 
     $sql = "INSERT INTO attendances (id,employee_id,latitude,longitude,location,date,timein,timeout)
