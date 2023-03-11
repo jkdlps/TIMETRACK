@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 
     if ($conn->query($sql) === TRUE) {
         alerter("success", "Successfully added employee");
+        header("location: ../usersPage.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
         alerter("danger", "Error: $sql <br> $conn->error");
