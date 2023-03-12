@@ -16,8 +16,6 @@
 <body>
     <div class="">
         <?php
-        session_start();
-        include "message.php";
         include("./components/navbar.php");
         include("./loginpage/login.php");
         include("./components/footer.php");

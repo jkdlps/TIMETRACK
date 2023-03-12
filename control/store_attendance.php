@@ -74,7 +74,7 @@
             <div>
         <?php
         session_start();
-        include("./backend/message.php");
+        include("../backend/message.php");
         ?>
     </div>
 
@@ -141,7 +141,7 @@
 
                                 <?php
                                 session_start();
-                                include("./backend/message.php");
+                                include("../backend/message.php");
                                 ?>
 
                                 <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
