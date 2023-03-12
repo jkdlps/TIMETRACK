@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
     <style>
         #map {
             height: 500px;
@@ -21,11 +25,12 @@
     </style>
 </head>
 
-<body onload="getLocation();">
+<!-- <body onload="getLocation();"> -->
+    <body>
     <div id="map"></div>
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
-        var map = L.map('map').setView([0, 0], 15);
+        var map = L.map('map').setView([14.871546, 121.001179], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
             maxZoom: 18,
