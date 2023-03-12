@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "connection.php";
-include "message.php";
+// include "message.php";
 
 if (isset($_POST['submit'])) {
     date_default_timezone_set('Asia/Manila');
@@ -52,11 +52,11 @@ if (isset($_POST['submit'])) {
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Time in Successful.";
+        // $_SESSION['message'] = "Time in Successful.";
         alerter("success", "Time in successful.<br>Date: $date<br>Time: $timein<br>Location: $location");
         header("location: ../control/store_attendance.php");
     } else {
-        $_SESSION['message'] = "Error!";
+        // $_SESSION['message'] = "Error!";
         // echo "Error: " . $sql . "<br>" . $conn->error;
         alerter("danger", "You have already timed in today.");
     }
