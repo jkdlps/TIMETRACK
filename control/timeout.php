@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../backend/connection.php";
-// include "../backend/message.php";
+include "../backend/message.php";
 
 if (isset($_POST['submit'])) {
     $employee_id = $_SESSION['id'];
@@ -18,8 +18,9 @@ if (isset($_POST['submit'])) {
     echo $sql;
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['message'] = "Reserved Successfully";
+        
         header("location: store_attendance.php");
+        $_SESSION['message'] = "Reserved Successfully";
 
     } else {
         $_SESSION['message'] = "Wrong Password";
