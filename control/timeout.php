@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     // $sql = "INSERT INTO location (timeout)
     // VALUES ('$timeout') WHERE employee_id='$employee_id'";
 
-    $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
+    // $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
 
     if($_SESSION['timeout'] == NULL) {
         $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
