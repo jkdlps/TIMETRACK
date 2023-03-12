@@ -15,15 +15,30 @@ if (isset($_POST['submit'])) {
 
     $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
 
-    echo $sql;
-
-    if ($conn->query($sql) === TRUE) {
-        
-        header("location: store_attendance.php");
-        $_SESSION['message'] = "Reserved Successfully";
-
+    if($_SESSION['timeout'] == NULL) {
+        $sql = "INSERT INTO location (timeout)
+        VALUES ($timeout) WHERE employee_id = '$employee_id'";
+    
+        if ($conn->query($sql) === TRUE) {
+            $_SESSION['message'] = "Time Out Successful";
+            header("location: ../control/store_attendance.php");
+        } else {
+            $_SESSION['message'] = "Error!";
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     } else {
-        $_SESSION['message'] = "Wrong Password";
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        $_SESSION['message'] = "Already timed in";
+        $message = "Already timed in.";
+        $class = "alert-danger";
     }
+
+    // if ($conn->query($sql) === TRUE) {
+        
+    //     header("location: store_attendance.php");
+    //     $_SESSION['message'] = "Reserved Successfully";
+
+    // } else {
+    //     $_SESSION['message'] = "Wrong Password";
+    //     echo "Error: " . $sql . "<br>" . $conn->error;
+    // }
 }
