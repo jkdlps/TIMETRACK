@@ -16,8 +16,7 @@ if (isset($_POST['submit'])) {
     $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
 
     if($_SESSION['timeout'] == NULL) {
-        $sql = "INSERT INTO location (timeout)
-        VALUES ($timeout) WHERE employee_id = '$employee_id'";
+        $sql = "UPDATE attendances SET timeout = '$timeout' WHERE id='$id' AND employee_id = '$employee_id' AND date='$datenow'";
     
         if ($conn->query($sql) === TRUE) {
             $_SESSION['message'] = "Time Out Successful";
