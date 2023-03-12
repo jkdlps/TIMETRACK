@@ -48,6 +48,19 @@ if (isset($_POST['submit'])) {
         $location = "remote";
     }
 
+    // Query database for user
+    $sql = "SELECT * FROM users WHERE id = '$employee_id'";
+    $result = mysqli_query($conn, $sql);
+
+    // Check if user exists
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            $_SESSION['role'] = $row['role'];
+        }
+    }
+
+
     $sql = "INSERT INTO attendances (id,employee_id,latitude,longitude,location,date,timein,timeout)
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
