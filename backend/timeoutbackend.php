@@ -59,6 +59,7 @@ if (isset($_POST['submit'])) {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     } else {
+        $_SESSION['message'] = "Already timed in";
         $message = "Already timed in.";
         $class = "alert-danger";
     }
