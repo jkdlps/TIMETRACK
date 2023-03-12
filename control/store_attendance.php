@@ -138,6 +138,11 @@
                                 <form action="timeout.php" method="post">
                                     <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time Out</button>
                                 </form>
+                                <?php 
+                                if($_SESSION['role'] == "admin") {
+                                    echo '<a href="../admin/home.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Back to Admin Dashboard</a>';
+                                }
+                                ?>
                                 <a href="../admin/logout.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
                             </div>
 </body>
