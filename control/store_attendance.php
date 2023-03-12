@@ -3,7 +3,6 @@
 
 <head>
     <title>Attendance | Timetrack</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/leaflet/1.0.0-beta.2/leaflet.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -14,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-	<!-- Make sure you put this AFTER Leaflet's CSS -->
-	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <style>
         #map {
@@ -26,7 +25,8 @@
 </head>
 
 <!-- <body onload="getLocation();"> -->
-    <body>
+
+<body>
     <div id="map"></div>
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
@@ -50,8 +50,8 @@
         }).addTo(map);
 
         function onLocationFound(e) {
-			var marker = L.marker(e.latlng).addTo(map);
-			marker.bindPopup("You are here!").openPopup();
+            var marker = L.marker(e.latlng).addTo(map);
+            marker.bindPopup("You are here!").openPopup();
             var latitude = e.latlng.lat.toFixed(6);
             var longitude = e.latlng.lng.toFixed(6);
             document.getElementById("latitude").value = latitude;
