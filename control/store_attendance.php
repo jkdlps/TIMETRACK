@@ -30,7 +30,8 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
-    <!-- <div id="map"></div> -->
+    <div id="map"></div>
+
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
         var map = L.map('map').setView([14.871546, 121.001179], 15);
