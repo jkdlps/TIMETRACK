@@ -53,10 +53,12 @@ if (isset($_POST['submit'])) {
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['message'] = "Time in Successful.";
+        alerter("success", "Time in successful.<br>Date: $date<br>Time: $timein<br>Location: $location");
         header("location: ../control/store_attendance.php");
     } else {
         $_SESSION['message'] = "Error!";
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        // echo "Error: " . $sql . "<br>" . $conn->error;
+        alerter("danger", "You have already timed in today.");
     }
 }
 ?>
