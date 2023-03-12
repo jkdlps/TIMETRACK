@@ -47,8 +47,10 @@ $errors = array();
           $_SESSION["login"] = true;
           if($_SESSION['role'] == "admin") {
             header("location: ./admin/home.php");
+            $_SESSION['message'] = "Login successful";
           } else {
             header("location: ./control/store_attendance.php");
+            $_SESSION['message'] = "uwu";
           }
       }
   }
