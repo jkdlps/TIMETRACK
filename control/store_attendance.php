@@ -25,12 +25,6 @@
 </head>
 
 <body onload="getLocation();">
-    <div>
-        <?php
-        session_start();
-        include("./backend/message.php");
-        ?>
-    </div>
     <div id="map"></div>
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
@@ -70,6 +64,13 @@
         <div class="row align-items-center g-lg-5 ">
 
             <div class="col-md-10 mx-auto col-lg-12">
+
+            <div>
+        <?php
+        session_start();
+        include("./backend/message.php");
+        ?>
+    </div>
 
                 <form class="myForm p-4 p-md-5 card mx-2" action="../backend/attendancebackend.php" method="POST" enctype="multipart/form-data">
 
@@ -136,7 +137,6 @@
                                 session_start();
                                 include("./backend/message.php");
                                 ?>
-
 
                                 <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
                             </form>
