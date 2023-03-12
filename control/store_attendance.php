@@ -155,8 +155,11 @@
                                     echo '<a href="../admin/home.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Back to Admin Dashboard</a>';
                                 }
                                 ?>
+                                <a href="showuserattendance.php" class="w-100 btn btn-lg btn-outline-dark mt-3">My Attendances</a>
                                 <a href="../admin/logout.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
                             </div>
+
+
 </body>
 
 </html>

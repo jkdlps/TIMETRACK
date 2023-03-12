@@ -41,7 +41,7 @@ include "../backend/message.php";
                 </thead>
                 <tbody>
                     <?php
-                    // $employee_id = $_SESSION['employee_id'];
+                    $employee_id = $_SESSION['id'];
 
                     $sql = "SELECT * FROM attendances WHERE employee_id='$employee_id'";
                     $result = $conn->query($sql);
