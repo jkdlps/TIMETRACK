@@ -70,8 +70,7 @@ if (isset($_POST['submit'])) {
         $message = "Attendance recorded successfully.";
         $class = "alert-success";
     } else {
-        
-        $_SESSION['message'] = "Error!";
+        $_SESSION['message'] = "Already timed in.";
         header("location: ../control/store_attendance.php");
         $message = "Failed to record attendance.";
         $class = "alert-danger";
