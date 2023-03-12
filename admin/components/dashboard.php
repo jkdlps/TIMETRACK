@@ -49,19 +49,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6">
+                    <!-- <div class="col-xl-3 col-md-6">
                         <div class="card bg-dark text-white mb-4">
                             <div class="card-body">Administrators</div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <?php
-                                include "../TIMETRACK/control/connection.php";
-                                // COUNT By ID
-                                $sql = "SELECT id FROM users WHERE role=1 ORDER BY id";
-                                $query_run = mysqli_query($conn, $sql);
+                                // include "../TIMETRACK/control/connection.php";
+                                // // COUNT By ID
+                                // $sql = "SELECT id FROM users WHERE role=1 ORDER BY id";
+                                // $query_run = mysqli_query($conn, $sql);
 
-                                $row=mysqli_num_rows($query_run);
+                                // $row=mysqli_num_rows($query_run);
 
-                                echo'<h1>'.$row.'</h1>';
+                                // echo'<h1>'.$row.'</h1>';
                                     ?>
 
                                 <a class="small text-white stretched-link" href="./administrators.php">View
@@ -69,7 +69,7 @@
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-dark text-white mb-4">
                             <div class="card-body">Attendance</div>
