@@ -117,6 +117,9 @@
 
 
                             <form method="post" action="../backend/attendancebackend.php">
+                                <div class="alert <?php echo $class ?>" role="alert">
+                                    <?php echo $message ?>
+                                </div>
                                 <label for="latitude" class="form-label">Latitude: </label>
                                 <input type="text" class="form-control" name="latitude" id="latitude" disabled>
                                 <label for="longitude" class="form-label">Longitude: </label>
