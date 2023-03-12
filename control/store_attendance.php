@@ -1,5 +1,3 @@
-<?php include "follow_user.php"; ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -26,9 +24,7 @@
     </style>
 </head>
 
-<!-- <body onload="getLocation();"> -->
-
-<body>
+<body onload="getLocation();">
     <div id="map"></div>
     <?php date_default_timezone_set('Asia/Manila'); ?>
     <script>
