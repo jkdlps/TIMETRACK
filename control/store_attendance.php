@@ -117,13 +117,15 @@
 
 
                             <form method="post" action="../backend/attendancebackend.php">
-                                <div class="alert <?php echo $class ?>" role="alert">
-                                    <?php echo $message ?>
-                                </div>
                                 <label for="latitude" class="form-label">Latitude: </label>
                                 <input type="text" class="form-control" name="latitude" id="latitude" disabled>
                                 <label for="longitude" class="form-label">Longitude: </label>
                                 <input type="text" class="form-control" name="longitude" id="longitude" disabled>
+
+                                <div class="alert <?php echo $class ?>" role="alert">
+                                    <?php echo $message ?>
+                                </div>
+
                                 <button class="w-100 btn btn-lg btn-outline-dark mt-3" type="submit" name='submit' value="submit">Time In</button>
                             </form>
                             <div>
