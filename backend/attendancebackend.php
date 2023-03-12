@@ -65,13 +65,15 @@ if (isset($_POST['submit'])) {
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {
-        header("location: ./control/store_attendance.php");
+        
         $_SESSION['message'] = "Time in Successful.";
+        header("location: ../control/store_attendance.php");
         $message = "Attendance recorded successfully.";
         $class = "alert-success";
     } else {
-        header("location: ./control/store_attendance.php");
+        
         $_SESSION['message'] = "Error!";
+        header("location: ../control/store_attendance.php");
         $message = "Failed to record attendance.";
         $class = "alert-danger";
     }
