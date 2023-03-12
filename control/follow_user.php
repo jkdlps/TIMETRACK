@@ -61,7 +61,7 @@
 		}
 		map.on('locationerror', onLocationError);
 	</script>
-
+<!-- 
 	<form method="post" action="../backend/attendancebackend.php">
 		<label for="latitude" class="form-label">Latitude: </label>
 		<input type="text" class="form-control" name="latitude" id="latitude" disabled>
@@ -76,6 +76,6 @@
 		<a href="../index.php" class="w-100 btn btn-lg btn-outline-dark mt-3">Log Out</a>
 	</div>
 
-</body>
+</body> -->
 
 </html>

@@ -1,3 +1,5 @@
+<?php include "follow_user.php"; ?>
+
 <!DOCTYPE html>
 <html>
 
