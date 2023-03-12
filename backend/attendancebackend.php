@@ -52,13 +52,17 @@ if (isset($_POST['submit'])) {
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {
-        // $_SESSION['message'] = "Time in Successful.";
-        alerter("success", "Time in successful.<br>Date: $date<br>Time: $timein<br>Location: $location");
+        $_SESSION['message'] = "Time in Successful.";
+        // alerter("success", "Time in successful.<br>Date: $date<br>Time: $timein<br>Location: $location");
         header("location: ../control/store_attendance.php");
     } else {
         // $_SESSION['message'] = "Error!";
-        // echo "Error: " . $sql . "<br>" . $conn->error;
-        alerter("danger", "You have already timed in today.");
+        echo '<script>
+        alert("Error: ' . $conn->error;');
+        </script>';
+
+        // alerter("danger", "You have already timed in today.");
+        header("location: ../control/store_attendance.php");
     }
 }
 ?>
