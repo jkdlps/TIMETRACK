@@ -1,3 +1,7 @@
+<?php
+if(isset($_POST['update'])):
+    ?>
+
 <form action="updateusers.php" method="POST">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
     <div class="mb-3">
@@ -23,3 +27,5 @@
 <button type="submit" class="btn btn-primary">Update</button>
 
 </form>
+
+<?php endif; ?>
