@@ -21,6 +21,7 @@
 <?php
 session_start();
 include "../backend/connection.php";
+include "../TIMETRACK/backend/message.php";
 ?>
 
 <div>
@@ -30,15 +31,13 @@ include "../backend/connection.php";
 <?php
 // Get admin info from the database
 $id = mysqli_real_escape_string($conn, $_GET['id']);
-$sql = "SELECT * FROM users WHERE id=$id AND role=1";
+$sql = "SELECT * FROM users WHERE id=$id";
 $result = mysqli_query($conn, $sql);
 
 // Check if admin exists
 if (mysqli_num_rows($result) == 0) {
     // Redirect 
-    echo "<script>
-    alert('Admin does not exist.');
-    </script>";
+    $_SESSION['message'] = "No results found.";
     header("Location: employer_view_admins.php");
     exit();
 }

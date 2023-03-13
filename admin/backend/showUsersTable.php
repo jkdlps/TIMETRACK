@@ -36,3 +36,7 @@ if ($result->num_rows > 0) {
     alerter("danger", "No results found.");
 }
 $conn->close();
+
+// <a class='btn btn-dark btn-sm mx-2' name='update' href='../components/updateForm_users.php?GETid=" . $row['id'] . "'>Update</a>
+?>
+
