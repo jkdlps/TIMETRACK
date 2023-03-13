@@ -1,5 +1,7 @@
 <?php
 include "connection.php";
+include "../TIMETRACK/backend/message.php";
+include('./includes/updateEmployeeModal.php');
 
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
@@ -25,14 +27,16 @@ if ($result->num_rows > 0) {
         <td>" . $row['date_updated'] . "</td>
         <td>
         <div class='row m-1'>
-            <div class='col-lg-6'>
-                <a class='btn btn-dark btn-sm mx-2' name='update' href='../components/updateForm_users.php?GETid=" . $row['id'] . "'>Update</a>
-            </div>
+        <td>
+        <button type='button' class='btn btn-sm btn-warning' data-bs-toggle='modal' data-bs-target='#updateModal" . $row['id'] . "'>
+            Update
+        </button>
+    </td>
         </div>
     </td>
     </tr>";
     }
 } else {
-    alerter("danger", "No results found.");
+    $_SESSION['message'] = "No results found.";
 }
 $conn->close();
