@@ -25,10 +25,8 @@ if (isset($_POST['submit'])) {
             $_SESSION['message'] = "Error!";
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-    } else {
-        $_SESSION['message'] = "Already timed in";
-        $message = "Already timed in.";
-        $class = "alert-danger";
+    } elseif($timeout != NULL) {
+        $_SESSION['message'] = "Already timed out";
     }
 
     // if ($conn->query($sql) === TRUE) {

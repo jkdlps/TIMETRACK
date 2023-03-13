@@ -64,7 +64,6 @@ if (isset($_POST['submit'])) {
     VALUES ('$id','$employee_id','$latitude','$longitude','$location','$date','$timein',NULL)";
 
     if ($conn->query($sql) === TRUE) {
-        
         $_SESSION['message'] = "Time in Successful.";
         header("location: ../control/store_attendance.php");
         $message = "Attendance recorded successfully.";
