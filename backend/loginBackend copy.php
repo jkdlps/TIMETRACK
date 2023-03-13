@@ -50,7 +50,7 @@ $errors = array();
             $_SESSION['message'] = "Login successful";
           } else {
             header("location: ./control/store_attendance.php");
-            $_SESSION['message'] = "uwu";
+            $_SESSION['message'] = "Welcome, Employee. Take your attendance here.";
           }
       }
   }
