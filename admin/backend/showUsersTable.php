@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 include "../TIMETRACK/backend/message.php";
-include('./includes/updateEmployeeModal.php');
+// include('./includes/updateEmployeeModal.php');
 
 $sql = "SELECT * FROM users";
 $result = $conn->query($sql);
