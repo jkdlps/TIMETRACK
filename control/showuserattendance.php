@@ -25,7 +25,7 @@ include "../backend/message.php";
 
     <div class="container pt-4" id='body'>
         <button onclick="window.print();" class="btn btn-primary">Print Attendance Table</button>
-        <a href="store_attendance.php" class="btn btn-secondary">Back to Attendance Page</a>
+        
         <div class="table-responsive text-center">
             <table class="table table-bordered bg-white " id="datatable">
                 <thead class="bg-primary text-light">
@@ -72,6 +72,7 @@ include "../backend/message.php";
                 </tbody>
             </table>
         </div>
+        <a href="store_attendance.php" class="btn btn-secondary">Back to Attendance Page</a>
     </div>
     <!--End of Table-->
 </body>
