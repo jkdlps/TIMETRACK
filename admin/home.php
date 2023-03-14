@@ -34,7 +34,11 @@ session_start();
 
 
 <body>
+    <h1>Hello</h1>
+
     <?php
+
+
 include("includes/header.php");
 include("includes/navbar.php");
 include("includes/sidebar.php");
