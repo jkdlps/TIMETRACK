@@ -17,6 +17,8 @@ if (isset($_POST['submit'])) {
         VALUES ('$firstname', '$lastname', '$email', '$password', '$role', '$designation')";
     } else {
         $_SESSION['message'] = "Password must be at least 8 characters long.";
+        echo "<script>
+        alert('Password must be at least 8 characters long')</script>";
     }
 
     if ($conn->query($sql) === TRUE) {
