@@ -25,6 +25,8 @@ if (isset($_POST['update'])) {
         exit();
     } else {
         echo "Error updating record: " . $conn->error;
+        header('Location: ../usersPage.php');
+        exit();
     }
 
     $conn->close();
