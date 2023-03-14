@@ -26,8 +26,8 @@ if ($result->num_rows > 0) {
         <td>
         <div class='row m-1'>
             <div class='col-lg-6'>
-                <a class='btn btn-dark btn-sm mx-2' name='update' href='../components/updateForm_users.php?GETid=" . $row['id'] . "'>Update</a>
-            </div>
+            <a class='btn btn-dark btn-sm mx-2' name='update' href='../components/updateusers.php'>Update</a>
+        </div>
         </div>
     </td>
     </tr>";
@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
     alerter("danger", "No results found.");
 }
 $conn->close();
-
+// <div class='col-lg-6'>
 // <a class='btn btn-dark btn-sm mx-2' name='update' href='../components/updateForm_users.php?GETid=" . $row['id'] . "'>Update</a>
+// </div>
 ?>
-
