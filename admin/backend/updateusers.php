@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../TIMETRACK/backend/connection.php";
+include "connection.php";
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
