@@ -1,5 +1,5 @@
 <?php
-include("edit_users.php");
+// include("edit_users.php");
 
 ?>
 <!DOCTYPE html>
@@ -26,8 +26,10 @@ include("edit_users.php");
 <body>
 
     <div class='container m-5'>
-        <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
-            action="../backend/updateUserBackend.php" method="POST">
+        <!-- <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
+            action="../backend/updateUserBackend.php" method="POST"> -->
+            <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
+            action="../backend/updateusers.php" method="POST">
 
             <div class="card-header">
                 <h3 class="fw-normal">Update Employee</h3>
