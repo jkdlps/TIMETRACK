@@ -13,7 +13,7 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', email='$email', role='$role', designation='$designation' WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {
-        header('Location: ../components/usersTable.php');
+        header('Location: ../usersPage.php');
         exit();
     } else {
         echo "Error updating record: " . $conn->error;
