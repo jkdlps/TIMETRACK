@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../backend/connection.php";
+include "connection.php";
 include "../backend/message.php";
 
 if (isset($_POST['submit'])) {
@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
     $datenow = date('Y-m-d');
     $timeout = date('H:i:s');
     $id = $_SESSION['attendance_id'];
+
+    // $sql = "SELECT * FROM attendances WHERE id='$id' AND employee_id='$employee_id'";
 
     // $sql = "INSERT INTO location (timeout)
     // VALUES ('$timeout') WHERE employee_id='$employee_id'";
