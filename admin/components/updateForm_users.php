@@ -49,9 +49,6 @@
                 <label for="exampleInputEmail1" class="form-label">password</label>
                 <input type="password" id="password" value="<?php echo $row['password']; ?>" name="password" class="form-control mb-4" placeholder="password">
 
-                <label for="exampleInputEmail1" class="form-label">confirm password</label>
-                <input type="password" id="password_confirmation" value="<?php echo $row['password_confirmation']; ?>" name="password_confirmation" class="form-control mb-4" placeholder="password_confirmation">
-
                 <label for="exampleInputEmail1" class="form-label">role</label>
                 <input type="text" id="role" value="<?php echo $row['role']; ?>" name="role" class="form-control mb-4" placeholder="role">
 

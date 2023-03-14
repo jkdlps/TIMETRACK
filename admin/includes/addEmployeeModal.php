@@ -31,11 +31,6 @@
                         <input required type="password" name="password" id="password" class="form-control" />
                     </div>
 
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="password_confirmation">password_confirmation</label>
-                        <input required type="password" name="password_confirmation" id="password_confirmation" class="form-control" />
-                    </div>
-
                     <!-- Role input -->
                     <div class="form-outline mb-4">
                         <p>Role:</p>
