@@ -11,8 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
@@ -28,8 +27,7 @@
     <div class='container m-5'>
         <!-- <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
             action="../backend/updateUserBackend.php" method="POST"> -->
-            <form class="form card" id="loginform" style="max-width:500px ; margin:auto"
-            action="../backend/updateusers.php" method="POST">
+        <form class="form card" id="loginform" style="max-width:500px ; margin:auto" action="../backend/updateusers.php" method="POST">
 
             <div class="card-header">
                 <h3 class="fw-normal">Update Employee</h3>
@@ -37,35 +35,30 @@
             <div class='card-body'>
                 <!-- Input fields -->
                 <label for="exampleInputEmail1" class="form-label">Id</label>
-                <input type="text" id="id" value="<?php echo $row['id'];?>" name="id" class="form-control mb-4"
-                    placeholder="Id">
+                <input type="text" id="id" value="<?php echo $row['id']; ?>" name="id" class="form-control mb-4" placeholder="Id">
 
                 <label for="exampleInputEmail1" class="form-label">First Name</label>
-                <input type="text" id="firstname" value="<?php echo $row['firstname']; ?>" name="firstname"
-                    class="form-control mb-4" placeholder="Firstname">
+                <input type="text" id="firstname" value="<?php echo $row['firstname']; ?>" name="firstname" class="form-control mb-4" placeholder="Firstname">
 
                 <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                <input type="text" id="lastname" value="<?php echo $row['lastname'];?>" name="lastname"
-                    class="form-control mb-4" placeholder="Lastname">
+                <input type="text" id="lastname" value="<?php echo $row['lastname']; ?>" name="lastname" class="form-control mb-4" placeholder="Lastname">
 
                 <label for="exampleInputEmail1" class="form-label">email</label>
-                <input type="email" id="email" value="<?php echo $row['email'];?>" name="email"
-                    class="form-control mb-4" placeholder="email">
+                <input type="email" id="email" value="<?php echo $row['email']; ?>" name="email" class="form-control mb-4" placeholder="email">
 
                 <label for="exampleInputEmail1" class="form-label">password</label>
-                <input type="text" id="password" value="<?php echo $row['password'];?>" name="password"
-                    class="form-control mb-4" placeholder="password">
+                <input type="password" id="password" value="<?php echo $row['password']; ?>" name="password" class="form-control mb-4" placeholder="password">
+
+                <label for="exampleInputEmail1" class="form-label">confirm password</label>
+                <input type="password" id="password_confirmation" value="<?php echo $row['password_confirmation']; ?>" name="password_confirmation" class="form-control mb-4" placeholder="password_confirmation">
 
                 <label for="exampleInputEmail1" class="form-label">role</label>
-                <input type="text" id="role" value="<?php echo $row['role'];?>" name="role"
-                    class="form-control mb-4" placeholder="role">
+                <input type="text" id="role" value="<?php echo $row['role']; ?>" name="role" class="form-control mb-4" placeholder="role">
 
                 <label for="exampleInputEmail1" class="form-label">designation</label>
-                <input type="text" id="designation" value="<?php echo $row['designation']; ?>" name="designation"
-                    class="form-control mb-4" placeholder="designation">
+                <input type="text" id="designation" value="<?php echo $row['designation']; ?>" name="designation" class="form-control mb-4" placeholder="designation">
 
-                <button class="btn btn-dark form-control" name="update" id="update"
-                    href="../backend/updateBackend_user.php">Update</button>
+                <button class="btn btn-dark form-control" name="update" id="update" href="../backend/updateBackend_user.php">Update</button>
 
             </div>
 
@@ -74,14 +67,11 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
 </body>
