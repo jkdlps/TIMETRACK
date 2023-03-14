@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
         header("location: ../usersPage.php");
         exit();
     } else {
-        $_SESSION['message'] = "Error: " . $sql . "<br>" . $conn->error;
+        $_SESSION['message'] = "Password must be at least 8 characters long.";
         header("location: ../usersPage.php");
         exit();
     }
