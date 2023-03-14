@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "connection.php";
+include "../TIMETRACK/backend/connection.php";
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
@@ -13,7 +13,7 @@ if (isset($_POST['update'])) {
     $sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', email='$email', role='$role', designation='$designation' WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {
-        header('Location: index.php');
+        header('Location: usersTable.php');
         exit();
     } else {
         echo "Error updating record: " . $conn->error;
